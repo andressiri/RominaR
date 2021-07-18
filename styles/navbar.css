@@ -1,0 +1,25 @@
+.navbar {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 40px;
+  background-color: black;
+  color: var(--main-color);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 25% 0 25%;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: var(--main-color);
+}
+.navbar a:focus {
+  color: whitesmoke;
+}
+
+.nav-link {
+  scroll-margin-top: 15px;
+}
