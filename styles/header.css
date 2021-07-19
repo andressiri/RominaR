@@ -39,10 +39,11 @@
   align-items: center;
   justify-content: center;
   justify-items: center;
+  background-color: whitesmoke;
 }
 
 .header-container h1 {
-  color: var(--main-color);
+  /*color: var(--main-color);*/
   font-family: 'Dancing Script', cursive;
   font-size: 3rem;
 }
