@@ -1,23 +1,23 @@
 .navbar {
   z-index: 1;
-  position: fixed;
-  top: 0;
   width: 100%;
   height: 40px;
-  background-color: black;
-  color: var(--main-color);
+  padding: 0 25% 0 25%;
+  position: fixed;
+  top: 0;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 0 25% 0 25%;
+  background-color: var(--secondary-color);
+  color: var(--main-color);
 }
 
 .navbar a {
-  text-decoration: none;
   color: var(--main-color);
+  text-decoration: none;
 }
 .navbar a:focus {
-  color: whitesmoke;
+  color: var(--BG-color);
 }
 
 .nav-link {

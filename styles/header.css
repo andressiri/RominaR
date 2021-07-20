@@ -3,10 +3,9 @@
 .video-header {
   width: 100%;
   height: 100vh;
-  background-color: rgb(216, 216, 216);
   position: relative;
+  background-color: var(--secondary-color);
   text-align: center;
-  background-color: black;
 }
 
 .video-container {
@@ -28,7 +27,7 @@
   top: calc(45vh - 125px);
   left: calc(50% - 125px);
   border-radius: 50%;
-  border: 2px solid black;
+  border: 2px solid var(--secondary-color);
   overflow: hidden;
 }
 
@@ -39,19 +38,19 @@
   align-items: center;
   justify-content: center;
   justify-items: center;
-  background-color: whitesmoke;
+  background-color: var(--secondary-color);
 }
 
 .header-container h1 {
-  /*color: var(--main-color);*/
+  color: var(--main-color);
   font-family: 'Dancing Script', cursive;
   font-size: 3rem;
 }
 
 #header-link {
+  margin-top: -20px;
   position: absolute;
   top: 0;
-  margin-top: -20px;
 }
 
 
