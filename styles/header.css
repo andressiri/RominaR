@@ -3,15 +3,14 @@
 .video-header {
   width: 100%;
   height: 100vh;
-  background-color: rgb(216, 216, 216);
   position: relative;
+  background-color: var(--BG-color2);
   text-align: center;
-  background-color: black;
 }
 
 .video-container {
   width: 100%;
-  height: 50vh;
+  height: 60vh;
   overflow: hidden;
 }
 
@@ -23,40 +22,40 @@
 }
 
 .RominaR-logo {
-  width: 250px;
+  width: 300px;
   position: absolute;
-  top: calc(45vh - 125px);
-  left: calc(50% - 125px);
+  top: calc(50vh - 150px);
+  left: calc(50% - 150px);
   border-radius: 50%;
-  border: 2px solid black;
+  border: 2px solid var(--BG-color2);
   overflow: hidden;
 }
 
 .header-container {
   width: 100%;
-  height: 50vh;
+  height: 40vh;
   display: flex;
   align-items: center;
   justify-content: center;
   justify-items: center;
-  background-color: whitesmoke;
+  background-color: var(--BG-color2);
 }
 
 .header-container h1 {
-  /*color: var(--main-color);*/
+  color: var(--main-color);
   font-family: 'Dancing Script', cursive;
-  font-size: 3rem;
+  font-size: 4.5rem;
 }
 
 #header-link {
+  margin-top: -20px;
   position: absolute;
   top: 0;
-  margin-top: -20px;
 }
 
 
 
-@media (max-height: 500px) {
+@media (max-height: 600px) {
   .RominaR-logo {
     max-width: 50vh;
     top: calc(44% - 25vh);

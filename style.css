@@ -1,10 +1,20 @@
 @import "./styles/navbar.css";
 @import "./styles/header.css";
 @import "./styles/about.css";
+@import "./styles/activities.css";
+@import "./styles/gallery.css";
 @import "./styles/contact.css";
 
 :root {
   --main-color: rgba(35, 234, 237, 0.8);
+  --text-color: black;
+  --secondary-color: black;
+  --BG-color: rgba(247, 247, 247, 0.9);
+  --BG-color2: black;
+  --border-radius: 5px;
+  --border-radius2: 10px;
+  --border-width: 2px;
+  --title-family: 'Dancing Script', cursive;
 }
 
 html {
@@ -23,38 +33,33 @@ body {
 }
 
 section {
-  margin: 0;
-  padding: 0;
   width: 100%;
   height: 100vh;
+  margin: 0;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: black;
+  background-color: var(--BG-color2);
 }
 section h1 {
-  font-family: 'Dancing Script', cursive;
+  font-family: var(--title-family);
   font-size: 3rem;
 }
 
 .border-div {
-  border:3px solid var(--main-color);
   width: calc(100vw - 60px);
   height: calc(100vh - 60px);
-  border-radius: 5px;
+  padding-bottom: 20;
+  position: relative;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-evenly;
-  background-color: whitesmoke;
-  position: relative;
-}
-
-.focus-section {
-  cursor: default;
-  text-decoration: none;
-  color: black;
+  background-color: var(--BG-color);
+  border: 3px solid var(--main-color);
+  border-radius: var(--border-radius2);
 }
 
 @media (max-width: 1000px) {
