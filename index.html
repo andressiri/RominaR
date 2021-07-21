@@ -15,10 +15,16 @@
   <body>
 
     <nav class="navbar">
+      <div class="navbar-div"></div>
       <a id="header-nav" href="#header">INICIO</a>
       <a id="about-nav" href="#about">QUIÉN SOY</a>
       <a id="activities-nav" href="#activities">ACTIVIDADES</a>
+      <a id="gallery-nav" href="#gallery">GALERÍA</a>
       <a id="contact-nav" href="#contact">CONTACTO</a>
+      <div class="navbar-div">
+        <a href="https://www.instagram.com/romina.ramallo.33/" target="_blank"><img class="navbar-contact-logo" src="./media/instagram logo.png" alt="Instagram logo."></a>
+        <a href="https://www.facebook.com/romina.ramallo.33" target="_blank"><img class="navbar-contact-logo" src="./media/facebook logo.png" alt="Facebook logo."></a>
+      </div> 
     </nav>
 
     <header id="header" class="video-header nav-link">
@@ -85,7 +91,7 @@
             <h6 class="activity-title">Colorimetría</h6>
           </div>
           <div class="activity-card-div">
-            <img src="./media/activities/colorimetría.jpg" alt="Una foto de Romina trabajando." class="activity-img">
+            <img src="./media/activities/colorimetría.jpg" alt="Una foto de una paleta de colores." class="activity-img">
             <div class="activity-text-div">
               <p class="activity-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident rerum harum ex nemo dicta temporibus corrupti accusamus esse quibusdam quasi.</p>
             </div>
@@ -96,7 +102,7 @@
             <h6 class="activity-title">Personal Shopper</h6>
           </div>
           <div class="activity-card-div">
-            <img src="./media/activities/shopper.jpg" alt="Una foto de Romina trabajando." class="activity-img">
+            <img src="./media/activities/shopper.jpg" alt="Una foto de Romina de alguien llevando bolsas de compras." class="activity-img">
             <div class="activity-text-div">
               <p class="activity-text">Un recorrido de compras a la medida de las necesidades del cliente, dónde enseñaré a elegir tus mejores looks, teniendo en cuenta tu presupuesto.</p>
             </div>
@@ -107,7 +113,7 @@
             <h6 class="activity-title">Asesoramiento para eventos</h6>
           </div>
           <div class="activity-card-div">
-            <img src="./media/activities/eventos.jpg" alt="Una foto de Romina trabajando." class="activity-img">
+            <img src="./media/activities/eventos.jpg" alt="Una foto de una mujer posando." class="activity-img">
             <div class="activity-text-div">
               <p class="activity-text">Relevamiento del tipo de fiesta. Diagnóstico de estilo.
                 Sugerencia de estilismo integral para los protagonistas...</p>
@@ -119,7 +125,7 @@
             <h6 class="activity-title">Asesoramiento para novias</h6>
           </div>
           <div class="activity-card-div">
-            <img src="./media/activities/novias.jpg" alt="Una foto de Romina trabajando." class="activity-img">
+            <img src="./media/activities/novias.jpg" alt="Una foto de una novia." class="activity-img">
             <div class="activity-text-div">
               <p class="activity-text">Relevamiento del tipo de fiesta. Diagnostico de estilo. Propuesta de proveedores. Selección de marcas y diseñadores. Elección de todo lo referido al total look.</p>
             </div>
@@ -128,9 +134,41 @@
       </div>
     </section>
 
-    <section id="contact" class="nav-link">
-      <h1>Contactame</h1>      
+    <section id="gallery" class="nav-link">
+      <h1>Galería</h1>
+      <img src="./media/Galería/gallery1.jpg" alt="Una nota inspiradora." class="gallery-img gall-size-one">
+      <img src="./media/Galería/gallery6.jpg" alt="Una nota inspiradora." class="gallery-img gall-size-two">
+      <img src="./media/Galería/gallery9.jpg" alt="Una nota inspiradora." class="gallery-img gall-size-three">
+      <img src="./media/Galería/gallery2.jpg" alt="Una nota inspiradora." class="gallery-img gall-size-four">
+      <img src="./media/Galería/gallery5.jpg" alt="Una nota inspiradora." class="gallery-img gall-size-five">
+      <img src="./media/Galería/gallery3.jpg" alt="Una nota inspiradora." class="gallery-img gall-size-six">
     </section>
 
+    <section id="contact" class="nav-link">
+      <h1>Contactame</h1>
+      <div class="contact-form-div">
+        <form id="contact-form" action="#">
+          <label for="name" form="contact-form">Nombre *
+            <input id="name" class="contact-input" type="name" placeholder="Escribe tu nombre..." required>
+          </label>
+          <label for="email" form="contact-form">Correo electrónico *
+            <input id="email" class="contact-input" type="email" placeholder="Escribe tu correo electrónico..." required>
+          </label>
+          <label for="topic" form="contact-form">Asunto *
+            <input id="topic" class="contact-input" type="text" placeholder="Escribe o selecciona un asunto..." required>
+          </label>
+          <label for="topic-text" form="contact-form">Mensaje *
+            <textarea id="topic-text" class="contact-textarea" placeholder="Escribe tu mensaje..." maxlength="500" required></textarea>
+          </label>
+          <button id="send">Enviar</button>
+        </form>
+      </div>
+      <div class="contact-icons-div">
+        <a href="https://www.instagram.com/romina.ramallo.33/" target="_blank"><img class="contact-logo" src="./media/instagram logo.png" alt="Instagram logo."></a>
+        <a href="https://www.facebook.com/romina.ramallo.33" target="_blank"><img class="contact-logo" src="./media/facebook logo.png" alt="Facebook logo."></a>
+      </div>      
+      <h2>Romina Ramallo Asesora</h2>
+    </section>
+    
   </body>
-</html>
+  </html>

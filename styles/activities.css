@@ -1,3 +1,8 @@
+:root {
+  --activity-card-width: 378px;
+  --activity-square: 170px;
+}
+
 #activities h1 {
   width: 100%;
   margin: 5px auto -5px auto;
@@ -22,9 +27,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: black;
+  background-color: var(--secondary-color);
   color: var(--main-color);
-  font-family: 'Dancing Script', cursive;
+  font-family: var(--title-family);
   font-size: 2.8rem;
 }
 
@@ -42,16 +47,16 @@
 }
 
 .activity-img {
-  width: 170px;
-  height: 170px;
+  width: var(--activity-square);
+  height: var(--activity-square);
   margin: 10px;
   border: var(--border-width) solid var(--main-color);
   border-radius: var(--border-radius);
 }
 
 .activity-text-div {
-  width: 170px;
-  height: 170px;
+  width: var(--activity-square);
+  height: var(--activity-square);
   margin: 10px 10px 10px 2px;
   padding: 0 10px 10px 10px;
   display: flex;
@@ -61,4 +66,10 @@
   border: var(--border-width) solid var(--main-color);
   border-radius: var(--border-radius);
   font-size: 14px;  
+}
+
+@media (min-width: 1500px) {
+  :root {
+    --activity-card-width: 30vw;
+  }
 }

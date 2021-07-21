@@ -1,3 +1,91 @@
+#contact {
+  flex-direction: column;
+}
+
 #contact h1 {
+  width: 100%;
+  margin: 10px auto 10px auto;  
   color: var(--main-color);
+  text-align: center;
+}
+
+#contact h2 {
+  width: 100%;
+  color: var(--main-color);
+  font-family: var(--title-family);
+  text-align: center;
+}
+
+#contact h6 {
+  width: 100%;
+  margin: -10px auto 5px auto;
+  color: var(--main-color);  
+  text-align: center;
+}
+
+#contact form {
+  display: flex;
+  flex-direction: column;
+}
+
+#contact label {
+  color: var(--main-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-input {
+  box-sizing: border-box;
+  width: 600px;
+  margin: 3px auto 20px auto;
+  padding: 10px;
+  background-color: var(--BG-color);
+  border: var(--border-width) solid var(--main-color);
+  border-radius: var(--border-radius);
+  font-size: 15px;
+}
+
+.contact-textarea {
+  width: 600px;
+  height: 100px;
+  margin: 3px auto 20px auto;
+  padding: 10px;
+  background-color: var(--BG-color);
+  border: var(--border-width) solid var(--main-color);
+  border-radius: var(--border-radius);
+  font-size: 15px;
+  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+}
+
+#send {
+  width: 600px;
+  margin: 10px auto 10px auto;
+  padding: 10px;
+  background-color: var(--main-color);
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: bolder;
+  font-size: 15px;
+}
+
+.contact-textarea::placeholder,
+.contact-input::placeholder {
+  opacity: 0.5;
+}
+
+.contact-textarea:focus,
+.contact-input:focus {
+  caret-color: black;
+  outline: none !important;
+  background-color: white;
+}
+
+.contact-logo {
+  width: 30px;
+  border-radius: var(--border-radius);
+  margin: 40px 20px 0px 20px;
+}
+.contact-logo:hover {
+  margin: 35px 20px 5px 20px;
+  transition: margin 0.2s;
 }
