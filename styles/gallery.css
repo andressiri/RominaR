@@ -1,12 +1,43 @@
-#gallery {
+#gallery {  
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+.gallery-title-div {
+  width: 100%;
+  height: calc(25vh - 60px);
+  position: relative;
+}
+
+#gallery-div {
+  padding: auto;
+  width: 100%;
+  height: calc(75vh + 40px);
+  display: flex;
+  justify-content: center;  
   flex-wrap: wrap;
   position: relative;
 }
 
-#gallery h1 {
+#optional-gallery-div {
+  display: none;
   width: 100%;
-  margin: 40px auto 20px auto;  
+  height: calc(75vh + 40px);
+  display: flex;
+  justify-content: center;  
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.gallery-title-div h1 {
+  width: 100%;
+  margin: 50px auto 10px auto;  
   color: var(--main-color);
   text-align: center;
 }
@@ -27,14 +58,14 @@
   width: 20vw;
   height: 45vh;
   position: relative;
-  top: -2.5vh;
+  top: 0;
 }
 
 .gall-size-two {
   width: 40vw;
   height: 30vh;
   position: relative;
-  top: -10vh;
+  top: 0;
   object-position: 50% 100%;
 }
 
@@ -42,21 +73,21 @@
   width: 30vw;
   height: 40vh;
   position: relative;
-  top: -5vh;
+  top: 0;
 }
 
 .gall-size-four {
   width: 20vw;
   height: 30vh;
   position: relative;
-  top: -10vh;
+  bottom: 0 !important;
 }
 
 .gall-size-five {
   width: 40vw;
   height: 45vh;
   position: relative;
-  top: -17.5vh;
+  bottom: 15vh;
   object-position: 50% 35%;
 }
 
@@ -64,6 +95,54 @@
   width: 30vw;
   height: 35vh;
   position: relative;
-  top: -12.5vh;
+  bottom: 5vh;
   object-position: 50% 60%;
 }
+
+.gall-size-seven {
+  width: 30vw;
+  height: 40vh;
+  position: relative;
+  top: 0;  
+}
+
+.gall-size-eight {
+  width: 40vw;
+  height: 45vh;
+  position: relative;
+  top: 0;
+  object-position: 50% 30%;
+}
+
+.gall-size-nine {
+  width: 20vw;
+  height: 30vh;
+  position: relative;
+  top: 0;
+  object-position: 50% 80%;
+}
+
+.gall-size-ten {
+  width: 30vw;
+  height: 35vh;
+  position: relative;
+  bottom: 5vh;
+  object-position: 50% 0%;
+}
+
+.gall-size-eleven {
+  width: 40vw;
+  height: 30vh;
+  position: relative;
+  bottom: 0;
+  object-position: 50% 40%;
+}
+
+.gall-size-twelve {
+  width: 20vw;
+  height: 45vh;
+  position: relative;
+  bottom: 15vh;
+  object-position: 50% 10%;
+}
+
