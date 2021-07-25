@@ -1,3 +1,6 @@
+:root {
+  --card-height: 35vmin;
+}
 #about h1 {
   width: 100%;
   margin: 5px auto -5px auto;
@@ -5,64 +8,100 @@
 }
 
 .card {
-  width: 650px;
-  height: 250px;
-  margin: 25px;
-  display: flex;
+  width: 50vw;
+  min-width: 87.5vmin;
+  height: var(--card-height);
+  min-height: 35vh;
+  margin: var(--cards-margins-width);
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-around;
-  align-items: center;
   background-color: var(--secondary-color);
   border: var(--border-width) solid var(--main-color);
   border-radius: var(--border-radius2);
 }
 
 .card-img {
-  width: 230px;
-  height: 230px;
-  margin: 10px;
+  width: calc(var(--card-height) - var(--cards-margins-width)*2);
+  height: calc(var(--card-height) - var(--cards-margins-width)*2);
+  margin: var(--cards-margins-width);
   border: var(--border-width) solid var(--main-color);
   border-radius: var(--border-radius);
   object-fit: cover;
 }
+.img-right {
+  margin-left: 0px;
+}
+.img-left {
+  margin-right: 0px;
+}
 
-.card-text-div {
-  width: 390px;
-  height: 230px;
-  padding: 10px;
-  background-color: var(--BG-color);
-  border: var(--border-width) solid var(--main-color);
-  border-radius: var(--border-radius);
+.card-text-div, .comment {
+  margin: var(--cards-margins-width);
+  padding: var(--cards-margins-width);
   text-align: center;
+  font-size: calc((2.3vmin + 1.2vmax)/2);
+  border: var(--border-width) solid var(--main-color);
 }
-.ctd-right {
-  margin: 10px 10px 10px 0px;
+.card-text-div {
+  width: 35vmax;
+  min-width: 47.5vmin;
+  height: calc(var(--card-height) - var(--cards-margins-width)*2);
+  background-color: var(--BG-color);
+  border-radius: var(--border-radius);
 }
-.ctd-left {
-  margin: 10px 0px 10px 10px;
-}
-
 .comment {
-  width: 250px;
-  height: 250px;
-  margin: auto 25px auto 25px;
-  padding: 15px;
+  width: var(--card-height);
+  height: var(--card-height);
   background-color: var(--secondary-color);
   color: var(--main-color);
-  border: var(--border-width) solid var(--main-color);
   border-radius: var(--border-radius2);
-  text-align: center;
 }
 
-@media (max-height: 700px) {
+/*Responsive Design*/
+
+/*Mobile*/
+
+/*Vertical*/
+@media (max-aspect-ratio: 7/10) and (max-width: 450px) {  
+  :root {
+    --card-width: 90vw;
+  }
   .card {
-    height: 35vh;
-    margin: 1vh;
-    font-size: 2.5vh;
+    min-width: min-content;
+    width: var(--card-width);
+    height: auto;
   }
+  #card-img-left {
+    flex-direction: column;
+  }
+  #card-img-right {
+    flex-direction: column-reverse;
+  }
+  .img-right, .img-left {
+    margin: var(--cards-margins-width);
+    margin-bottom: 0px;
+  }  
   .card-img {
-    max-width: 30vh;
-    max-height: 30vh;
+   width: calc(var(--card-width) - var(--cards-margins-width)*2);
+   height: calc(var(--card-width) - var(--cards-margins-width)*2); 
   }
+  .card-text-div {
+    width: calc(var(--card-width) - var(--cards-margins-width)*2);
+    height: auto;
+    font-size: 5vw;
+  }
+  .comment {
+    width: calc(var(--card-width) - var(--cards-margins-width)*2);
+    height: auto;
+    min-height: 35vmin;
+    font-size: 5vw;
+  }
+}
+
+/*Larger Screens*/
+@media (min-aspect-ratio: 16/10) {
+  #about .border-div {
+    padding: 0vw 7vw calc(var(--cards-margins-width)*1.5) 7vw;
+  }  
 }

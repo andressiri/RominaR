@@ -1,66 +1,145 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
+<!-- Head Section -->
   <head>
 
     <meta charset="UTF-8" />
     <link rel="icon" href="./media/rominarLogo.png" />
     <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+      integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V"
+      crossorigin="anonymous"
+    />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RominaR</title>
 
   </head>
-
+<!-- Body Section -->
   <body>
 
-    <nav class="navbar">
-      <div class="navbar-div"></div>
-      <a id="header-nav" href="#header">INICIO</a>
-      <a id="about-nav" href="#about">QUIÉN SOY</a>
-      <a id="activities-nav" href="#activities">ACTIVIDADES</a>
-      <a id="gallery-nav" href="#gallery">GALERÍA</a>
-      <a id="contact-nav" href="#contact">CONTACTO</a>
-      <div class="navbar-div">
-        <a href="https://www.instagram.com/romina.ramallo.33/" target="_blank"><img class="navbar-contact-logo" src="./media/instagram logo.png" alt="Instagram logo."></a>
-        <a href="https://www.facebook.com/romina.ramallo.33" target="_blank"><img class="navbar-contact-logo" src="./media/facebook logo.png" alt="Facebook logo."></a>
-      </div> 
-    </nav>
-
     <header id="header" class="video-header nav-link">
+<!-- Navbar -->      
+      <nav class="navbar">
+        <div class="left-navbar-div">       
+        </div>
+        <div class="center-navbar-div">
+          <a href="#header">
+            <i class="fas fa-home navbar-icon"></i>
+            <p class="navbar-text">Inicio</p>
+          </a>
+          <a href="#about">
+            <i class="fas fa-street-view navbar-icon"></i>
+            <p class="navbar-text">Quién soy</p>
+          </a>
+          <a href="#activities">
+            <i class="fas fa-business-time navbar-icon"></i>
+            <p class="navbar-text">Actividades</p>
+          </a>
+          <a href="#gallery">
+            <i class="fas fa-images navbar-icon"></i>
+            <p class="navbar-text">Galería</p>
+          </a>
+          <a href="#contact">
+            <i class="fas fa-envelope navbar-icon"></i>
+            <p class="navbar-text">Contacto</p>
+          </a>
+        </div>        
+        <div class="right-navbar-div">
+          <a href="https://www.instagram.com/romina.ramallo.33/" target="_blank">
+            <i class="fab fa-instagram-square navbar-contact-logo"></i>
+          </a>
+          <a href="https://www.facebook.com/romina.ramallo.33" target="_blank">
+            <i class="fab fa-facebook-square navbar-contact-logo"></i>
+          </a>
+        </div>
+
+<!-- Burguer Menu for Cellphones -->
+        <div class="burguer-div">
+          <div class="burguer">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+          </div>
+        </div>
+        <div class="burguer-menu">
+          <div class="burguer-links">
+            <a class="burguer-menu-item" href="#header">
+              <i class="fas fa-home navbar-icon"></i>
+              <p class="burguer-text">Inicio</p>
+            </a>
+            <a class="burguer-menu-item" href="#about">
+              <i class="fas fa-street-view navbar-icon"></i>
+              <p class="burguer-text">Quién soy</p>
+            </a>
+            <a class="burguer-menu-item" href="#activities">
+              <i class="fas fa-business-time navbar-icon"></i>
+              <p class="burguer-text">Actividades</p>
+            </a>
+            <a class="burguer-menu-item" href="#gallery">
+              <i class="fas fa-images navbar-icon"></i>
+              <p class="burguer-text">Galería</p>
+            </a>
+            <a class="burguer-menu-item" href="#contact">
+              <i class="fas fa-envelope navbar-icon"></i>
+              <p class="burguer-text">Contacto</p>
+            </a>
+          </div>
+          <div class="burguer-contact-div burguer-menu-item">
+            <a href="https://www.instagram.com/romina.ramallo.33/" target="_blank">
+              <i class="fab fa-instagram-square burguer-contact-logo"></i>
+            </a>
+            <a href="https://www.facebook.com/romina.ramallo.33" target="_blank">
+              <i class="fab fa-facebook-square burguer-contact-logo"></i>
+            </a>
+          </div>
+          <div class="burguer-bottom-title">
+            <img src="./media/rominarLogo.png" class="burguer-rominar-logo burguer-menu-item" alt="RominaR" />
+            <h1 class="burguer-menu-item">Romina Ramallo</h1>
+            <h2 class="burguer-menu-item">Asesora</h2>
+          </div>
+        </div>
+      </nav>
+
+<!-- Header Section -->
       <div class="video-container">
+        <!--<img  class="header-img" src="./media/Galería/background-img.jpg" alt="Romina sonriendo al levantar un bebé." />
+        -->
         <video class="header-video" src="./media/placeholderVideo.mp4" autoplay muted loop></video>
       </div>
-      <img src="./media/rominarLogo.png" class="RominaR-logo" alt="RominaR">
+      <img src="./media/rominarLogo.png" class="rominar-logo" alt="RominaR" />
       <div class="header-container">
-        <h1>Romina Ramallo Asesora</h1>
+        <h1>Romina Ramallo</h1>
+        <h2>Asesora</h2>
       </div>      
     </header>
-
+<!-- About Section -->
     <section id="about" class="nav-link">
       <div class="border-div">
         <h1>Acerca de mí</h1>
-        <div class="card">
-          <img src="./media/romi.png" alt="Una foto de Romina en un restaurante." class="card-img">
-          <div class="card-text-div ctd-right">
-            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit facere blanditiis temporibus quas eum, eius quam nesciunt, tenetur atque consequatur iure. Magni recusandae adipisci laborum temporibus placeat nemo hic aliquam. Vitae delectus, quod odit maiores dolor praesentium temporibus? Sunt libero qui fugit quaerat rem? Blanditiis eum dolorem cum error dicta.</p>
+        <div id="card-img-left" class="card">
+          <img src="./media/romi.png" alt="Una foto de Romina en un restaurante." class="card-img img-left">
+          <div class="card-text-div">
+            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit dolore illo magni, nemo alias ducimus voluptate distinctio! Consequuntur modi corporis optio reprehenderit! Veniam nulla soluta blanditiis facere, dolor qui, fugit eveniet facilis fuga doloremque at necessitatibus unde ratione illo commodi laborum ipsum! Expedita repellendus, nisi sunt excepturi blanditiis consequuntur architecto.</p>
           </div>
         </div>  
         <div class="comment">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus natus doloribus ipsa nemo, accusantium sequi officiis sit, voluptatibus perspiciatis velit iusto minus possimus, est amet rerum quas consectetur explicabo dolorum.</p>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta quidem provident recusandae non repellendus vitae optio expedita qui aliquid. Vel corporis voluptate quam sunt maiores ipsa omnis rerum nihil architecto.</p>
         </div>
         <div class="comment">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste culpa minus explicabo suscipit repellendus eveniet itaque cumque sapiente sequi qui, quo ipsa earum similique? Pariatur voluptatibus maiores molestiae in.</p>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum, incidunt quia quo quaerat praesentium maxime, illo voluptates perspiciatis, facere consequatur provident fugiat est. Exercitationem, a ducimus. Itaque sunt ab ullam! </p>
         </div>
-        <div class="card">
-          <div class="card-text-div ctd-left">
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, inventore sunt fugit nam qui minima consequuntur placeat natus officia. Cum voluptate sequi dicta adipisci sed quisquam, suscipit debitis eveniet sunt consequatur repellat id? Id nostrum quas ad aperiam quaerat facilis aspernatur, incidunt, ipsam aliquam dolor explicabo perferendis velit vel reprehenderit!</p>
+        <div id="card-img-right" class="card">
+          <div class="card-text-div">
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur magnam consequatur iure ut fuga odio quo, quaerat totam repudiandae cum quae doloribus nihil facere adipisci cupiditate quos nemo autem quisquam? Eaque ex nostrum libero neque deleniti. Similique debitis consequatur dolores ipsum! Eligendi fugit at unde, iure exercitationem error fugiat nostrum!</p>
           </div>
-          <img src="./media/romi2.jpg" alt="Una foto de Romina y su hija." class="card-img">
+          <img src="./media/romi2.jpg" alt="Una foto de Romina y su hija." class="card-img img-right">
         </div>
       </div>
     </section>
-
+<!-- Activities Section -->
     <section id="activities" class="nav-link">
       <div class="border-div">
         <h1>Actividades</h1>
@@ -77,7 +156,7 @@
         </div>
         <div class="activity-card">
           <div class="activity-title-div">
-            <h6 class="activity-title">Organización del guardarropas</h6>
+            <h6 class="activity-title">Organización de guardarropas</h6>
           </div>
           <div class="activity-card-div">
             <img src="./media/activities/guardarropas.jpg" alt="Una foto de un guardarropas." class="activity-img">
@@ -102,7 +181,7 @@
             <h6 class="activity-title">Personal Shopper</h6>
           </div>
           <div class="activity-card-div">
-            <img src="./media/activities/shopper.jpg" alt="Una foto de Romina de alguien llevando bolsas de compras." class="activity-img">
+            <img src="./media/activities/shopper.jpg" alt="Una foto de Romina de alguien llevando bolsas de compras." class="activity-img" />
             <div class="activity-text-div">
               <p class="activity-text">Un recorrido de compras a la medida de las necesidades del cliente, dónde enseñaré a elegir tus mejores looks, teniendo en cuenta tu presupuesto.</p>
             </div>
@@ -133,7 +212,7 @@
         </div>
       </div>
     </section>
-
+<!-- Gallery Section-->
     <section id="gallery" class="nav-link">
       <div class="gallery-title-div">
         <h1>Galería</h1>
@@ -145,7 +224,8 @@
         <img src="./media/Galería/gallery4.jpg" alt="Romina en un evento." class="gallery-img gall-size-four">
         <img src="./media/Galería/gallery5.jpg" alt="Una selfie de Romina." class="gallery-img gall-size-five">
         <img src="./media/Galería/gallery6.jpg" alt="Romina en un almuerzo al aire libre." class="gallery-img gall-size-six">
-      </div>      
+      </div>
+      <!-- Optional Gallery -->      
       <div id="optional-gallery-div">
         <img src="./media/Galería/gallery7.jpg" alt="Una foto inspiradora." class="gallery-img gall-size-seven">
         <img src="./media/Galería/gallery8.jpg" alt="Una foto de Romina en la costanera con su grupo de ciclismo." class="gallery-img gall-size-eight">
@@ -155,9 +235,11 @@
         <img src="./media/Galería/gallery12.jpg" alt="Una foto de Romina en Buenos Aires." class="gallery-img gall-size-twelve">
       </div>
     </section>
-
+<!-- Contact Section -->
     <section id="contact" class="nav-link">
-      <h1>Contactame</h1>
+      <div class="contact-title-div">
+        <h1>Contactame</h1>
+      </div>
       <div class="contact-form-div">
         <form id="contact-form" action="#">
           <label for="name" form="contact-form">Nombre *
@@ -176,11 +258,17 @@
         </form>
       </div>
       <div class="contact-icons-div">
-        <a href="https://www.instagram.com/romina.ramallo.33/" target="_blank"><img class="contact-logo" src="./media/instagram logo.png" alt="Instagram logo."></a>
-        <a href="https://www.facebook.com/romina.ramallo.33" target="_blank"><img class="contact-logo" src="./media/facebook logo.png" alt="Facebook logo."></a>
+        <a href="https://www.instagram.com/romina.ramallo.33/" target="_blank">
+          <i class="fab fa-instagram-square contact-logo"></i>
+        </a>
+        <a href="https://www.facebook.com/romina.ramallo.33" target="_blank">
+          <i class="fab fa-facebook-square contact-logo"></i>
+        </a>
       </div>      
-      <h2>Romina Ramallo Asesora</h2>
+      <div class="contact-bottom-line-div">
+        <h2>Romina Ramallo Asesora</h2>
+      </div>
     </section>
-    
+    <script src="app.js"></script> 
   </body>
   </html>

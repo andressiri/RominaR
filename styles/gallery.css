@@ -3,47 +3,36 @@
   height: 100%;
   margin: 0px;
   padding: 0px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
-  box-sizing: border-box;
 }
 .gallery-title-div {
   width: 100%;
-  height: calc(25vh - 60px);
+  height: calc(25vh - var(--cards-margins-width)*6);
   position: relative;
 }
 
-#gallery-div {
-  padding: auto;
+#gallery-div, #optional-gallery-div {
   width: 100%;
-  height: calc(75vh + 40px);
-  display: flex;
-  justify-content: center;  
+  height: calc(75vh + var(--cards-margins-width)*4);
+  align-items: unset;
   flex-wrap: wrap;
   position: relative;
 }
 
 #optional-gallery-div {
   display: none;
-  width: 100%;
-  height: calc(75vh + 40px);
-  display: flex;
-  justify-content: center;  
-  flex-wrap: wrap;
-  position: relative;
 }
 
 .gallery-title-div h1 {
   width: 100%;
-  margin: 50px auto 10px auto;  
+  margin: calc(var(--cards-margins-width)*3) auto var(--cards-margins-width) auto;  
   color: var(--main-color);
   text-align: center;
 }
 
 .gallery-img {
-  margin: 10px;
+  margin: var(--cards-margins-width);
+  position: relative;
   border: var(--border-width) solid var(--main-color);
   border-radius: var(--border-radius);
   object-fit: cover;
@@ -54,95 +43,73 @@
   opacity: 1;
 }
 
+/*Custom images*/
+
 .gall-size-one {
   width: 20vw;
   height: 45vh;
-  position: relative;
   top: 0;
 }
-
 .gall-size-two {
   width: 40vw;
   height: 30vh;
-  position: relative;
   top: 0;
   object-position: 50% 100%;
 }
-
 .gall-size-three {
   width: 30vw;
   height: 40vh;
-  position: relative;
   top: 0;
 }
-
 .gall-size-four {
   width: 20vw;
   height: 30vh;
-  position: relative;
   bottom: 0 !important;
 }
-
 .gall-size-five {
   width: 40vw;
   height: 45vh;
-  position: relative;
   bottom: 15vh;
   object-position: 50% 35%;
 }
-
 .gall-size-six {
   width: 30vw;
   height: 35vh;
-  position: relative;
   bottom: 5vh;
   object-position: 50% 60%;
 }
-
 .gall-size-seven {
   width: 30vw;
   height: 40vh;
-  position: relative;
   top: 0;  
 }
-
 .gall-size-eight {
   width: 40vw;
   height: 45vh;
-  position: relative;
-  top: 0;
+   top: 0;
   object-position: 50% 30%;
 }
-
 .gall-size-nine {
   width: 20vw;
   height: 30vh;
-  position: relative;
   top: 0;
   object-position: 50% 80%;
 }
-
 .gall-size-ten {
   width: 30vw;
   height: 35vh;
-  position: relative;
   bottom: 5vh;
   object-position: 50% 0%;
 }
-
 .gall-size-eleven {
   width: 40vw;
   height: 30vh;
-  position: relative;
   bottom: 0;
   object-position: 50% 40%;
 }
-
 .gall-size-twelve {
   width: 20vw;
   height: 45vh;
-  position: relative;
   bottom: 15vh;
   object-position: 50% 10%;
 }
-

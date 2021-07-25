@@ -1,19 +1,24 @@
+:root {
+  --contact-width: 600px;
+}
+
 #contact {
   flex-direction: column;
+  margin: 0;
+  padding: 0;
 }
 
+#contact h1, h2 {
+  width: 100%;
+  color: var(--main-color);
+  text-align: center;
+}
 #contact h1 {
-  width: 100%;
-  margin: 10px auto 10px auto;  
-  color: var(--main-color);
-  text-align: center;
+  margin: 20px auto 10px auto;  
 }
-
 #contact h2 {
-  width: 100%;
-  color: var(--main-color);
+  margin: 20px;
   font-family: var(--title-family);
-  text-align: center;
 }
 
 #contact h6 {
@@ -23,22 +28,18 @@
   text-align: center;
 }
 
-#contact form {
+#contact form, #contact label {
   display: flex;
   flex-direction: column;
-}
-
-#contact label {
   color: var(--main-color);
-  display: flex;
-  flex-direction: column;
 }
 
-.contact-input {
-  box-sizing: border-box;
-  width: 600px;
-  margin: 3px auto 20px auto;
-  padding: 10px;
+.contact-input, .contact-textarea, #send {
+  width: var(--contact-width);
+  min-width: 50vw;
+  max-width: 95vw;
+  margin: calc(var(--cards-margins-width)*0.3) auto calc(var(--cards-margins-width)*2) auto;
+  padding: var(--cards-margins-width);
   background-color: var(--BG-color);
   border: var(--border-width) solid var(--main-color);
   border-radius: var(--border-radius);
@@ -46,46 +47,46 @@
 }
 
 .contact-textarea {
-  width: 600px;
   height: 100px;
-  margin: 3px auto 20px auto;
-  padding: 10px;
-  background-color: var(--BG-color);
-  border: var(--border-width) solid var(--main-color);
-  border-radius: var(--border-radius);
-  font-size: 15px;
   font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
 }
 
 #send {
-  width: 600px;
   margin: 10px auto 10px auto;
-  padding: 10px;
   background-color: var(--main-color);
   border: none;
-  border-radius: var(--border-radius);
   font-weight: bolder;
-  font-size: 15px;
 }
 
-.contact-textarea::placeholder,
-.contact-input::placeholder {
+.contact-input::placeholder,
+.contact-textarea::placeholder {
   opacity: 0.5;
 }
 
-.contact-textarea:focus,
-.contact-input:focus {
+.contact-inpt:focus,
+.contact-textarea:focus {
   caret-color: black;
-  outline: none !important;
+  outline: none;
   background-color: white;
 }
 
 .contact-logo {
-  width: 30px;
-  border-radius: var(--border-radius);
-  margin: 40px 20px 0px 20px;
+  color: var(--main-color);
+  font-size: 30px;
+  margin: 40px 20px 20px 20px;
 }
 .contact-logo:hover {
   margin: 35px 20px 5px 20px;
   transition: margin 0.2s;
+}
+
+/*Responsive Design*/
+
+/*Mobile*/
+
+/*Vertical*/
+@media (max-aspect-ratio: 7/10) {
+  :root {
+    --contact-width: 95vw;
+  }
 }
