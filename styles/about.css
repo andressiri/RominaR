@@ -11,7 +11,6 @@
   width: 50vw;
   min-width: 87.5vmin;
   height: var(--card-height);
-  min-height: 35vh;
   margin: var(--cards-margins-width);
   flex-direction: row;
   flex-wrap: nowrap;
@@ -63,12 +62,12 @@
 /*Mobile*/
 
 /*Vertical*/
-@media (max-aspect-ratio: 7/10) and (max-width: 450px) {  
+@media (max-aspect-ratio: 7/10) {  
   :root {
     --card-width: 90vw;
   }
   .card {
-    min-width: min-content;
+    min-width: unset;
     width: var(--card-width);
     height: auto;
   }
@@ -76,16 +75,17 @@
     flex-direction: column;
   }
   #card-img-right {
-    flex-direction: column-reverse;
+    flex-direction: column-reverse;   
   }
   .img-right, .img-left {
     margin: var(--cards-margins-width);
     margin-bottom: 0px;
-  }  
+  } 
   .card-img {
    width: calc(var(--card-width) - var(--cards-margins-width)*2);
    height: calc(var(--card-width) - var(--cards-margins-width)*2); 
   }
+
   .card-text-div {
     width: calc(var(--card-width) - var(--cards-margins-width)*2);
     height: auto;
@@ -98,10 +98,23 @@
     font-size: 5vw;
   }
 }
+.img-right {
+  object-fit: cover;
+  object-position: 50% 20%;
+} 
 
 /*Larger Screens*/
-@media (min-aspect-ratio: 16/10) {
+@media (min-aspect-ratio: 18/10) and (min-width: 1200px) {
   #about .border-div {
-    padding: 0vw 7vw calc(var(--cards-margins-width)*1.5) 7vw;
+    padding: 0vw 10vw calc(var(--cards-margins-width)*1.5) 10vw;
   }  
 }
+@media (min-aspect-ratio: 30/10) {
+  #about .border-div {
+    padding: 0vw 0vw calc(var(--cards-margins-width)*1.5) 0vw;
+  }
+  .comment {
+    width: 20vw;
+  } 
+}
+

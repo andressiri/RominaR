@@ -8,9 +8,9 @@
 }
 
 .header-container h1, h2 {
+  z-index: 15;
   color: var(--main-color);
   font-family: var(--title-family);
-  margin: 0;
 }
 .header-container h1 {
   font-size: calc(1rem + 7vmin);
@@ -90,7 +90,7 @@
 /*Mobile*/
 
 /*Vertical*/
-@media (max-aspect-ratio: 7/10) {
+@media (max-aspect-ratio: 7/10), (max-width: 450px) {
   :root {
     --logo-width: 50vw;
   }
@@ -112,5 +112,44 @@
     width: calc(100% - var(--margin-width));
     height: 50vh;
     border: none;
+  }
+}
+
+/*Landscape*/
+@media (min-aspect-ratio: 10/6) and (max-height: 450px) {
+  .video-container, .header-video {
+    height: calc(100vh - var(--margin-width));
+  }
+  .video-container {
+    width: calc(100vw - var(--margin-width)/2 - var(--lateral-navbar));
+    top: calc(var(--margin-width)/2);
+    right: calc(var(--lateral-navbar) + 1px);
+    background-color: var(--BG-color2);
+    border: var(--border-width) solid var(--main-color);
+  }
+}
+
+/*Tablet*/
+@media (max-aspect-ratio: 16/10), (max-aspect-ratio: 10/16) {
+  .header-container h1 {
+    font-size: 5vw;
+  }
+  .header-container h2 {
+    font-size: 3.5vw;
+  }
+}
+@media (max-aspect-ratio: 16/10) {
+  .header-container {
+    height: 15vh;
+  }
+}
+
+/*Weird sizes*/
+@media (max-aspect-ratio: 11/10) and (max-width: 330px) {
+  .header-container h1 {
+    font-size: 12vw;
+  }
+  .header-container h2 {
+    font-size: 8vw;
   }
 }

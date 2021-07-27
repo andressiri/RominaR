@@ -34,7 +34,7 @@
 }
 
 .left-navbar-div, .right-navbar-div {
-  width: 25%;
+  width: 15%;
   height: var(--navbar-height);
   padding-right: calc(var(--margin-width)/2);  
 }
@@ -42,7 +42,7 @@
   justify-content: flex-end;
 }
 .center-navbar-div {
-  width: 50%;
+  width: 70%;
   justify-content: space-around;
 }
 
@@ -67,19 +67,33 @@
 /*Responsive Design*/
 .burguer-div {
   display: none;
+}
+.burguer div {
+  box-sizing: border-box;
+  width: 3vh;
+  min-width: 25px;
+  height: 0.5vh;
+  min-height: 3px;
+  margin: 2px;
+  background-color: var(--main-color);
+  border-radius: 2px;
 } 
 .burguer-menu {    
   width: 60%;
   height: calc(100vh - var(--navbar-height));
+  padding-bottom: var(--browser-bar-height);
   display: flex;
   flex-direction: column;
   position: fixed;
   right: 0px;
-  bottom: 0px;
+  top: var(--navbar-height);
   background-color: var(--BG-color2);
   opacity: 0.95;
   transform: translateX(100%);
   transition: transform 0.5s ease-in;
+}
+.landscape-swap {
+  flex-direction: column;
 }
 
 .burguer-menu-active {
@@ -104,7 +118,7 @@
 /*Mobile*/
 
 /*Vertical*/
-@media (max-aspect-ratio: 7/10) and (max-width: 450px) {
+@media (max-aspect-ratio: 6/10),  (max-width: 450px) {
   .navbar-text {
     display: none;
   }
@@ -128,18 +142,12 @@
   .burguer {
     flex-direction: column;
   }
-  .burguer div {
-    width: 25px;
-    height: 3px;
-    margin: 2px;
-    background-color: var(--main-color);
-    border-radius: 2px;
-  }
   .burguer-links, .burguer-menu, .burguer-bottom-title {
     flex-direction: column;
   }
   .burguer-links {
-    height: calc(55vh - var(--navbar-height));
+    height: calc(55vh - var(--navbar-height));/* Fallback for browsers that do not support Custom Properties */
+    height: calc(55vh - var(--navbar-height) - var(--browser-bar-height));
     justify-content: space-evenly;
   }
   .burguer-text {
@@ -162,14 +170,107 @@
     width: 30vw;
     margin-bottom: 10px;
     border-radius: 50%;
+    border: 2px solid black;
   }
   .burguer-bottom-title h1, h2 {
     margin: 0;
   }
 }
 
-/*Larger Screens*/
-@media (max-width: 950px) {
+/*Landscape*/
+@media (min-aspect-ratio: 10/6) and (max-height: 450px) {
+  :root {
+    --burguer-div-height: 25vh;
+    --burguer-menu-width: 20vw;
+  }
+  .navbar-text, .right-navbar-div {
+    display: none;
+  }
+  .navbar {
+    width: var(--lateral-navbar);
+    height: 100vh;
+    flex-direction: column-reverse;
+    top: 0;
+    right: 0;
+  }
+  .burguer-div {
+    width: var(--lateral-navbar);
+    height: var(--burguer-div-height);
+    display: flex;
+  }
+  .burguer {
+    z-index: 100;
+    flex-direction: column;
+  }
+  .burguer-menu {    
+    width: var(--burguer-menu-width);
+    min-height: 100vh;
+    padding:0;
+    top: 0;
+    right: var(--lateral-navbar);
+    background-color: var(--BG-color2);
+    transform: translateX(calc(100% + var(--lateral-navbar)));
+  }
+  .landscape-swap {
+    flex-direction: column-reverse;
+    height: calc(100vh - var(--browser-bar-height));
+  }
+  .burguer-contact-div {
+    width: var(--burguer-menu-width);
+    height: var(--burguer-div-height);
+  }
+  .burguer-contact-logo {
+    font-size: 8vh;
+    margin: auto 15px;
+  }
+  .burguer-links {
+    width: var(--burguer-menu-width);
+    height: calc(100vh - var(--burguer-div-height));/* Fallback for browsers that do not support Custom Properties */
+    height: calc(100vh - var(--browser-bar-height) - var(--burguer-div-height));
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .burguer-links .burguer-menu-item {
+    align-self: flex-end;
+  }
+  .burguer-text {    
+    font-size: 5vh;
+    margin-left: 2.5vw;
+  }
+  .burguer-bottom-title {
+    width: var(--burguer-menu-width);
+    min-height: var(--browser-bar-height);
+  }
+  .burguer-rominar-logo {
+    display: none;
+  }
+  .burguer-bottom-title h1, .burguer-bottom-title h2 {
+    display: none;
+  }
+
+  .center-navbar-div {
+    width: var(--lateral-navbar);
+    height: calc(100vh - var(--browser-bar-height) - var(--burguer-div-height));
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .navbar-icon {
+    z-index: 1;
+    margin: 0px;
+    font-size: 2.5vw;
+  }
+
+  .left-navbar-div {
+    width: var(--lateral-navbar);
+    height: var(--browser-bar-height);
+  }
+  .burguer-menu-active {
+    transform: translateX(0%);
+  }
+}
+
+/*Tablet*/
+@media (max-aspect-ratio: 15/12) {
   .left-navbar-div {
     width: 0%;
   } 
@@ -179,4 +280,19 @@
   .center-navbar-div {
     width: 85%;
   }
+}
+
+/*Larger screens*/
+@media (min-width: 1200px) and (min-aspect-ratio: 15/12) {
+  .left-navbar-div, .right-navbar-div {
+    width: 25%; 
+  }
+  .center-navbar-div {
+    width: 50%;
+  }
+}
+
+/*Weird sizes*/
+@media (max-aspect-ratio: 190/35) {
+
 }

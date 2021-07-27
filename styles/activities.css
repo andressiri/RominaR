@@ -15,7 +15,6 @@
   max-width: var(--activity-card-width);  
   height: calc(var(--activity-square) + var(--activity-square)/4 + var(--cards-margins-width)*4.25);
   min-height: 250px;
-  margin: 0;
   flex-direction: column;
   background-color: var(--secondary-color);
   border: var(--border-width) solid var(--main-color);
@@ -37,7 +36,6 @@
   width: var(--activity-card-width);
   min-width: 360px;
   height: calc(var(--activity-square) + var(--cards-margins-width)*2);
-  margin: 0px;
   border: var(--border-width) solid var(--main-color);
   border-top: none;
   border-bottom: none;
@@ -50,6 +48,7 @@
   height: var(--activity-square);
   border: var(--border-width) solid var(--main-color);
   border-radius: var(--border-radius);
+  object-fit: cover;
 }
 .activity-img {
   margin: var(--cards-margins-width);
@@ -62,12 +61,19 @@
   font-size: calc(0.1rem + (1.0vh + 1.4vw)/2);
 }
 
+#imagen-img {
+  object-position: 50% 10%;
+}
+#novias-img {
+  object-position: 100% 50%;
+}
+
 /*Responsive Design*/
 
 /*Mobile*/
 
 /*Vertical*/
-@media (max-aspect-ratio: 7/10) and (max-width: 450px) {
+@media (max-aspect-ratio: 7/10) {
   :root {
     --activity-card-width: 90vw;
     --activity-square: calc(90vw - var(--cards-margins-width)*2);
@@ -95,12 +101,11 @@
 }
 
 /*Landscape*/
-@media (min-aspect-ratio: 10/7) and (max-width: 900px) {
+@media (min-aspect-ratio: 10/7) and (max-width: 900px), (min-aspect-ratio: 10/2) {
   :root {
     --activity-card-width: 90vw;
     --landscape-card-height: 70vh;
     --landscape-card-title-height: 20vh;
-    --margin-width: 10px;
   }
   .activity-card {
     position: relative;
@@ -110,7 +115,6 @@
   .activity-card-div {
     height: calc(var(--landscape-card-height) - var(--landscape-card-title-height)); 
     margin: 0px;
-    align-items: flex-end;
     justify-content: flex-end;
   }
   .activity-title-div {
@@ -120,8 +124,8 @@
     font-size: 4em;
   }  
   .activity-img {
-    width: calc(var(--landscape-card-height) - 24px);
-    height: calc(var(--landscape-card-height) - 24px);
+    width: calc(var(--landscape-card-height) - 20px);
+    height: calc(var(--landscape-card-height) - 20px);
     margin: 0px;
     position: absolute;
     top: 10px;

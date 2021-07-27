@@ -4,8 +4,7 @@
 
 #contact {
   flex-direction: column;
-  margin: 0;
-  padding: 0;
+  padding-bottom: var(--browser-bar-height);
 }
 
 #contact h1, h2 {
@@ -14,7 +13,7 @@
   text-align: center;
 }
 #contact h1 {
-  margin: 20px auto 10px auto;  
+  margin: 10px auto 10px auto;  
 }
 #contact h2 {
   margin: 20px;
@@ -82,7 +81,7 @@
 
 /*Responsive Design*/
 
-/*Mobile*/
+/*Mobile phone*/
 
 /*Vertical*/
 @media (max-aspect-ratio: 7/10) {

@@ -1,19 +1,18 @@
 #gallery {  
   width: 100%;
-  height: 100%;
-  margin: 0px;
-  padding: 0px;
   flex-direction: column;
 }
 .gallery-title-div {
   width: 100%;
-  height: calc(25vh - var(--cards-margins-width)*6);
+  height: auto;
+  min-height: calc(25vh - var(--cards-margins-width)*6);
   position: relative;
 }
 
 #gallery-div, #optional-gallery-div {
   width: 100%;
-  height: calc(75vh + var(--cards-margins-width)*4);
+  height: auto;
+  min-height: calc(75vh + var(--cards-margins-width)*4);
   align-items: unset;
   flex-wrap: wrap;
   position: relative;
@@ -64,7 +63,7 @@
 .gall-size-four {
   width: 20vw;
   height: 30vh;
-  bottom: 0 !important;
+  bottom: 0;
 }
 .gall-size-five {
   width: 40vw;
@@ -112,4 +111,12 @@
   height: 45vh;
   bottom: 15vh;
   object-position: 50% 10%;
+}
+
+@media (max-aspect-ratio: 7/10) {
+  .gallery-img {
+    width: 85vw;
+    height: 85vw;
+    position: unset;
+  }
 }
