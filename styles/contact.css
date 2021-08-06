@@ -3,8 +3,9 @@
 }
 
 #contact {
+  margin-top: var(--navbar-height);
   flex-direction: column;
-  padding-bottom: var(--browser-bar-height);
+  justify-content: space-evenly;
 }
 
 #contact h1, h2 {
@@ -18,19 +19,14 @@
 #contact h2 {
   margin: 20px;
   font-family: var(--title-family);
-}
-
-#contact h6 {
-  width: 100%;
-  margin: -10px auto 5px auto;
-  color: var(--main-color);  
-  text-align: center;
+  font-size: calc(0.7rem + (2vmin + 2vmax)/2);
 }
 
 #contact form, #contact label {
   display: flex;
   flex-direction: column;
   color: var(--main-color);
+  font-size: calc(0.5rem + (1vmin + 0.3vmax)/2);
 }
 
 .contact-input, .contact-textarea, #send {
@@ -42,12 +38,13 @@
   background-color: var(--BG-color);
   border: var(--border-width) solid var(--main-color);
   border-radius: var(--border-radius);
-  font-size: 15px;
+  font-size: calc(0.5rem + (1vmin + 0.3vmax)/2);;
 }
 
 .contact-textarea {
   height: 100px;
   font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+  resize: none;
 }
 
 #send {
@@ -62,7 +59,7 @@
   opacity: 0.5;
 }
 
-.contact-inpt:focus,
+.contact-input:focus,
 .contact-textarea:focus {
   caret-color: black;
   outline: none;
@@ -71,7 +68,7 @@
 
 .contact-logo {
   color: var(--main-color);
-  font-size: 30px;
+  font-size: calc(1rem + (1vmin + 0.5vmax));
   margin: 40px 20px 20px 20px;
 }
 .contact-logo:hover {

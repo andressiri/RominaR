@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap');
 @import "./styles/navbar.css";
 @import "./styles/header.css";
 @import "./styles/about.css";
@@ -7,10 +9,11 @@
 
 :root {
   --main-color: rgba(35, 234, 237, 0.8);
-  --text-color: black;
-  --secondary-color: black;
+  --text-color: rgba(0, 0, 0, 1);;
+  --secondary-color: rgba(0, 0, 0, 1);;
   --BG-color: rgba(247, 247, 247, 0.9);
-  --BG-color2: black;
+  --BG-color2: rgba(0, 0, 0, 1);
+  --BG-color2-transparent: rgba(0, 0, 0, 0.8);
   --title-family: 'Dancing Script', cursive;
   --border-radius: 5px;
   --border-radius2: 10px;
@@ -32,6 +35,7 @@ html {
   margin: 0;
   padding: 0;
 }
+
 div, header, nav, section {
   display: flex;
   align-items: center;
@@ -41,24 +45,26 @@ div, header, nav, section {
 body {
   font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
   caret-color: transparent;
+  background-color: var(--BG-color2);
 }
 
 section {
   width: 100%;
   height: auto;
   min-height: 100vh;
+  margin-top: calc(var(--navbar-height)/2);
+  position: relative;
   background-color: var(--BG-color2);
 }
 section h1 {
   font-family: var(--title-family);
-  font-size: calc(1rem + 6vmin);
-
+  font-size: calc(0.9rem + (7vmin + 5vmax)/2);
 }
 
 .border-div {
   width: calc(100% - var(--margin-width));
   height: auto;
-  min-height: calc(100vh - var(--margin-width));
+  min-height: calc(100vh - var(--navbar-height));
   padding-bottom: calc(var(--cards-margins-width)*1.5);
   position: relative;
   flex-direction: row;
@@ -72,15 +78,39 @@ section h1 {
 /*Responsive Design*/
 
 /*Mobile*/
+
+/*Portrait*/
 @media (max-aspect-ratio: 7/10), (min-aspect-ratio: 10/7) and (max-width: 900px) {
   :root {
     --border-radius6: 15px;
   }
-  section, .border-div {
-    height: auto;
+  .border-div {
+    width: calc(100% - var(--cards-margins-width)*2);
+    margin-top: calc(var(--cards-margins-width)*3);;
+  }
+  section h1 {
+    font-size: calc(1.5rem + 8vmin);
+  }
+}
+
+/*Landscape*/
+@media (min-aspect-ratio: 10/6) and (max-height: 450px) and (min-width: 450px) {
+  section {
+    padding: 0;
+    margin: 0;
   }
   .border-div {
-    margin-top: calc(var(--cards-margins-width)*3);;
+    width: calc(100vw - var(--margin-width)/2);
+    top: 0;
+    right: calc(var(--lateral-navbar) - var(--margin-width) + 1px);
+  }
+  #about, #activities {
+    width: calc(100% - var(--lateral-navbar));
+    justify-content: flex-end;
+  }
+  #about .border-div, #activities .border-div {
+    width: calc(100% - var(--margin-width)/2);
+    right: 0px;
   }
 }
 

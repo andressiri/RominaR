@@ -13,7 +13,7 @@
       crossorigin="anonymous"
     />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!--This is modified at app.js-->
     <title>RominaR</title>
 
   </head>
@@ -26,32 +26,32 @@
         <div class="left-navbar-div">       
         </div>
         <div class="center-navbar-div">
-          <a href="#header">
+          <a class="section-link" href="#header">
             <i class="fas fa-home navbar-icon"></i>
             <p class="navbar-text">Inicio</p>
           </a>
-          <a href="#about">
+          <a class="section-link" href="#about">
             <i class="fas fa-street-view navbar-icon"></i>
             <p class="navbar-text">Quién soy</p>
           </a>
-          <a href="#activities">
+          <a class="section-link" href="#activities">
             <i class="fas fa-business-time navbar-icon"></i>
             <p class="navbar-text">Actividades</p>
           </a>
-          <a href="#gallery">
+          <a class="section-link" href="#gallery">
             <i class="fas fa-images navbar-icon"></i>
             <p class="navbar-text">Galería</p>
           </a>
-          <a href="#contact">
+          <a class="section-link" href="#contact">
             <i class="fas fa-envelope navbar-icon"></i>
             <p class="navbar-text">Contacto</p>
           </a>
         </div>        
         <div class="right-navbar-div">
-          <a href="https://www.instagram.com/romina.ramallo.33/" target="_blank">
+          <a class="navbar-contact-logo-anchor" href="https://www.instagram.com/romina.ramallo.33/" target="_blank">
             <i class="fab fa-instagram-square navbar-contact-logo"></i>
           </a>
-          <a href="https://www.facebook.com/romina.ramallo.33" target="_blank">
+          <a class="navbar-contact-logo-anchor" href="https://www.facebook.com/romina.ramallo.33" target="_blank">
             <i class="fab fa-facebook-square navbar-contact-logo"></i>
           </a>
         </div>
@@ -67,32 +67,32 @@
         <div class="burguer-menu">
           <div class="landscape-swap">
             <div class="burguer-links">
-              <a class="burguer-menu-item" href="#header">
+              <a class="section-link burguer-menu-item" href="#header">
                 <i class="fas fa-home navbar-icon"></i>
                 <p class="burguer-text">Inicio</p>
               </a>
-              <a class="burguer-menu-item" href="#about">
+              <a class="section-link burguer-menu-item" href="#about">
                 <i class="fas fa-street-view navbar-icon"></i>
                 <p class="burguer-text">Quién soy</p>
               </a>
-              <a class="burguer-menu-item" href="#activities">
+              <a class="section-link burguer-menu-item" href="#activities">
                 <i class="fas fa-business-time navbar-icon"></i>
                 <p class="burguer-text">Actividades</p>
               </a>
-              <a class="burguer-menu-item" href="#gallery">
+              <a class="section-link burguer-menu-item" href="#gallery">
                 <i class="fas fa-images navbar-icon"></i>
                 <p class="burguer-text">Galería</p>
               </a>
-              <a class="burguer-menu-item" href="#contact">
+              <a class="section-link burguer-menu-item" href="#contact">
                 <i class="fas fa-envelope navbar-icon"></i>
                 <p class="burguer-text">Contacto</p>
               </a>
             </div>
             <div class="burguer-contact-div burguer-menu-item">
-              <a href="https://www.instagram.com/romina.ramallo.33/" target="_blank">
+              <a class="navbar-contact-logo-anchor" href="https://www.instagram.com/romina.ramallo.33/" target="_blank">
                 <i class="fab fa-instagram-square burguer-contact-logo"></i>
               </a>
-              <a href="https://www.facebook.com/romina.ramallo.33" target="_blank">
+              <a class="navbar-contact-logo-anchor" href="https://www.facebook.com/romina.ramallo.33" target="_blank">
                 <i class="fab fa-facebook-square burguer-contact-logo"></i>
               </a>
             </div>
@@ -107,9 +107,10 @@
 
 <!-- Header Section -->
       <div class="video-container">
-        <!--<img  class="header-img" src="./media/Galería/background-img.jpg" alt="Romina sonriendo al levantar un bebé." />
+        <img  class="header-img h-img-1" src="./media/header1.jpeg" alt="Romina posando en una banqueta." />
+        <img  class="header-img h-img-2" src="./media/header2.jpeg" alt="Romina posando en una banqueta." />
+        <!--<video class="header-video" src="./media/placeholderVideo.mp4" autoplay muted loop></video>
         -->
-        <video class="header-video" src="./media/placeholderVideo.mp4" autoplay muted loop></video>
       </div>
       <img src="./media/rominarLogo.png" class="rominar-logo" alt="RominaR" />
       <div class="header-container">
@@ -145,73 +146,84 @@
     <section id="activities" class="nav-link">
       <div class="border-div">
         <h1>Actividades</h1>
-        <div class="activity-card">
-          <div class="activity-title-div">
-            <h6 class="activity-title">Asesoramiento de imagen</h6>
-          </div>
-          <div class="activity-card-div">
-            <img id="imagen-img" src="./media/activities/imagen2.jpeg" alt="Una foto de Romina trabajando." class="activity-img">
-            <div class="activity-text-div">
-              <p class="activity-text">Asesoramiento integral de acuerdo al estilo personal, tipo de cuerpo, prendas acordes a él y ocasión de uso. Tipología corporal y colorimetría.</p>
+        <a id="imagen-activity-anchor" href="#name" class="contact-autofill">
+          <div class="activity-card">
+            <div class="activity-title-div">
+              <h6 class="activity-title">Asesoramiento de imagen</h6>
+            </div>
+            <div class="activity-card-div">
+              <img id="imagen-img" src="./media/activities/imagen2.jpeg" alt="Una foto de Romina trabajando." class="activity-img" />
+              <div class="activity-text-div">
+                <p class="activity-text">Asesoramiento integral de acuerdo al estilo personal, tipo de cuerpo, prendas acordes a él y ocasión de uso. Tipología corporal y colorimetría.</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="activity-card">
-          <div class="activity-title-div">
-            <h6 class="activity-title">Organización de guardarropas</h6>
-          </div>
-          <div class="activity-card-div">
-            <img src="./media/activities/guardarropas1.jpg" alt="Una foto de un guardarropas." class="activity-img">
-            <div class="activity-text-div">
-              <p class="activity-text">Análisis y organización del guardarropa para saber si es representativo del estilo, tipo de cuerpo y actividades que realiza.</p>
+        </a>
+        <a id="guardarropas-activity-anchor" href="#name" class="contact-autofill">
+        <div id="guardarropas-card" class="activity-card">
+            <div class="activity-title-div">
+              <h6 class="activity-title">Organización de guardarropas</h6>
+            </div>
+            <div class="activity-card-div">
+              <img src="./media/activities/guardarropas1.jpg" alt="Una foto de un guardarropas." class="activity-img" />
+              <div class="activity-text-div">
+                <p class="activity-text">Análisis y organización del guardarropa para saber si es representativo del estilo, tipo de cuerpo y actividades que realiza.</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="activity-card">
-          <div class="activity-title-div">
-            <h6 class="activity-title">Colorimetría</h6>
-          </div>
-          <div class="activity-card-div">
-            <img src="./media/activities/colorimetría.jpeg" alt="Una foto de una paleta de colores." class="activity-img">
-            <div class="activity-text-div">
-              <p class="activity-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident rerum harum ex nemo dicta temporibus corrupti accusamus esse quibusdam quasi.</p>
+        </a>
+        <a id="colorimetria-activity-anchor" href="#name" class="contact-autofill">
+          <div class="activity-card">
+            <div class="activity-title-div">
+              <h6 class="activity-title">Colorimetría</h6>
+            </div>
+            <div class="activity-card-div">
+              <img src="./media/activities/colorimetría.jpeg" alt="Una foto de una paleta de colores." class="activity-img" />
+              <div class="activity-text-div">
+                <p class="activity-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident rerum harum ex nemo dicta temporibus corrupti accusamus esse quibusdam quasi.</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="activity-card">
-          <div class="activity-title-div">
-            <h6 class="activity-title">Personal Shopper</h6>
-          </div>
-          <div class="activity-card-div">
-            <img src="./media/activities/shopper.jpg" alt="Una foto de Romina de alguien llevando bolsas de compras." class="activity-img" />
-            <div class="activity-text-div">
-              <p class="activity-text">Un recorrido de compras a la medida de las necesidades del cliente, dónde enseñaré a elegir tus mejores looks, teniendo en cuenta tu presupuesto.</p>
+        </a>
+        <a id="shopper-activity-anchor" href="#name" class="contact-autofill">
+          <div class="activity-card">
+            <div class="activity-title-div">
+              <h6 class="activity-title">Personal Shopper</h6>
+            </div>
+            <div class="activity-card-div">
+              <img src="./media/activities/shopper.jpg" alt="Una foto de Romina de alguien llevando bolsas de compras." class="activity-img" />
+              <div class="activity-text-div">
+                <p class="activity-text">Un recorrido de compras a la medida de las necesidades del cliente, dónde enseñaré a elegir tus mejores looks, teniendo en cuenta tu presupuesto.</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="activity-card">
-          <div class="activity-title-div">
-            <h6 class="activity-title">Asesoramiento para eventos</h6>
-          </div>
-          <div class="activity-card-div">
-            <img src="./media/activities/eventos1.jpg" alt="Una foto de una mujer posando." class="activity-img">
-            <div class="activity-text-div">
-              <p class="activity-text">Relevamiento del tipo de fiesta. Diagnóstico de estilo.
-                Sugerencia de estilismo integral para los protagonistas...</p>
+        </a>
+        <a id="eventos-activity-anchor" href="#name" class="contact-autofill">
+          <div class="activity-card">
+            <div class="activity-title-div">
+              <h6 class="activity-title">Asesoramiento para eventos</h6>
+            </div>
+            <div class="activity-card-div">
+              <img src="./media/activities/eventos1.jpg" alt="Una foto de una mujer posando." class="activity-img" />
+              <div class="activity-text-div">
+                <p class="activity-text">Relevamiento del tipo de fiesta. Diagnóstico de estilo. Sugerencia de estilismo integral para los protagonistas.</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="activity-card">
-          <div class="activity-title-div">
-            <h6 class="activity-title">Asesoramiento para novias</h6>
-          </div>
-          <div class="activity-card-div">
-            <img id="novias-img" src="./media/activities/novias1.jpg" alt="Una foto de una novia." class="activity-img">
-            <div class="activity-text-div">
-              <p class="activity-text">Relevamiento del tipo de fiesta. Diagnostico de estilo. Propuesta de proveedores. Selección de marcas y diseñadores. Elección de todo lo referido al total look.</p>
+        </a>  
+        <a id="novias-activity-anchor" href="#name" class="contact-autofill">
+          <div class="activity-card">
+            <div class="activity-title-div">
+              <h6 class="activity-title">Asesoramiento para novias</h6>
+            </div>
+            <div class="activity-card-div">
+              <img id="novias-img" src="./media/activities/novias1.jpg" alt="Una foto de una novia." class="activity-img" />
+              <div class="activity-text-div">
+                <p class="activity-text">Relevamiento del tipo de fiesta. Diagnostico de estilo. Propuesta de proveedores. Selección de marcas y diseñadores. Elección de todo lo referido al total look.</p>
+              </div>
             </div>
           </div>
-        </div>
+        </a>  
       </div>
     </section>
 <!-- Gallery Section-->
@@ -220,23 +232,57 @@
         <h1>Galería</h1>
       </div>
       <div id="gallery-div">
-        <img src="./media/Galería/gallery1.jpg" alt="Una nota inspiradora." class="gallery-img gall-size-one">
-        <img src="./media/Galería/gallery2.jpg" alt="Romina cenando con amigas." class="gallery-img gall-size-two">
-        <img src="./media/Galería/gallery3.jpg" alt="Una foto inspiradora." class="gallery-img gall-size-three">
-        <img src="./media/Galería/gallery4.jpg" alt="Romina en un evento." class="gallery-img gall-size-four">
-        <img src="./media/Galería/gallery5.jpg" alt="Una selfie de Romina." class="gallery-img gall-size-five">
-        <img src="./media/Galería/gallery6.jpg" alt="Romina en un almuerzo al aire libre." class="gallery-img gall-size-six">
+        <img src="./media/Galería/gallery1.jpg" alt="Una nota inspiradora." class="gallery-img gall-size-one" />
+        <img src="./media/Galería/gallery2.jpg" alt="Romina cenando con amigas." class="gallery-img gall-size-two" />
+        <img src="./media/Galería/gallery3.jpg" alt="Una foto inspiradora." class="gallery-img gall-size-three" />
+        <img src="./media/Galería/gallery4.jpg" alt="Romina en un evento." class="gallery-img gall-size-four" />
+        <img src="./media/Galería/gallery5.jpg" alt="Una selfie de Romina." class="gallery-img gall-size-five" />
+        <img src="./media/Galería/gallery6.jpg" alt="Romina en un almuerzo al aire libre." class="gallery-img gall-size-six" />
       </div>
       <!-- Optional Gallery -->      
-      <div id="optional-gallery-div">
-        <img src="./media/Galería/gallery7.jpg" alt="Una foto inspiradora." class="gallery-img gall-size-seven">
-        <img src="./media/Galería/gallery8.jpg" alt="Una foto de Romina en la costanera con su grupo de ciclismo." class="gallery-img gall-size-eight">
-        <img src="./media/Galería/gallery9.jpg" alt="Una nota inspiradora." class="gallery-img gall-size-nine">
-        <img src="./media/Galería/gallery10.jpg" alt="Una foto de Romina con su padre y su hija." class="gallery-img gall-size-ten">
-        <img src="./media/Galería/gallery11.jpg" alt="Una foto de Romina en Disney." class="gallery-img gall-size-eleven">
-        <img src="./media/Galería/gallery12.jpg" alt="Una foto de Romina en Buenos Aires." class="gallery-img gall-size-twelve">
+      <div id="optional-gallery-div1" class="optional-gallery optional-hide">
+        <img src="./media/Galería/gallery7.jpg" alt="Una foto inspiradora." class="gallery-img gall-size-seven" />
+        <img src="./media/Galería/gallery8.jpg" alt="Una foto de Romina en la costanera con su grupo de ciclismo." class="gallery-img gall-size-eight" />
+        <img src="./media/Galería/gallery9.jpg" alt="Una nota inspiradora." class="gallery-img gall-size-nine" />
+        <img src="./media/Galería/gallery10.jpg" alt="Una foto de Romina con su padre y su hija." class="gallery-img gall-size-ten" />
+        <img src="./media/Galería/gallery11.jpg" alt="Una foto de Romina en Disney." class="gallery-img gall-size-eleven" />
+        <img src="./media/Galería/gallery12.jpg" alt="Una foto de Romina en Buenos Aires." class="gallery-img gall-size-twelve" />
+      </div>
+      <div id="optional-gallery-div2" class="optional-gallery optional-hide">
+        <img src="./media/Galería/gallery7.jpg" alt="Una foto inspiradora." class="gallery-img gall-size-seven" />
+        <img src="./media/Galería/gallery8.jpg" alt="Una foto de Romina en la costanera con su grupo de ciclismo." class="gallery-img gall-size-eight" />
+        <img src="./media/Galería/gallery9.jpg" alt="Una nota inspiradora." class="gallery-img gall-size-nine" />
+        <img src="./media/Galería/gallery10.jpg" alt="Una foto de Romina con su padre y su hija." class="gallery-img gall-size-ten" />
+        <img src="./media/Galería/gallery11.jpg" alt="Una foto de Romina en Disney." class="gallery-img gall-size-eleven" />
+        <img src="./media/Galería/gallery12.jpg" alt="Una foto de Romina en Buenos Aires." class="gallery-img gall-size-twelve" />
+      </div>
+      <div id="optional-gallery-div3" class="optional-gallery optional-hide">
+        <img src="./media/Galería/gallery7.jpg" alt="Una foto inspiradora." class="gallery-img gall-size-seven" />
+        <img src="./media/Galería/gallery8.jpg" alt="Una foto de Romina en la costanera con su grupo de ciclismo." class="gallery-img gall-size-eight" />
+        <img src="./media/Galería/gallery9.jpg" alt="Una nota inspiradora." class="gallery-img gall-size-nine" />
+        <img src="./media/Galería/gallery10.jpg" alt="Una foto de Romina con su padre y su hija." class="gallery-img gall-size-ten" />
+        <img src="./media/Galería/gallery11.jpg" alt="Una foto de Romina en Disney." class="gallery-img gall-size-eleven" />
+        <img src="./media/Galería/gallery12.jpg" alt="Una foto de Romina en Buenos Aires." class="gallery-img gall-size-twelve" />
       </div>
     </section>
+    <div class="optional-buttons-div">
+      <label id="show-more-label" class="optional-btn-label" for="show-more">
+        <div id="show-more" class="arrow-down">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        Mostrar más
+      </label>
+      <label id="show-less-label" class="optional-btn-label optional-hide" for="show-less">
+        <div id="show-less" class="arrow-up">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        Mostrar menos
+      </label>
+    </div>
 <!-- Contact Section -->
     <section id="contact" class="nav-link">
       <div class="contact-title-div">
@@ -245,16 +291,24 @@
       <div class="contact-form-div">
         <form id="contact-form" action="#">
           <label for="name" form="contact-form">Nombre *
-            <input id="name" class="contact-input" type="name" placeholder="Escribe tu nombre..." required>
+            <input id="name" class="contact-input keyboard-activation" type="name" placeholder="Escribe tu nombre..." required />
           </label>
           <label for="email" form="contact-form">Correo electrónico *
-            <input id="email" class="contact-input" type="email" placeholder="Escribe tu correo electrónico..." required>
+            <input id="email" class="contact-input keyboard-activation" type="email" placeholder="Escribe tu correo electrónico..." required />
           </label>
           <label for="topic" form="contact-form">Asunto *
-            <input id="topic" class="contact-input" type="text" placeholder="Escribe o selecciona un asunto..." required>
+            <input id="topic" class="contact-input keyboard-activation"  list="topic-list" type="text" placeholder="Escribe o selecciona un asunto..." required />
+            <datalist id="topic-list">
+              <Option value="Asesoramiento de Imagen" ></Option>
+              <Option value="Organización del Guardarropas" ></Option>
+              <Option value="Colorimetría" ></Option>
+              <Option value="Personal Shopper" ></Option>
+              <Option value="Asesoramiento para Eventos" ></Option>
+              <Option value="Asesoramiento para Novias" ></Option>
+            </datalist>
           </label>
           <label for="topic-text" form="contact-form">Mensaje *
-            <textarea id="topic-text" class="contact-textarea" placeholder="Escribe tu mensaje..." maxlength="500" required></textarea>
+            <textarea id="topic-text" class="contact-textarea keyboard-activation" placeholder="Escribe tu mensaje..." maxlength="300" required></textarea>
           </label>
           <button id="send">Enviar</button>
         </form>

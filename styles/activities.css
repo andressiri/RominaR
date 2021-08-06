@@ -1,6 +1,6 @@
 :root {
-  --activity-card-width: 30vmax;
-  --activity-square: calc(15vmax - var(--cards-margins-width)*2);
+  --activity-card-width: 28vmax;
+  --activity-square: calc(14vmax - var(--cards-margins-width)*2);
 }
 
 #activities h1 {
@@ -9,12 +9,13 @@
   text-align: center;  
 }
 
+.contact-autofill {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
 .activity-card {
   width: var(--activity-card-width);
-  min-width: 360px;
-  max-width: var(--activity-card-width);  
-  height: calc(var(--activity-square) + var(--activity-square)/4 + var(--cards-margins-width)*4.25);
-  min-height: 250px;
   flex-direction: column;
   background-color: var(--secondary-color);
   border: var(--border-width) solid var(--main-color);
@@ -22,45 +23,35 @@
 }
 
 .activity-title-div {
-  width: calc(var(--activity-card-width) - var(--cards-margins-width)*2);
-  height: calc(var(--activity-square)/4);
+  width: 100%;
   margin: var(--cards-margins-width);
   margin-bottom: 0px;
   background-color: var(--secondary-color);
   color: var(--main-color);
   font-family: var(--title-family);
-  font-size: 3.7vw;
+  font-size: 3.5vw;
 }
 
 .activity-card-div {
-  width: var(--activity-card-width);
-  min-width: 360px;
+  width: 100%;
   height: calc(var(--activity-square) + var(--cards-margins-width)*2);
-  border: var(--border-width) solid var(--main-color);
-  border-top: none;
-  border-bottom: none;
-  border-bottom-left-radius: var(--border-radius);
-  border-bottom-right-radius: var(--border-radius);
 }
 
 .activity-img, .activity-text-div {
   width: var(--activity-square);
   height: var(--activity-square);
+  margin: var(--cards-margins-width);
   border: var(--border-width) solid var(--main-color);
   border-radius: var(--border-radius);
   object-fit: cover;
-}
-.activity-img {
-  margin: var(--cards-margins-width);
 }
 .activity-text-div {
   margin: var(--cards-margins-width);
   margin-left: 0px;
   padding: var(--cards-margins-width);
   background-color: var(--BG-color);
-  font-size: calc(0.1rem + (1.0vh + 1.4vw)/2);
+  font-size: calc(0.1rem + (1.5vmin + 1vmax)/2);
 }
-
 #imagen-img {
   object-position: 50% 10%;
 }
@@ -75,21 +66,35 @@
 /*Vertical*/
 @media (max-aspect-ratio: 7/10) {
   :root {
-    --activity-card-width: 90vw;
-    --activity-square: calc(90vw - var(--cards-margins-width)*2);
+    --activity-card-width: calc(100vw - var(--cards-margins-width)*4);
+    --activity-square: calc(var(--activity-card-width) - var(--cards-margins-width)*2);
+  }
+  #activities .border-div {
+    padding-bottom: var(--cards-margins-width);
+  }
+  #activities h1 {
+    margin: var(--cards-margins-width);
   }
   .activity-card {
-    min-width: unset;
     height: auto;
+    margin-top: var(--cards-margins-width);
+  }
+  .activity-title-div {
+
+    height: auto;
+    border-radius: var(--border-radius);
   }
   .activity-card h6 {
+    font-size: 8.3vw;
+  }
+  #guardarropas-card h6 {
     font-size: 7.5vw;
   }
   .activity-card-div {
     height: auto;
     min-width: unset;
     flex-direction: column;
-  }
+  }  
   .activity-text-div {
     height: auto;
     margin: var(--cards-margins-width);
@@ -103,39 +108,47 @@
 /*Landscape*/
 @media (min-aspect-ratio: 10/7) and (max-width: 900px), (min-aspect-ratio: 10/2) {
   :root {
-    --activity-card-width: 90vw;
-    --landscape-card-height: 70vh;
-    --landscape-card-title-height: 20vh;
+    --activity-card-width: calc(100vw - var(--cards-margins-width)*2 - var(--lateral-navbar) - var(--margin-width));
+    --landscape-card-height: 65vh;
+    --landscape-card-title-height: 15vh;
   }
+  
+
   .activity-card {
-    position: relative;
-    min-width: unset;
+    box-sizing: content-box;
+    width: var(--activity-card-width);
     height: var(--landscape-card-height);
+    margin: var(--cards-margins-width); 
+    position: relative;
+    left: 0;
   }
   .activity-card-div {
+    width: 100%;
     height: calc(var(--landscape-card-height) - var(--landscape-card-title-height)); 
     margin: 0px;
     justify-content: flex-end;
   }
   .activity-title-div {
-    width: calc(90vw - var(--landscape-card-height) - 10px);
-    height: calc(var(--landscape-card-title-height) - var(--cards-margins-width)*2);
-    margin-left: var(--landscape-card-height);
-    font-size: 4em;
-  }  
+    width: var(--activity-card-width);
+    height: var(--landscape-card-title-height);
+    padding-left: var(--landscape-card-height);
+    font-size: calc((10vw + 8vh)/2);
+  }
+
   .activity-img {
-    width: calc(var(--landscape-card-height) - 20px);
-    height: calc(var(--landscape-card-height) - 20px);
-    margin: 0px;
+    width: calc(var(--landscape-card-height) - var(--cards-margins-width)*2);
+    height: calc(var(--landscape-card-height) - var(--cards-margins-width)*2);
+    margin: var(--cards-margins-width);
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: 0px;
+    left: 0px;
   }
   .activity-text-div {
-    width: calc(var(--activity-card-width) - var(--landscape-card-height) - 10px);
+    width: calc(100% - var(--landscape-card-height) - var(--cards-margins-width));
     height: calc(var(--landscape-card-height) - var(--landscape-card-title-height) - 20px);
-    margin: 10px;
-    position: relative;
+    margin: var(--cards-margins-width);
+    margin-left: 0;
+    position: absolute;
     bottom: 0;
     right: 0;
     font-size: calc((5vmin + 3vmax)/2);

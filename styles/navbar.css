@@ -16,17 +16,36 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
   color: var(--main-color);
   text-decoration: none;
   font-size: calc(0.1rem + 2vmin); 
   font-weight: 400;
 }
 .navbar a:hover {
-  margin: 4px 5px 6px 5px;
-  transition: margin 0.3s;
-}
-.navbar a:focus {
   color: var(--BG-color);
+  transition: color 0.3s ease-in  ;
+}
+.navbar a:active, .navbar a:focus, .navbar a:visited {
+  color: inherit;
+}
+.navbar a::after {
+  content: '';
+  width: 100%; 
+  height: calc(var(--border-width)/2);
+  background-color: var(--main-color);
+  position: absolute;
+  top: 100%;
+  right: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+.navbar a.selected::after {
+  opacity: 1;  
+}
+.navbar a:hover::after {
+  background-color: var(--BG-color);
+  transition: background-color 0.3s ease-in  ;
 }
 
 .nav-link {
@@ -58,10 +77,12 @@
   margin: 5px;
   font-size: calc(0.5rem + 2vmin);
 }
-
 .navbar-contact-logo:hover {
   margin: 4px 5px 6px 5px;
   transition: margin 0.3s;
+}
+.navbar-contact-logo-anchor::after {
+  display: none;
 }
 
 /*Responsive Design*/
@@ -82,13 +103,12 @@
   width: 60%;
   height: calc(100vh - var(--navbar-height));
   padding-bottom: var(--browser-bar-height);
-  display: flex;
+  display: none;
   flex-direction: column;
   position: fixed;
   right: 0px;
   top: var(--navbar-height);
-  background-color: var(--BG-color2);
-  opacity: 0.95;
+  background-color: var(--BG-color2-transparent);
   transform: translateX(100%);
   transition: transform 0.5s ease-in;
 }
@@ -104,6 +124,9 @@
   transform: translateX(50px);
   opacity: 0;
 }
+.burguer-menu-item-active {
+  opacity: 1;
+}
 @keyframes burguerMenuFade {
   from {
     transform: translateX(50px);
@@ -117,7 +140,7 @@
 
 /*Mobile*/
 
-/*Vertical*/
+/*Portrait*/
 @media (max-aspect-ratio: 6/10),  (max-width: 450px) {
   .navbar-text {
     display: none;
@@ -131,7 +154,17 @@
   .center-navbar-div {
     width: 80%;
   }
+  .navbar a::after {
+    display: none;
+  }
+  .navbar a.selected {
+    color: var(--BG-color);
+    transition: color 0.5s ease;
+  }
   /*Burguer Menu*/
+  .burguer-menu {
+    display: flex;
+  }
   .burguer-div {
     width: 20%;
     height: var(--navbar-height);
@@ -154,6 +187,7 @@
     font-size: 4vw;
     margin: 0px;
   }
+  
   .burguer-contact-div {
     height: 10vh;
   }
@@ -178,10 +212,21 @@
 }
 
 /*Landscape*/
-@media (min-aspect-ratio: 10/6) and (max-height: 450px) {
+@media (min-aspect-ratio: 10/6) and (max-height: 450px) and (min-width: 450px),
+/*To handle navbar blocking textbox vision when switching to landscape with the android keyboard active,
+ without affecting devices that aren't handheld but have touch screens nor desktop devices*/
+(hover: none) and (pointer: coarse) and (min-device-aspect-ratio: 10/6), 
+/*for older devices*/(hover: on-demand) and (pointer: coarse) and (min-device-aspect-ratio: 10/6)
+{
   :root {
     --burguer-div-height: 25vh;
-    --burguer-menu-width: 20vw;
+    --burguer-menu-width: 21vw;
+  }
+  #gallery, #contact {
+    scroll-margin-top: calc(0px - var(--cards-margins-width)/2);
+  }
+  #about, #activities {
+    scroll-margin-top: calc(0px - var(--cards-margins-width)*2);
   }
   .navbar-text, .right-navbar-div {
     display: none;
@@ -192,6 +237,16 @@
     flex-direction: column-reverse;
     top: 0;
     right: 0;
+  }
+  .navbar a::after {
+    display: none;
+  }
+  .navbar a.selected {
+    color: var(--BG-color);
+  }
+  /*Burguer Menu*/
+  .burguer-menu {
+    display: flex;
   }
   .burguer-div {
     width: var(--lateral-navbar);
@@ -208,7 +263,6 @@
     padding:0;
     top: 0;
     right: var(--lateral-navbar);
-    background-color: var(--BG-color2);
     transform: translateX(calc(100% + var(--lateral-navbar)));
   }
   .landscape-swap {
@@ -257,7 +311,7 @@
   .navbar-icon {
     z-index: 1;
     margin: 0px;
-    font-size: 2.5vw;
+    font-size: calc(0.5rem + 3.5vmin);
   }
 
   .left-navbar-div {
@@ -270,7 +324,7 @@
 }
 
 /*Tablet*/
-@media (max-aspect-ratio: 15/12) {
+@media (max-aspect-ratio: 17/12) {
   .left-navbar-div {
     width: 0%;
   } 
@@ -293,6 +347,30 @@
 }
 
 /*Weird sizes*/
-@media (max-aspect-ratio: 190/35) {
 
+@media (max-width: 450px) and (max-height: 600px) {
+  .burguer-rominar-logo {
+    width: 30vmin;
+  }
+  .burguer-bottom-title h1, .burguer-bottom-title h2 {
+    display: none;
+  }
+  .burguer-text {
+    font-size: calc(0.5rem + 2vmin);
+    margin: 0px;
+  }
+  .navbar-icon {
+    z-index: 1;
+    margin: 0px;
+    font-size: calc(0.5rem + 2vmin);
+  }
+  .burguer-contact-logo {
+    font-size: 6vh;
+  }
+}
+
+@media (max-height: 250px) {
+  .burguer-bottom-title, .burguer-contact-div {
+    display: none;
+  }
 }
