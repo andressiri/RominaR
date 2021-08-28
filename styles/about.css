@@ -1,21 +1,15 @@
 :root {
   --card-height: 30vmin;
 }
-#about h1 {
-  width: 100%;
-  margin: 5px auto -5px auto;
-  text-align: center;
-}
 
 .card {
   width: 50vw;
   min-width: 87.5vmin;
   height: var(--card-height);
   margin: var(--cards-margins-width);
-  flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-around;
-  background-color: var(--secondary-color);
+  background-color: var(--BG-color2);
   border: var(--border-width) solid var(--main-color);
   border-radius: var(--border-radius2);
 }
@@ -30,7 +24,6 @@
 }
 .img-right {
   margin-left: 0px;
-  object-fit: cover;
   object-position: 50% 20%;
 }
 .img-left {
@@ -41,7 +34,7 @@
   margin: var(--cards-margins-width);
   padding: var(--cards-margins-width);
   text-align: center;
-  font-size: calc((2.3vmin + 1.2vmax)/2);
+  font-size: var(--text-font-size);
   border: var(--border-width) solid var(--main-color);
 }
 .card-text-div {
@@ -52,9 +45,9 @@
   border-radius: var(--border-radius);
 }
 .comment {
-  width: var(--card-height);
+  width: calc(var(--card-height)*1.35);
   height: var(--card-height);
-  background-color: var(--secondary-color);
+  background-color: var(--BG-color2);
   color: var(--main-color);
   border-radius: var(--border-radius2);
 }
@@ -63,55 +56,13 @@
 
 /*Mobile*/
 
-/*Vertical*/
-@media (max-aspect-ratio: 7/10), (max-width: 450px) {  
-  :root {
-    --card-width: calc(100vw - var(--cards-margins-width)*4);
-  }
-  #about h1 {
-    margin: var(--cards-margins-width);
-  }
-  .card {
-    min-width: unset;
-    width: var(--card-width);
-    height: auto;
-    margin: auto;
-    padding: 0;
-  }
-  #card-img-left {
-    flex-direction: column;
-  }
-  #card-img-right {
-    flex-direction: column-reverse;   
-  }
-  .img-right, .img-left {
-    margin: var(--cards-margins-width);
-    margin-bottom: 0px;
-  } 
-  .card-img {
-    width: calc(var(--card-width) - var(--cards-margins-width)*2);
-    height: calc(var(--card-width) - var(--cards-margins-width)*2);
-  }
-
-  .card-text-div {
-    width: calc(var(--card-width) - var(--cards-margins-width)*2);
-    height: auto;
-    font-size: 5vw;
-  }
-  .comment {
-    width: calc(var(--card-width) - var(--cards-margins-width)*2);
-    height: auto;
-    min-height: 35vmin;
-    font-size: 5vw;
-  }
-}
+/*Tablet*/
 
 /*Landscape*/
-@media (min-aspect-ratio: 10/7) and (max-height: 450px) and (min-width: 450px), (max-height: 450px) {
+@media (max-height: 480px) and (min-width: 480px) {
   :root {
     --card-height: 65vh;
     --card-width: calc(100% - var(--cards-margins-width)*2);
-    --card-img-width: calc(40vw - var(--cards-margins-width)*2); 
   }
   .card {
     min-width: unset;
@@ -124,37 +75,62 @@
     min-width: unset;
     width: calc(100% - var(--card-height) - var(--cards-margins-width));
     height: calc(var(--card-height) - var(--cards-margins-width)*2);
-    font-size: calc((6vh + 1vw)/2);
   }
   .comment {
     width: calc(var(--card-width)/2 - var(--cards-margins-width));
     height: calc(var(--card-height) - var(--cards-margins-width)*2);
-    font-size: calc((6vh + 1vw)/2);
   }
 }
-@media (min-aspect-ratio: 10/6) and (max-height: 450px) and (max-width: 630px) and (min-width: 450px) {
-  .card-text-div {
-    font-size: calc((3vh + 2vw)/2);
+
+/*Portrait*/
+@media (max-width: 480px) {  
+  :root {
+    --card-width: calc(100vw - var(--cards-margins-width)*4);
   }
-}  
+  #about h1 {
+    margin: var(--cards-margins-width);
+  }
+  .card {
+    min-width: unset;
+    width: var(--card-width);
+    height: auto;
+  }
+  #card-img-left {
+    flex-direction: column;
+  }
+  #card-img-right {
+    flex-direction: column-reverse;   
+  }
+  .card-img {
+    width: calc(var(--card-width) - var(--cards-margins-width)*2);
+    height: calc(var(--card-width) - var(--cards-margins-width)*2);
+    margin: var(--cards-margins-width);
+    margin-bottom: 0px;
+  }
+  .card-text-div, .comment {
+    width: calc(var(--card-width) - var(--cards-margins-width)*2);
+    height: auto;
+  }
+  .comment {
+    min-height: 50vmin;
+  }
+}
 
 /*Larger Screens*/
-@media (min-aspect-ratio: 17/10) and (min-width: 1200px) {
-  #about .border-div {
-    padding: 0vw 10vw calc(var(--cards-margins-width)*1.5) 10vw;
+@media (min-width: 1300px) and (min-aspect-ratio: 17/15){
+  #about .section-border-div {
+    padding: 0vw 7vw calc(var(--cards-margins-width)*1.5) 7vw;
   }
-}
-@media (min-aspect-ratio: 165/100) and (max-aspect-ratio: 170/100) and (min-width: 1200px) {
-  .comment {
-    margin: 50px;
-  } 
-}
-@media (min-aspect-ratio: 2/1) and (min-width: 950px) {
-  #about .border-div {
-    padding: 0vw 10vw calc(var(--cards-margins-width)*1.5) 10vw;
-  }
-  .comment {
-    width: 20vw;
-  } 
 }
 
+/*Weird sizes*/
+@media (min-width: 481px) and (max-aspect-ratio: 100/185) {
+  .card-text-div, .comment {
+    font-size: calc(var(--text-font-size)*0.9);
+  }
+}
+@media (min-height: 481px) and (min-aspect-ratio: 10/5) {
+  .comment {
+    width: 25vw;
+  }
+}

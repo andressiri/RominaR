@@ -17,44 +17,34 @@
   top: 0;
 }
 
-.gallery-title-div h1 {
-  width: 100%;
-  margin: calc(var(--cards-margins-width)*2) auto var(--cards-margins-width) auto;  
-  color: var(--main-color);
-  text-align: center;
-}
-
 .gallery-img {
   margin: var(--cards-margins-width);
   position: relative;
   border: var(--border-width) solid var(--main-color);
-  border-radius: var(--border-radius);
+  border-radius: var(--border-radius2);
   object-fit: cover;
   opacity: 0.9;
   cursor: pointer;
 }
 .gallery-img:hover {
-  border-style: dotted;
+  border-style: dashed;
   opacity: 1;
 }
  /*Optional galleries*/
 .optional-buttons-div {
   width: 100%;
   height: auto;
-  margin: 0;
   justify-content: space-evenly;
 }
 .optional-btn-label {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;;
+  justify-content: center;
   margin: var(--cards-margins-width);
   color: var(--main-color);
-  font-size: calc(0.6rem + 0.8vmin); 
-}
-.optional-gallery-btn {
-  font-size: calc(1rem + (1.5vmin + 1vmax));
+  font-size: var(--text-font-size);
+  cursor: pointer; 
 }
 .arrow-down, .arrow-up {
   flex-direction: column;
@@ -111,9 +101,6 @@
   }
 }
 
-.optional-btn-label:hover {
-  cursor: pointer;
-}
 .optional-hide {
   display: none;
 }
@@ -195,8 +182,32 @@
 
 /*Mobile*/
 
+/*Tablet*/
+@media (max-width: 1025px) {
+  #gallery-div, .optional-gallery {
+    height: auto;
+  }  
+  .gallery-img {
+    width: calc(50vw - var(--cards-margins-width)*3);
+    height: 40vh;
+    position: unset;
+  }
+}
+
+/*Landscape*/
+@media (max-height: 480px) and (min-width: 480px) {
+  #gallery-div, .optional-gallery {
+    height: auto;
+  }  
+  .gallery-img {
+    width: calc(50vw - var(--lateral-navbar));
+    height: 80vh;
+    position: unset;
+  }
+}
+
 /*Portrait*/
-@media (max-aspect-ratio: 7/10), (max-width: 450px) {
+@media (max-width: 480px) {
   #gallery-div, .optional-gallery {
     height: auto;
   }  
@@ -206,18 +217,3 @@
     position: unset;
   }
 }
-/*Landscape*/
-@media (min-aspect-ratio: 10/7) and (max-height: 450px) and (min-width: 450px) {
-  #gallery {
-    width: calc(100% - var(--lateral-navbar)/2);
-  }
-  #gallery-div, .optional-gallery {
-    height: auto;
-  }  
-  .gallery-img {
-    width: 40vw;
-    height: 80vh;
-    position: unset;
-  }
-}
-

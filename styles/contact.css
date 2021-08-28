@@ -1,35 +1,24 @@
 :root {
   --contact-width: 600px;
+  --recaptcha-width: 305px;
+  --recaptcha-height: 80px;
 }
 
 #contact {
-  margin-top: var(--navbar-height);
+  padding-top: 10px;
   flex-direction: column;
   justify-content: space-evenly;
 }
-
-#contact h1, h2 {
-  width: 100%;
-  color: var(--main-color);
-  text-align: center;
-}
-#contact h1 {
-  margin: 10px auto 10px auto;  
-}
-#contact h2 {
-  margin: 20px;
-  font-family: var(--title-family);
-  font-size: calc(0.7rem + (2vmin + 2vmax)/2);
-}
-
-#contact form, #contact label {
+#contact form {
   display: flex;
   flex-direction: column;
   color: var(--main-color);
-  font-size: calc(0.5rem + (1vmin + 0.3vmax)/2);
+  font-size: var(--text-font-size);
 }
 
-.contact-input, .contact-textarea, #send {
+.contact-input,
+.contact-textarea,
+#send {
   width: var(--contact-width);
   min-width: 50vw;
   max-width: 95vw;
@@ -38,51 +27,318 @@
   background-color: var(--BG-color);
   border: var(--border-width) solid var(--main-color);
   border-radius: var(--border-radius);
-  font-size: calc(0.5rem + (1vmin + 0.3vmax)/2);;
+  font-size: var(--text-font-size);
 }
-
 .contact-textarea {
   height: 100px;
-  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+  font-family: var(--text-font-family);
   resize: none;
 }
-
 #send {
-  margin: 10px auto 10px auto;
+  margin: 10px 0;
   background-color: var(--main-color);
   border: none;
-  font-weight: bolder;
+}
+#invisible-send {
+  width: 0px;
+  height: 0px;
+  opacity: 0;
+  z-index: -888888888;
 }
 
 .contact-input::placeholder,
 .contact-textarea::placeholder {
   opacity: 0.5;
+  font-family: var(--text-font-family);
+  font-size: var(--text-font-size);
 }
-
 .contact-input:focus,
-.contact-textarea:focus {
+.contact-textarea:focus,
+.phone-input:focus {
   caret-color: black;
   outline: none;
   background-color: white;
 }
-
+.contact-icons-div a {
+  text-decoration: none;
+}
 .contact-logo {
   color: var(--main-color);
-  font-size: calc(1rem + (1vmin + 0.5vmax));
-  margin: 40px 20px 20px 20px;
+  font-size: calc(var(--text-font-size) + 1em);
+  margin: 40px 20px 20px 20px;  
 }
 .contact-logo:hover {
-  margin: 35px 20px 5px 20px;
-  transition: margin 0.2s;
+  transform: translateY(10px);
+  transition: transform 0.8s ease-out;
+}
+#contact h2 {
+  margin: 20px;
+  font-size: calc(0.7rem + (2vmin + 2vmax)/2);
 }
 
+/* Phone asking before submit and confirm closing message confirmation*/
+.phone-number-asking-div {
+  opacity: 0;
+  width: 100vw;
+  z-index: -999999;
+  position: absolute;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.phone-number-asking-div-activated {
+  z-index: 99;
+  height: 100vh;
+  position: fixed;
+  align-items: flex-start;
+  padding-top: 15vh;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: var(--BG-color2);
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
+  overflow-x: hidden;
+}
+.phone-border-div,
+.confirm-closing-border-div,
+.message-sent-border-div {
+  width: calc(var(--contact-width) + var(--cards-margins-width)*2);
+  min-width: 50vw;
+  max-width: 95vw;
+  margin: calc(var(--cards-margins-width)*1); 
+  padding-bottom: calc(var(--cards-margins-width)*2);
+  flex-direction: column;
+  position: relative;
+  background-color: var(--BG-color2);
+  border: var(--border-width) solid var(--main-color);
+  border-radius: var(--border-radius2);
+  opacity: 1;
+  transition: all 0.8s ease;
+}
+.close-phone-asking,
+.close-closing-confirmation,
+.close-message-sent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: var(--cards-margins-width);
+  font-size: calc(var(--text-font-size)*1.5);
+  color: var(--main-color);
+}
+.question-div,
+.confirm-message-div,
+.message-sent-text-div {
+  width: 100%;
+  height: auto;
+  margin: calc(var(--cards-margins-width)*2);
+}
+.question,
+.confirm-closing-message,
+.message-sent-text {
+  width: 75%;  
+  font-family: var(--text-font-family);
+  text-align: center;
+  font-size: calc(0.7rem + (2vmin + 2vmax)/2);
+  font-weight: 400;
+  color: var(--main-color);
+}
+.phone-div {
+  width: 80%;
+  display: block;
+}
+.phone-input {
+  width: 100%;
+}
+.phone-input,
+.phone-btn,
+.closing-btn,
+.message-sent-btn {
+  margin: calc(var(--cards-margins-width)*0.3) auto calc(var(--cards-margins-width)*2) auto;
+  padding: var(--cards-margins-width);
+  background-color: var(--BG-color);
+  border: var(--border-width) solid var(--main-color);
+  border-radius: var(--border-radius);
+  font-size: var(--text-font-size);
+}
+.recaptcha-styling-div {
+  width: 100%;
+  height: auto;
+  margin: var(--cards-margins-width);
+  position: relative;
+}
+.recaptcha-resizing-div {
+  width: var(--recaptcha-width);
+  height: var(--recaptcha-height);
+  position: relative;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background-color: var(--main-color);
+  border: var(--border-width) solid var(--main-color);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+#recaptcha-required-input {
+  width: var(--recaptcha-width);
+  height: var(--recaptcha-height);
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  user-select: none;
+  pointer-events: none;
+}
+
+
+.phone-btns-div,
+.closing-confirm-btns-div {
+  display: flex;
+  flex-direction: row;
+}
+.phone-btn,
+.closing-btn,
+.message-sent-btn {
+  width: 15vw;
+  min-width: 150px;
+  max-width: 45vw;
+  margin: calc(var(--cards-margins-width)*2);
+}
+#deny-phone,
+#confirm-closing {
+  color: var(--main-color);
+  background-color: var(--BG-color2);
+}
+#send-phone,
+#cancel-closing,
+.message-sent-btn {
+  color: var(--BG-color2);
+  background-color: var(--main-color);
+}
+.form-sent {
+  text-decoration: none;
+}
+.message-sent-rominar-logo {
+  width: 20%;
+  border-radius: 50%;
+  border: 2px solid var(--BG-color2);
+}
+
+.push-bottom {
+  z-index: -888888;
+  opacity: 0;
+  position: absolute;
+}
+
+.disable-contact-transition {
+  transition: none;
+}
 /*Responsive Design*/
 
-/*Mobile phone*/
+/*Tablet*/
 
-/*Vertical*/
-@media (max-aspect-ratio: 7/10) {
-  :root {
-    --contact-width: 95vw;
+
+/*Landscape*/
+@media (max-height: 480px) and (min-width: 480px) {
+  .contact-input,
+  .contact-textarea,
+  #send {
+    max-width: calc(80vw - var(--lateral-navbar)); 
+  }
+  .phone-number-asking-div-activated {
+    align-items: flex-start;    
+  }
+}
+
+/*Portrait*/
+@media (max-width: 480px){
+  #rc-imageselect,
+  .g-recaptcha {
+    transform:scale(0.8);
+    -webkit-transform:scale(0.8);
+    transform-origin:0 0;
+    -webkit-transform-origin:0 0;
+  }
+  .recaptcha-resizing-div {
+    width: calc(var(--recaptcha-width)*0.8);
+    height: calc(var(--recaptcha-height)*0.8);
+  }
+  .phone-btn {
+    min-width: 130px;
+    margin: calc(var(--cards-margins-width));
+  }
+}
+@media (max-width: 300px) {
+  .phone-btn {
+    min-width: 107px;
+  }
+}
+
+/*Larger Screens*/
+@media (min-width: 1800px){
+  #rc-imageselect,
+  .g-recaptcha {
+    transform:scale(1.1);
+    -webkit-transform:scale(1.1);
+    transform-origin:0 0;
+    -webkit-transform-origin:0 0;
+  }
+  .recaptcha-resizing-div {
+    width: calc(var(--recaptcha-width)*1.1);
+    height: calc(var(--recaptcha-height)*1.1);
+  }
+}
+
+@media (min-width: 2500px){
+  #rc-imageselect, .g-recaptcha {
+    transform:scale(1.2);
+    -webkit-transform:scale(1.2);
+    transform-origin:0 0;
+    -webkit-transform-origin:0 0;
+  }
+  .recaptcha-resizing-div {
+    width: calc(var(--recaptcha-width)*1.2);
+    height: calc(var(--recaptcha-height)*1.2);
+  }
+}
+
+@media (min-width: 3500px){
+  #rc-imageselect,
+  .g-recaptcha {
+    transform:scale(2.5);
+    -webkit-transform:scale(2.5);
+    transform-origin:0 0;
+    -webkit-transform-origin:0 0;
+  }
+  .recaptcha-resizing-div {
+    width: calc(var(--recaptcha-width)*2.5);
+    height: calc(var(--recaptcha-height)*2.5);
+  }
+}
+
+@media (min-width: 5000px){
+  #rc-imageselect,
+  .g-recaptcha {
+    transform:scale(3.5);
+    -webkit-transform:scale(.5);
+    transform-origin:0 0;
+    -webkit-transform-origin:0 0;
+  }
+  .recaptcha-resizing-div {
+    width: calc(var(--recaptcha-width)*3.5);
+    height: calc(var(--recaptcha-height)*3.5);
+  }
+}
+
+@media (min-width: 6000px){
+  #rc-imageselect,
+  .g-recaptcha {
+    transform:scale(4.5);
+    -webkit-transform:scale(4.5);
+    transform-origin:0 0;
+    -webkit-transform-origin:0 0;
+  }
+  .recaptcha-resizing-div {
+    width: calc(var(--recaptcha-width)*4.5);
+    height: calc(var(--recaptcha-height)*4.5);
   }
 }

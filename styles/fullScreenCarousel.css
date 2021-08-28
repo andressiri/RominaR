@@ -1,0 +1,229 @@
+:root {
+  --carousel-card-height: calc(100vh - var(--navbar-height)*2);
+  --carousel-text-height: 20vh;
+  --carousel-card-width: 100vw;
+  --carousel-card-max-width: 1100px;
+  --carousel-nav-height: calc(100vh - var(--carousel-card-height) - var(--navbar-height)); 
+}
+.full-screen-display {
+  opacity: 0;
+  z-index: -999;
+  position: absolute;
+}
+.full-screen-display-activated {
+  z-index: 99;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--BG-color2-transparent);
+  opacity: 1;
+}
+.full-screen-navbar {
+  width: 100%;
+  height: var(--navbar-height);
+  padding-right: var(--cards-margins-width);
+  position: fixed;
+  justify-content: flex-end;
+  top: 0;
+  right: 0;
+  background-color: var(--BG-color2);
+}
+
+.full-screen-navbar-icon, .carousel-btn-prev, .carousel-btn-next, .carousel-btn-first, .carousel-btn-last {
+  margin: calc(var(--cards-margins-width));
+  color: var(--main-color);
+  font-size: calc(var(--text-font-size)*1.5);
+  cursor: pointer;
+}
+
+.carousel-div {
+  width: var(--carousel-card-width);
+  max-width: var(--carousel-card-max-width);
+  height: calc(100vh - var(--navbar-height));
+  flex-direction: column;
+  position: relative;
+  top: calc(var(--navbar-height)/2 - 2px);
+  overflow: hidden;
+  background-color: var(--BG-color2);
+}
+.carousel-track {
+  width: var(--carousel-card-width);
+  max-width: var(--carousel-card-max-width);
+  height: var(--carousel-card-height);
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  justify-content: unset;
+  align-items: unset;
+}
+.handle-carousel-transition {
+  transition: transform 0.6s ease-in;
+}
+.carousel-card {
+  width: var(--carousel-card-width);
+  max-width: var(--carousel-card-max-width);
+  height: var(--carousel-card-height);
+  margin-right: var(--cards-margins-width);
+  position: absolute;
+  top: 0;
+  left: 0;
+  flex-direction:  column;
+  background-color: var(--BG-color2);
+  border-radius: var(--border-radius2);
+  border: var(--border-width) solid var(--main-color);
+  cursor: grab;
+  user-select: none;
+}
+.full-screen-img {
+  width: calc(var(--carousel-card-width) - var(--cards-margins-width)*2);
+  max-width: calc(var(--carousel-card-max-width) - var(--cards-margins-width)*3);
+  height: calc(var(--carousel-card-height) - var(--carousel-text-height) - var(--cards-margins-width)*3);
+  margin: var(--cards-margins-width);
+  margin-bottom: 0;
+  padding: 0;
+  object-fit: contain;
+  background-color: var(--BG-color2);
+  border: var(--border-width) solid var(--main-color);
+  border-radius: var(--border-radius);
+  -webkit-user-drag: none;
+}
+.carousel-text-div {
+  width: calc(var(--carousel-card-width) - var(--cards-margins-width)*2);
+  max-width: calc(var(--carousel-card-max-width) - var(--cards-margins-width)*3);
+  height: var(--carousel-text-height);
+  margin: var(--cards-margins-width);
+  padding: var(--cards-margins-width);
+  background-color: var(--BG-color);
+  border-radius: var(--border-radius);
+  border: var(--border-width) solid var(--main-color);
+  font-size: var(--text-font-size);
+  text-align: center;
+  user-select: text;
+}
+.carousel-nav {
+  width: 100%;
+  height: var(--carousel-nav-height);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  user-select: none;
+}
+.carousel-nav-dots {
+  overflow: hidden;
+  cursor: grab;
+  position: relative;
+}
+.dots-nav-shadow-div-left, .dots-nav-shadow-div-right {
+  z-index: 999;
+  width: calc(var(--cards-margins-width)*2);
+  height: var(--carousel-nav-height);
+  position: absolute;
+  top: 0;
+  transition: opacity 0.8s ease-in;
+  pointer-events: none;
+}
+.dots-nav-shadow-div-left {
+  left: 0;
+  background: linear-gradient(to right, var(--BG-color2) 35%, transparent);
+}
+.dots-nav-shadow-div-right {
+  right: 0;
+  background: linear-gradient(to right, transparent, var(--BG-color2) 65%);
+}
+.carousel-nav-dots-track {
+  width: calc(var(--cards-margins-width)*(14 + 7*0.66));
+  height: var(--carousel-nav-height);
+  position: relative;
+  align-self: center;
+  justify-self: center;
+  transition: all 0.7s ease;
+}
+.carousel-number-indicator {
+  width: calc(var(--cards-margins-width)*2);
+  height: calc(var(--cards-margins-width)*2);
+  margin: calc(var(--cards-margins-width)/3);
+  position: absolute;
+  top: calc(var(--carousel-nav-height)/2 - var(--cards-margins-width)*(1 + 1/3));
+  left: 0;
+  background-color: var(--main-color);
+  border: 1px solid var(--BG-color2);
+  border-radius: 50%;
+  font-size: calc(var(--text-font-size)/2);
+  font-family: var(--text-font-family); 
+  opacity: 0.6;
+  cursor: grab;
+}
+.current-dot {
+  transition: opacity 0.7s ease;
+  opacity: 1;
+}
+
+.disable-carousel-transition {
+  transition: none;
+}
+.is-disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+.grabbing {
+  cursor: grabbing;
+}
+.is-hidden {
+  opacity: 0;
+}
+.faster-transition {
+  transition: all 0.3s ease;
+}
+
+/*Responsive Design*/
+
+/*Mobile*/
+
+/*Tablet*/
+
+/*Landscape*/
+@media (max-height: 480px) and (min-width: 480px) {
+  :root {
+    --carousel-text-height: 40vh;
+    --carousel-card-height: calc(80vh + var(--carousel-text-height) + var(--cards-margins-width)*3);
+    --carousel-card-width: calc(100vw - var(--lateral-navbar));
+    --carousel-nav-height: 20vh;
+  }
+  .full-screen-display-activated {
+    overflow-y: scroll;
+  }
+  .full-screen-navbar {
+    height: 100vh;
+    width: var(--lateral-navbar);
+    align-items: flex-start;
+  }
+  .full-screen-navbar-icon, .carousel-btn-prev, .carousel-btn-next, .carousel-btn-first, .carousel-btn-last {
+    margin: calc(var(--cards-margins-width));
+    font-size: calc(var(--text-font-size)*2);
+  }
+  .carousel-div {
+    height: calc(var(--carousel-card-height) + var(--carousel-nav-height));
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+/*Portrait*/
+@media (max-width: 480px) {
+  .carousel-text-div {
+    overflow-y: scroll;
+  }
+  .carousel-text-div p {
+    height: 100%;
+  }
+  .carousel-nav {
+    justify-content: space-evenly;
+  }
+}
+
+/*Desktop*/

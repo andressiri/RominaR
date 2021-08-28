@@ -1,56 +1,54 @@
 :root {
   --logo-width: 30vmin;
 }
-#header {
-  justify-content: unset;
-}
 
-.header-container h1, h2 {
-  z-index: 15;
-  color: var(--main-color);
-  font-family: var(--title-family);
-}
-.header-container h1 {
-  font-size: calc(1rem + 7vmin);
-}
-.header-container h2 {
-  font-size: calc(0.2rem + 5vmin);
-}
-
-.video-header {
+.home-header {
   width: 100%;
   height: 100vh;
   position: relative;
   flex-direction: column;
+  justify-content: unset;
   background-color: var(--BG-color2);
 }
 
-.video-container /*.header-video*/ {
+.header-title-container h1, .header-title-container h2 {
+  z-index: 15;
+  color: var(--main-color);
+  font-family: var(--title-family);
+  text-align: center;
+}
+.header-title-container h1 {
+  font-size: calc((6vmin + 5vmax)/2);
+}
+.header-title-container h2 {
+  font-size: calc((3.5vmin + 3.5vmax)/2);
+}
+
+.background-container, .header-img {
   height: calc(100vh - var(--navbar-height)*2);
   border-radius: var(--border-radius6);
   overflow: hidden;
 }
-.video-container {  
-  width: calc(100% - var(--margin-width));
+.background-container {  
+  width: calc(100% - var(--section-margins-width));
   position: absolute;
   top: var(--navbar-height);
   background-color: var(--BG-color2);
-  border: var(--border-width) solid var(--main-color);
+  border: calc(var(--cards-margins-width)*0.3) solid var(--main-color);
 }
-/*.header-video {
-  width: 100%;
-  opacity: 0.6;
-  transform: rotateY(180deg);
-  filter: blur(2px);  
-  object-fit: cover;
-}*/
 .header-img {
   width: 50%;
-  height: calc(100vh - var(--navbar-height)*2);
   object-fit: cover;
   object-position: top;
 }
-
+.h-img-1 {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.h-img-2 {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
 
 .rominar-logo {
   z-index: 10;
@@ -62,9 +60,9 @@
   border: 2px solid var(--BG-color2);
 }
 
-.header-container {
-  width: 40%;
-  height: calc(35vh - var(--navbar-height));
+.header-title-container {
+  width: calc((40vmax + 50vmin)/2);
+  height: calc((35vmin + 10vmax)/2);
   padding-top: 4vh;
   position: relative;
   top: 50vh;
@@ -76,127 +74,48 @@
 
 /*Responsive Design*/
 
-@media (max-aspect-ratio: 10/5) and  (min-aspect-ratio: 10/10) {
-  .header-container h1 {
-    font-size: calc(1rem + 3vw);
+/*Mobile*/
+
+/*Tablet*/
+
+/*Landscape*/
+@media (max-height: 480px) {
+  .background-container, .header-img {
+    height: calc(100vh - var(--section-margins-width));
   }
-  .header-container h2 {
-    font-size: calc(0.2rem + 3vw);
+  .background-container {
+    width: calc(100% - var(--section-margins-width)/2 - var(--lateral-navbar));
+    top: calc(var(--section-margins-width)/2);
+    right: calc(var(--lateral-navbar));
   }
 }
 
-/*Mobile*/
-
-/*Vertical*/
-@media (max-aspect-ratio: 6/10), (max-width: 450px) {
+/*Portrait*/
+@media (max-width: 480px) {
   :root {
     --logo-width: 50vw;
   }
-  .header-container h1 {
-    font-size: calc(1rem + 10vmin);
+  #header {
+    margin-bottom: calc(10px - var(--navbar-height)*2);
+  }
+  .background-container, .header-img {
+    height: 50vh;
+    top: var(--navbar-height);
+  }
+  .rominar-logo {
+    top: calc(45vh + var(--navbar-height) - var(--logo-width)/2);
+  }
+  .header-title-container {
+    width: calc(100% - var(--section-margins-width));
+    height: calc(50vh - var(--navbar-height));
+    border: none;
+    top: calc(50vh + var(--navbar-height));
+  }
+  .header-title-container h1 {
+    font-size: calc(1rem + 9vmin);
     margin-top: -6vh;
   }
-  .header-container h2 {
+  .header-title-container h2 {
     font-size: calc(0.5rem + 8vmin);
   }
-  .video-container, .header-img/*.header-video*/ {
-    height: calc(50vh - var(--navbar-height));
-    border-radius: var(--border-radius6);
-  }
-  .h-img-1 {
-    border-top-right-radius: 0px;
-  }
-  .h-img-2 {
-    border-top-left-radius: 0px;
-  }
-  .rominar-logo {
-    top: calc(50vh - var(--logo-width)/2);
-  }
-  .header-container {
-    width: calc(100% - var(--margin-width));
-    height: 50vh;
-    border: none;
-  }
 }
-
-/*Landscape*/
-@media (min-aspect-ratio: 10/6) and (max-height: 450px) and (min-width: 450px),
-/*To handle navbar blocking textbox vision when switching to landscape with the android keyboard active,
- without affecting devices that aren't handheld but have touch screens nor desktop devices*/
-(hover: none) and (pointer: coarse) and (min-device-aspect-ratio: 10/6), 
-/*for older devices*/(hover: on-demand) and (pointer: coarse) and (min-device-aspect-ratio: 10/6)
-{
-  .video-container, .header-img/*.header-video*/ {
-    height: calc(100vh - var(--margin-width));
-  }
-  .video-container {
-    width: calc(100% - var(--margin-width)/2 - var(--lateral-navbar));
-    top: calc(var(--margin-width)/2);
-    right: calc(var(--lateral-navbar) + 1px);
-  }
-  .header-container h1 {
-    font-size: 5vw;
-  }
-  .header-container h2 {
-    font-size: 3.5vw;
-  }
-}
-
-
-/*Tablet*/
-@media (max-aspect-ratio: 17/10) and (min-aspect-ratio: 6/10) and (min-width: 450px), (max-aspect-ratio: 10/16) and (min-aspect-ratio: 6/10) and (min-width: 450px) {
-  .header-container h1 {
-    font-size: 5vw;
-  }
-  .header-container h2 {
-    font-size: 3.5vw;
-  }
-}
-@media (min-aspect-ratio: 85/100) and (max-aspect-ratio: 11/10) and (min-width: 450px) {
-  :root {
-    --logo-width: 27vmin;
-  }
-  .header-container {
-    height: 20vh;
-  }
-}
-@media (min-aspect-ratio: 6/10) and (max-aspect-ratio: 85/100) and (min-width: 450px) {
-  :root {
-    --logo-width: 35vmin;
-  }
-  .header-container {
-    height: 20vh;
-    width: 60vw;
-  }
-  .header-container h1 {
-    font-size: 8vw;
-  }
-  .header-container h2 {
-    font-size: 5.5vw;
-  }
-}
-
-/*Weird sizes*/
-@media (max-aspect-ratio: 11/10) and (max-width: 330px) {
-  .header-container h1 {
-    font-size: 12vw;
-  }
-  .header-container h2 {
-    font-size: 8vw;
-  }
-}
-
-@media (max-width: 500px) and (max-height: 450px) {
-  .rominar-logo {
-    width: 40vmin;
-    top: calc(40vh - 20vmin);
-    left: calc(50vw - 20vmin);
-  }
-  .header-container h1 {
-    font-size: 5vw;
-  }
-  .header-container h2 {
-    font-size: 3vw;
-  }
-}
-

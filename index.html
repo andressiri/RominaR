@@ -5,22 +5,19 @@
 
     <meta charset="UTF-8" />
     <link rel="icon" href="./media/rominarLogo.png" />
-    <link rel="stylesheet" href="./style.css" />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
-      integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V"
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!--This is modified at app.js-->
+    <meta name="description" content="Página oficial de Romina Ramallo asesora" />
     <title>RominaR</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
   </head>
 <!-- Body Section -->
   <body>
 
-    <header id="header" class="video-header nav-link">
+    <header id="header" class="home-header nav-link">
 <!-- Navbar -->      
       <nav class="navbar">
         <div class="left-navbar-div">       
@@ -106,24 +103,22 @@
       </nav>
 
 <!-- Header Section -->
-      <div class="video-container">
+      <div class="background-container">
         <img  class="header-img h-img-1" src="./media/header1.jpeg" alt="Romina posando en una banqueta." />
         <img  class="header-img h-img-2" src="./media/header2.jpeg" alt="Romina posando en una banqueta." />
-        <!--<video class="header-video" src="./media/placeholderVideo.mp4" autoplay muted loop></video>
-        -->
       </div>
       <img src="./media/rominarLogo.png" class="rominar-logo" alt="RominaR" />
-      <div class="header-container">
+      <div class="header-title-container">
         <h1>Romina Ramallo</h1>
         <h2>Asesora</h2>
       </div>      
     </header>
 <!-- About Section -->
     <section id="about" class="nav-link">
-      <div class="border-div">
+      <div class="section-border-div">
         <h1>Acerca de mí</h1>
         <div id="card-img-left" class="card">
-          <img src="./media/romi3.jpeg" alt="Una foto de Romina en un restaurante." class="card-img img-left">
+          <img src="./media/romi3.jpeg" alt="Una foto de Romina y su hija." class="card-img img-left">
           <div class="card-text-div">
             <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit dolore illo magni, nemo alias ducimus voluptate distinctio! Consequuntur modi corporis optio reprehenderit! Veniam nulla soluta blanditiis facere, dolor qui, fugit eveniet facilis fuga doloremque at necessitatibus unde ratione illo commodi laborum ipsum! Expedita repellendus, nisi sunt excepturi blanditiis consequuntur architecto.</p>
           </div>
@@ -138,92 +133,103 @@
           <div class="card-text-div">
             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur magnam consequatur iure ut fuga odio quo, quaerat totam repudiandae cum quae doloribus nihil facere adipisci cupiditate quos nemo autem quisquam? Eaque ex nostrum libero neque deleniti. Similique debitis consequatur dolores ipsum! Eligendi fugit at unde, iure exercitationem error fugiat nostrum!</p>
           </div>
-          <img src="./media/romi4.jpeg" alt="Una foto de Romina y su hija." class="card-img img-right">
+          <img src="./media/romi4.jpeg" alt="Una foto de Romina sonriendo." class="card-img img-right">
         </div>
       </div>
     </section>
 <!-- Activities Section -->
     <section id="activities" class="nav-link">
-      <div class="border-div">
+      <div class="section-border-div">
         <h1>Actividades</h1>
-        <a id="imagen-activity-anchor" href="#name" class="contact-autofill">
-          <div class="activity-card">
-            <div class="activity-title-div">
-              <h6 class="activity-title">Asesoramiento de imagen</h6>
-            </div>
-            <div class="activity-card-div">
-              <img id="imagen-img" src="./media/activities/imagen2.jpeg" alt="Una foto de Romina trabajando." class="activity-img" />
-              <div class="activity-text-div">
-                <p class="activity-text">Asesoramiento integral de acuerdo al estilo personal, tipo de cuerpo, prendas acordes a él y ocasión de uso. Tipología corporal y colorimetría.</p>
-              </div>
+        
+        <div class="activity-card">
+          <div class="activity-title-div">
+            <h6 class="activity-title">Asesoramiento de imagen</h6>
+          </div>
+          <div class="activity-card-div">
+            <img id="imagen-img" src="./media/activities/imagen2.jpeg" alt="Una foto de Romina trabajando." class="activity-img" />
+            <div class="activity-text-div">
+              <p class="activity-text">Asesoramiento integral de acuerdo al estilo personal, tipo de cuerpo, prendas acordes a él y ocasión de uso. Tipología corporal y colorimetría.</p>
             </div>
           </div>
-        </a>
-        <a id="guardarropas-activity-anchor" href="#name" class="contact-autofill">
-        <div id="guardarropas-card" class="activity-card">
-            <div class="activity-title-div">
-              <h6 class="activity-title">Organización de guardarropas</h6>
-            </div>
-            <div class="activity-card-div">
-              <img src="./media/activities/guardarropas1.jpg" alt="Una foto de un guardarropas." class="activity-img" />
-              <div class="activity-text-div">
-                <p class="activity-text">Análisis y organización del guardarropa para saber si es representativo del estilo, tipo de cuerpo y actividades que realiza.</p>
-              </div>
+          <a id="imagen-activity-anchor" href="#name" class="contact-autofill">
+            <button class="consult-btn keyboard-activation" tabindex="-1">Consultar</button>
+          </a>
+        </div>
+      
+      <div id="guardarropas-card" class="activity-card">
+          <div class="activity-title-div">
+            <h6 class="activity-title">Organización de guardarropas</h6>
+          </div>
+          <div class="activity-card-div">
+            <img src="./media/activities/guardarropas1.jpg" alt="Una foto de un guardarropas." class="activity-img" />
+            <div class="activity-text-div">
+              <p class="activity-text">Análisis y organización del guardarropa para saber si es representativo del estilo, tipo de cuerpo y actividades que realiza.</p>
             </div>
           </div>
-        </a>
-        <a id="colorimetria-activity-anchor" href="#name" class="contact-autofill">
-          <div class="activity-card">
-            <div class="activity-title-div">
-              <h6 class="activity-title">Colorimetría</h6>
-            </div>
-            <div class="activity-card-div">
-              <img src="./media/activities/colorimetría.jpeg" alt="Una foto de una paleta de colores." class="activity-img" />
-              <div class="activity-text-div">
-                <p class="activity-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident rerum harum ex nemo dicta temporibus corrupti accusamus esse quibusdam quasi.</p>
-              </div>
+          <a id="guardarropas-activity-anchor" href="#name" class="contact-autofill">
+            <button class="consult-btn keyboard-activation" tabindex="-1">Consultar</button>
+          </a>
+        </div>
+     
+        <div class="activity-card">
+          <div class="activity-title-div">
+            <h6 class="activity-title">Colorimetría</h6>
+          </div>
+          <div class="activity-card-div">
+            <img src="./media/activities/colorimetría.jpeg" alt="Una foto de una paleta de colores." class="activity-img" />
+            <div class="activity-text-div">
+              <p class="activity-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident rerum harum ex nemo dicta temporibus corrupti accusamus esse quibusdam quasi.</p>
             </div>
           </div>
-        </a>
-        <a id="shopper-activity-anchor" href="#name" class="contact-autofill">
-          <div class="activity-card">
-            <div class="activity-title-div">
-              <h6 class="activity-title">Personal Shopper</h6>
-            </div>
-            <div class="activity-card-div">
-              <img src="./media/activities/shopper.jpg" alt="Una foto de Romina de alguien llevando bolsas de compras." class="activity-img" />
-              <div class="activity-text-div">
-                <p class="activity-text">Un recorrido de compras a la medida de las necesidades del cliente, dónde enseñaré a elegir tus mejores looks, teniendo en cuenta tu presupuesto.</p>
-              </div>
+          <a id="colorimetria-activity-anchor" href="#name" class="contact-autofill">
+            <button class="consult-btn keyboard-activation" tabindex="-1">Consultar</button>
+          </a>
+        </div>
+      
+        <div class="activity-card">
+          <div class="activity-title-div">
+            <h6 class="activity-title">Personal Shopper</h6>
+          </div>
+          <div class="activity-card-div">
+            <img src="./media/activities/shopper.jpg" alt="Una foto de Romina de alguien llevando bolsas de compras." class="activity-img" />
+            <div class="activity-text-div">
+              <p class="activity-text">Un recorrido de compras a la medida de las necesidades del cliente, dónde enseñaré a elegir tus mejores looks, teniendo en cuenta tu presupuesto.</p>
             </div>
           </div>
-        </a>
-        <a id="eventos-activity-anchor" href="#name" class="contact-autofill">
-          <div class="activity-card">
-            <div class="activity-title-div">
-              <h6 class="activity-title">Asesoramiento para eventos</h6>
-            </div>
-            <div class="activity-card-div">
-              <img src="./media/activities/eventos1.jpg" alt="Una foto de una mujer posando." class="activity-img" />
-              <div class="activity-text-div">
-                <p class="activity-text">Relevamiento del tipo de fiesta. Diagnóstico de estilo. Sugerencia de estilismo integral para los protagonistas.</p>
-              </div>
+          <a id="shopper-activity-anchor" href="#name" class="contact-autofill">
+            <button class="consult-btn keyboard-activation" tabindex="-1">Consultar</button>
+          </a>
+        </div>
+        <div class="activity-card">
+          <div class="activity-title-div">
+            <h6 class="activity-title">Asesoramiento para eventos</h6>
+          </div>
+          <div class="activity-card-div">
+            <img src="./media/activities/eventos1.jpg" alt="Una foto de una mujer posando." class="activity-img" />
+            <div class="activity-text-div">
+              <p class="activity-text">Relevamiento del tipo de fiesta. Diagnóstico de estilo. Sugerencia de estilismo integral para los protagonistas.</p>
             </div>
           </div>
-        </a>  
-        <a id="novias-activity-anchor" href="#name" class="contact-autofill">
-          <div class="activity-card">
-            <div class="activity-title-div">
-              <h6 class="activity-title">Asesoramiento para novias</h6>
-            </div>
-            <div class="activity-card-div">
-              <img id="novias-img" src="./media/activities/novias1.jpg" alt="Una foto de una novia." class="activity-img" />
-              <div class="activity-text-div">
-                <p class="activity-text">Relevamiento del tipo de fiesta. Diagnostico de estilo. Propuesta de proveedores. Selección de marcas y diseñadores. Elección de todo lo referido al total look.</p>
-              </div>
+          <a id="eventos-activity-anchor" href="#name" class="contact-autofill">
+            <button class="consult-btn keyboard-activation" tabindex="-1">Consultar</button>
+          </a>  
+        </div>
+      
+        <div class="activity-card">
+          <div class="activity-title-div">
+            <h6 class="activity-title">Asesoramiento para novias</h6>
+          </div>
+          <div class="activity-card-div">
+            <img id="novias-img" src="./media/activities/novias1.jpg" alt="Una foto de una novia." class="activity-img" />
+            <div class="activity-text-div">
+              <p class="activity-text">Relevamiento del tipo de fiesta. Diagnostico de estilo. Propuesta de proveedores. Selección de marcas y diseñadores. Elección de todo lo referido al total look.</p>
             </div>
           </div>
-        </a>  
+          <a id="novias-activity-anchor" href="#name" class="contact-autofill">
+            <button class="consult-btn keyboard-activation" tabindex="-1" >Consultar</button>
+          </a>  
+        </div>
       </div>
     </section>
 <!-- Gallery Section-->
@@ -239,7 +245,7 @@
         <img src="./media/Galería/gallery5.jpg" alt="Una selfie de Romina." class="gallery-img gall-size-five" />
         <img src="./media/Galería/gallery6.jpg" alt="Romina en un almuerzo al aire libre." class="gallery-img gall-size-six" />
       </div>
-      <!-- Optional Gallery -->      
+      <!-- Optional Galleries -->      
       <div id="optional-gallery-div1" class="optional-gallery optional-hide">
         <img src="./media/Galería/gallery7.jpg" alt="Una foto inspiradora." class="gallery-img gall-size-seven" />
         <img src="./media/Galería/gallery8.jpg" alt="Una foto de Romina en la costanera con su grupo de ciclismo." class="gallery-img gall-size-eight" />
@@ -248,25 +254,28 @@
         <img src="./media/Galería/gallery11.jpg" alt="Una foto de Romina en Disney." class="gallery-img gall-size-eleven" />
         <img src="./media/Galería/gallery12.jpg" alt="Una foto de Romina en Buenos Aires." class="gallery-img gall-size-twelve" />
       </div>
+      
       <div id="optional-gallery-div2" class="optional-gallery optional-hide">
-        <img src="./media/Galería/gallery7.jpg" alt="Una foto inspiradora." class="gallery-img gall-size-seven" />
-        <img src="./media/Galería/gallery8.jpg" alt="Una foto de Romina en la costanera con su grupo de ciclismo." class="gallery-img gall-size-eight" />
-        <img src="./media/Galería/gallery9.jpg" alt="Una nota inspiradora." class="gallery-img gall-size-nine" />
-        <img src="./media/Galería/gallery10.jpg" alt="Una foto de Romina con su padre y su hija." class="gallery-img gall-size-ten" />
-        <img src="./media/Galería/gallery11.jpg" alt="Una foto de Romina en Disney." class="gallery-img gall-size-eleven" />
-        <img src="./media/Galería/gallery12.jpg" alt="Una foto de Romina en Buenos Aires." class="gallery-img gall-size-twelve" />
+        <img src="./media/Galería/gallery13.jpg" alt="Una foto inspiradora." class="gallery-img gall-size-seven" />
+        <img src="./media/Galería/gallery14.jpg" alt="Una foto de Romina en la costanera con su grupo de ciclismo." class="gallery-img gall-size-eight" />
+        <img src="./media/Galería/gallery15.jpg" alt="Una nota inspiradora." class="gallery-img gall-size-nine" />
+        <img src="./media/Galería/gallery16.jpg" alt="Una foto de Romina con su padre y su hija." class="gallery-img gall-size-ten" />
+        <img src="./media/Galería/gallery17.jpg" alt="Una foto de Romina en Disney." class="gallery-img gall-size-eleven" />
+        <img src="./media/Galería/gallery18.jpg" alt="Una foto de Romina en Buenos Aires." class="gallery-img gall-size-twelve" />
       </div>
+      
       <div id="optional-gallery-div3" class="optional-gallery optional-hide">
-        <img src="./media/Galería/gallery7.jpg" alt="Una foto inspiradora." class="gallery-img gall-size-seven" />
-        <img src="./media/Galería/gallery8.jpg" alt="Una foto de Romina en la costanera con su grupo de ciclismo." class="gallery-img gall-size-eight" />
-        <img src="./media/Galería/gallery9.jpg" alt="Una nota inspiradora." class="gallery-img gall-size-nine" />
-        <img src="./media/Galería/gallery10.jpg" alt="Una foto de Romina con su padre y su hija." class="gallery-img gall-size-ten" />
-        <img src="./media/Galería/gallery11.jpg" alt="Una foto de Romina en Disney." class="gallery-img gall-size-eleven" />
-        <img src="./media/Galería/gallery12.jpg" alt="Una foto de Romina en Buenos Aires." class="gallery-img gall-size-twelve" />
+        <img src="./media/Galería/gallery19.jpg" alt="Una foto inspiradora." class="gallery-img gall-size-seven" />
+        <img src="./media/Galería/gallery20.jpg" alt="Una foto de Romina en la costanera con su grupo de ciclismo." class="gallery-img gall-size-eight" />
+        <img src="./media/Galería/gallery21.jpg" alt="Una nota inspiradora." class="gallery-img gall-size-nine" />
+        <img src="./media/Galería/gallery22.jpg" alt="Una foto de Romina con su padre y su hija." class="gallery-img gall-size-ten" />
+        <img src="./media/Galería/gallery23.jpg" alt="Una foto de Romina en Disney." class="gallery-img gall-size-eleven" />
+        <img src="./media/Galería/gallery24.jpg" alt="Una foto de Romina en Buenos Aires." class="gallery-img gall-size-twelve" />
       </div>
     </section>
+<!-- Show more or less gallery buttons -->    
     <div class="optional-buttons-div">
-      <label id="show-more-label" class="optional-btn-label" for="show-more">
+      <label id="show-more-label" class="optional-btn-label" for="show-more" tabindex="0">
         <div id="show-more" class="arrow-down">
           <span></span>
           <span></span>
@@ -274,7 +283,7 @@
         </div>
         Mostrar más
       </label>
-      <label id="show-less-label" class="optional-btn-label optional-hide" for="show-less">
+      <label id="show-less-label" class="optional-btn-label optional-hide" for="show-less" tabindex="0">
         <div id="show-less" class="arrow-up">
           <span></span>
           <span></span>
@@ -283,34 +292,307 @@
         Mostrar menos
       </label>
     </div>
+<!-- Display full screen Gallery photos at click -->
+    <div class="full-screen-display">
+      <div class="full-screen-navbar">
+        <i class="fas fa-times full-screen-navbar-icon"></i>
+      </div>
+      <div class="carousel-div">
+        <div class="carousel-track">
+          
+          <div class="carousel-card">
+            <img src="media/Galería/gallery1.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem50 ipsum dolor sit amet consectetur adipisicing elit. Assumenda cupiditate placeat veritatis suscipit ducimus autem reprehenderit nesciunt? Cumque nisi nemo, vitae dolore distinctio blanditiis cupiditate fugiat nihil ad alias soluta officia illo omnis deleniti eum rerum enim quam consequuntur veritatis aut at numquam saepe porro? Aperiam accusamus provident recusandae corporis.</p>
+            </div>
+          </div>
+          
+          <div class="carousel-card">
+            <img src="media/Galería/gallery2.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem quod voluptatum omnis ipsum quia natus ad. Dignissimos quaerat odio excepturi laboriosam illo perspiciatis velit aliquid distinctio aperiam quos sunt, recusandae, praesentium officiis voluptas molestias non exercitationem? Reprehenderit exercitationem magni consequatur adipisci error! Laboriosam ducimus maxime reiciendis veniam mollitia hic molestiae?</p>
+            </div>
+          </div>
+          
+          <div class="carousel-card">
+            <img src="media/Galería/gallery3.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam aspernatur suscipit nam necessitatibus molestias, aliquid quis magni eos quas corrupti perspiciatis possimus pariatur deserunt nulla assumenda, quia ducimus nisi provident itaque maxime? Animi repudiandae illum non aliquid laudantium provident libero placeat magni totam suscipit maxime, perspiciatis, voluptates inventore reprehenderit sapiente?</p>
+            </div>
+          </div>
+                    
+          <div class="carousel-card">
+            <img src="media/Galería/gallery4.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem50 ipsum dolor sit amet consectetur adipisicing elit. Assumenda cupiditate placeat veritatis suscipit ducimus autem reprehenderit nesciunt? Cumque nisi nemo, vitae dolore distinctio blanditiis cupiditate fugiat nihil ad alias soluta officia illo omnis deleniti eum rerum enim quam consequuntur veritatis aut at numquam saepe porro? Aperiam accusamus provident recusandae corporis.</p>
+            </div>
+          </div>
+          
+          <div class="carousel-card">
+            <img src="media/Galería/gallery5.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem quod voluptatum omnis ipsum quia natus ad. Dignissimos quaerat odio excepturi laboriosam illo perspiciatis velit aliquid distinctio aperiam quos sunt, recusandae, praesentium officiis voluptas molestias non exercitationem? Reprehenderit exercitationem magni consequatur adipisci error! Laboriosam ducimus maxime reiciendis veniam mollitia hic molestiae?</p>
+            </div>
+          </div>
+          
+          <div class="carousel-card">
+            <img src="media/Galería/gallery6.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam aspernatur suscipit nam necessitatibus molestias, aliquid quis magni eos quas corrupti perspiciatis possimus pariatur deserunt nulla assumenda, quia ducimus nisi provident itaque maxime? Animi repudiandae illum non aliquid laudantium provident libero placeat magni totam suscipit maxime, perspiciatis, voluptates inventore reprehenderit sapiente?</p>
+            </div>
+          </div>
+                    
+          <div class="carousel-card">
+            <img src="media/Galería/gallery7.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem50 ipsum dolor sit amet consectetur adipisicing elit. Assumenda cupiditate placeat veritatis suscipit ducimus autem reprehenderit nesciunt? Cumque nisi nemo, vitae dolore distinctio blanditiis cupiditate fugiat nihil ad alias soluta officia illo omnis deleniti eum rerum enim quam consequuntur veritatis aut at numquam saepe porro? Aperiam accusamus provident recusandae corporis.</p>
+            </div>
+          </div>
+          
+          <div class="carousel-card">
+            <img src="media/Galería/gallery8.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem quod voluptatum omnis ipsum quia natus ad. Dignissimos quaerat odio excepturi laboriosam illo perspiciatis velit aliquid distinctio aperiam quos sunt, recusandae, praesentium officiis voluptas molestias non exercitationem? Reprehenderit exercitationem magni consequatur adipisci error! Laboriosam ducimus maxime reiciendis veniam mollitia hic molestiae?</p>
+            </div>
+          </div>
+          
+          <div class="carousel-card">
+            <img src="media/Galería/gallery9.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam aspernatur suscipit nam necessitatibus molestias, aliquid quis magni eos quas corrupti perspiciatis possimus pariatur deserunt nulla assumenda, quia ducimus nisi provident itaque maxime? Animi repudiandae illum non aliquid laudantium provident libero placeat magni totam suscipit maxime, perspiciatis, voluptates inventore reprehenderit sapiente?</p>
+            </div>
+          </div>
+                    
+          <div class="carousel-card">
+            <img src="media/Galería/gallery10.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem50 ipsum dolor sit amet consectetur adipisicing elit. Assumenda cupiditate placeat veritatis suscipit ducimus autem reprehenderit nesciunt? Cumque nisi nemo, vitae dolore distinctio blanditiis cupiditate fugiat nihil ad alias soluta officia illo omnis deleniti eum rerum enim quam consequuntur veritatis aut at numquam saepe porro? Aperiam accusamus provident recusandae corporis.</p>
+            </div>
+          </div>
+          
+          <div class="carousel-card">
+            <img src="media/Galería/gallery11.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem quod voluptatum omnis ipsum quia natus ad. Dignissimos quaerat odio excepturi laboriosam illo perspiciatis velit aliquid distinctio aperiam quos sunt, recusandae, praesentium officiis voluptas molestias non exercitationem? Reprehenderit exercitationem magni consequatur adipisci error! Laboriosam ducimus maxime reiciendis veniam mollitia hic molestiae?</p>
+            </div>
+          </div>
+          
+          <div class="carousel-card">
+            <img src="media/Galería/gallery12.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam aspernatur suscipit nam necessitatibus molestias, aliquid quis magni eos quas corrupti perspiciatis possimus pariatur deserunt nulla assumenda, quia ducimus nisi provident itaque maxime? Animi repudiandae illum non aliquid laudantium provident libero placeat magni totam suscipit maxime, perspiciatis, voluptates inventore reprehenderit sapiente?</p>
+            </div>
+          </div>
+                    
+          <div class="carousel-card">
+            <img src="media/Galería/gallery13.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem50 ipsum dolor sit amet consectetur adipisicing elit. Assumenda cupiditate placeat veritatis suscipit ducimus autem reprehenderit nesciunt? Cumque nisi nemo, vitae dolore distinctio blanditiis cupiditate fugiat nihil ad alias soluta officia illo omnis deleniti eum rerum enim quam consequuntur veritatis aut at numquam saepe porro? Aperiam accusamus provident recusandae corporis.</p>
+            </div>
+          </div>
+          
+          <div class="carousel-card">
+            <img src="media/Galería/gallery14.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem quod voluptatum omnis ipsum quia natus ad. Dignissimos quaerat odio excepturi laboriosam illo perspiciatis velit aliquid distinctio aperiam quos sunt, recusandae, praesentium officiis voluptas molestias non exercitationem? Reprehenderit exercitationem magni consequatur adipisci error! Laboriosam ducimus maxime reiciendis veniam mollitia hic molestiae?</p>
+            </div>
+          </div>
+          
+          <div class="carousel-card">
+            <img src="media/Galería/gallery15.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam aspernatur suscipit nam necessitatibus molestias, aliquid quis magni eos quas corrupti perspiciatis possimus pariatur deserunt nulla assumenda, quia ducimus nisi provident itaque maxime? Animi repudiandae illum non aliquid laudantium provident libero placeat magni totam suscipit maxime, perspiciatis, voluptates inventore reprehenderit sapiente?</p>
+            </div>
+          </div>
+                    
+          <div class="carousel-card">
+            <img src="media/Galería/gallery16.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem50 ipsum dolor sit amet consectetur adipisicing elit. Assumenda cupiditate placeat veritatis suscipit ducimus autem reprehenderit nesciunt? Cumque nisi nemo, vitae dolore distinctio blanditiis cupiditate fugiat nihil ad alias soluta officia illo omnis deleniti eum rerum enim quam consequuntur veritatis aut at numquam saepe porro? Aperiam accusamus provident recusandae corporis.</p>
+            </div>
+          </div>
+          
+          <div class="carousel-card">
+            <img src="media/Galería/gallery17.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem quod voluptatum omnis ipsum quia natus ad. Dignissimos quaerat odio excepturi laboriosam illo perspiciatis velit aliquid distinctio aperiam quos sunt, recusandae, praesentium officiis voluptas molestias non exercitationem? Reprehenderit exercitationem magni consequatur adipisci error! Laboriosam ducimus maxime reiciendis veniam mollitia hic molestiae?</p>
+            </div>
+          </div>
+          
+          <div class="carousel-card">
+            <img src="media/Galería/gallery18.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam aspernatur suscipit nam necessitatibus molestias, aliquid quis magni eos quas corrupti perspiciatis possimus pariatur deserunt nulla assumenda, quia ducimus nisi provident itaque maxime? Animi repudiandae illum non aliquid laudantium provident libero placeat magni totam suscipit maxime, perspiciatis, voluptates inventore reprehenderit sapiente?</p>
+            </div>
+          </div>
+                    
+          <div class="carousel-card">
+            <img src="media/Galería/gallery19.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem50 ipsum dolor sit amet consectetur adipisicing elit. Assumenda cupiditate placeat veritatis suscipit ducimus autem reprehenderit nesciunt? Cumque nisi nemo, vitae dolore distinctio blanditiis cupiditate fugiat nihil ad alias soluta officia illo omnis deleniti eum rerum enim quam consequuntur veritatis aut at numquam saepe porro? Aperiam accusamus provident recusandae corporis.</p>
+            </div>
+          </div>
+          
+          <div class="carousel-card">
+            <img src="media/Galería/gallery20.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem quod voluptatum omnis ipsum quia natus ad. Dignissimos quaerat odio excepturi laboriosam illo perspiciatis velit aliquid distinctio aperiam quos sunt, recusandae, praesentium officiis voluptas molestias non exercitationem? Reprehenderit exercitationem magni consequatur adipisci error! Laboriosam ducimus maxime reiciendis veniam mollitia hic molestiae?</p>
+            </div>
+          </div>
+          
+          <div class="carousel-card">
+            <img src="media/Galería/gallery21.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam aspernatur suscipit nam necessitatibus molestias, aliquid quis magni eos quas corrupti perspiciatis possimus pariatur deserunt nulla assumenda, quia ducimus nisi provident itaque maxime? Animi repudiandae illum non aliquid laudantium provident libero placeat magni totam suscipit maxime, perspiciatis, voluptates inventore reprehenderit sapiente?</p>
+            </div>
+          </div>
+                             
+          <div class="carousel-card">
+            <img src="media/Galería/gallery22.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem50 ipsum dolor sit amet consectetur adipisicing elit. Assumenda cupiditate placeat veritatis suscipit ducimus autem reprehenderit nesciunt? Cumque nisi nemo, vitae dolore distinctio blanditiis cupiditate fugiat nihil ad alias soluta officia illo omnis deleniti eum rerum enim quam consequuntur veritatis aut at numquam saepe porro? Aperiam accusamus provident recusandae corporis.</p>
+            </div>
+          </div>
+          
+          <div class="carousel-card">
+            <img src="media/Galería/gallery23.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem quod voluptatum omnis ipsum quia natus ad. Dignissimos quaerat odio excepturi laboriosam illo perspiciatis velit aliquid distinctio aperiam quos sunt, recusandae, praesentium officiis voluptas molestias non exercitationem? Reprehenderit exercitationem magni consequatur adipisci error! Laboriosam ducimus maxime reiciendis veniam mollitia hic molestiae?</p>
+            </div>
+          </div>
+          
+          <div class="carousel-card">
+            <img src="media/Galería/gallery24.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam aspernatur suscipit nam necessitatibus molestias, aliquid quis magni eos quas corrupti perspiciatis possimus pariatur deserunt nulla assumenda, quia ducimus nisi provident itaque maxime? Animi repudiandae illum non aliquid laudantium provident libero placeat magni totam suscipit maxime, perspiciatis, voluptates inventore reprehenderit sapiente?</p>
+            </div>
+          </div>
+  
+        </div>
+        <div class="carousel-nav">
+          <i class="fas fa-angle-double-left carousel-btn-first"></i>
+          <i class="fas fa-chevron-left carousel-btn-prev"></i>
+          <div class="carousel-nav-dots">
+            <div class="dots-nav-shadow-div-left"></div>
+            <div class="carousel-nav-dots-track">
+              <button class="carousel-number-indicator">1</button>
+              <button class="carousel-number-indicator">2</button>
+              <button class="carousel-number-indicator">3</button>
+              <button class="carousel-number-indicator">4</button>
+              <button class="carousel-number-indicator">5</button>
+              <button class="carousel-number-indicator">6</button>
+              <button class="carousel-number-indicator">7</button>
+              <button class="carousel-number-indicator">8</button>
+              <button class="carousel-number-indicator">9</button>
+              <button class="carousel-number-indicator">10</button>
+              <button class="carousel-number-indicator">11</button>
+              <button class="carousel-number-indicator">12</button>
+              <button class="carousel-number-indicator">13</button>
+              <button class="carousel-number-indicator">14</button>
+              <button class="carousel-number-indicator">15</button>
+              <button class="carousel-number-indicator">16</button>
+              <button class="carousel-number-indicator">17</button>
+              <button class="carousel-number-indicator">18</button>        
+              <button class="carousel-number-indicator">19</button>
+              <button class="carousel-number-indicator">20</button>
+              <button class="carousel-number-indicator">21</button>
+              <button class="carousel-number-indicator">22</button>
+              <button class="carousel-number-indicator">23</button>
+              <button class="carousel-number-indicator">24</button>
+            </div>
+            <div class="dots-nav-shadow-div-right"></div>
+          </div>
+          <i class="fas fa-chevron-right carousel-btn-next"></i>
+          <i class="fas fa-angle-double-right carousel-btn-last"></i>
+        </div>
+      </div>
+
+
+
+    </div>
 <!-- Contact Section -->
     <section id="contact" class="nav-link">
       <div class="contact-title-div">
         <h1>Contactame</h1>
       </div>
       <div class="contact-form-div">
-        <form id="contact-form" action="#">
-          <label for="name" form="contact-form">Nombre *
-            <input id="name" class="contact-input keyboard-activation" type="name" placeholder="Escribe tu nombre..." required />
-          </label>
-          <label for="email" form="contact-form">Correo electrónico *
-            <input id="email" class="contact-input keyboard-activation" type="email" placeholder="Escribe tu correo electrónico..." required />
-          </label>
-          <label for="topic" form="contact-form">Asunto *
-            <input id="topic" class="contact-input keyboard-activation"  list="topic-list" type="text" placeholder="Escribe o selecciona un asunto..." required />
-            <datalist id="topic-list">
-              <Option value="Asesoramiento de Imagen" ></Option>
-              <Option value="Organización del Guardarropas" ></Option>
-              <Option value="Colorimetría" ></Option>
-              <Option value="Personal Shopper" ></Option>
-              <Option value="Asesoramiento para Eventos" ></Option>
-              <Option value="Asesoramiento para Novias" ></Option>
-            </datalist>
-          </label>
-          <label for="topic-text" form="contact-form">Mensaje *
-            <textarea id="topic-text" class="contact-textarea keyboard-activation" placeholder="Escribe tu mensaje..." maxlength="300" required></textarea>
-          </label>
-          <button id="send">Enviar</button>
+        <form id="contact-form" action="https://formsubmit.co/c5c94ecf4a0de2842b63277495ded3c2" method="POST">
+          <input type="text" name="_honey" style="display:none" />             
+          <input type="hidden" name="_captcha" value="false">
+
+          <label class="keyboard-activation" for="name" form="contact-form">Nombre *</label>
+          <input id="name" name="Nombre" class="contact-input keyboard-activation handle-enter-submit input-required" type="name" placeholder="Escribe tu nombre..." required />
+          
+          <label  class="keyboard-activation" for="email" form="contact-form">Correo electrónico *</label>
+          <input id="email" name="Correo electrónico - Email" class="contact-input keyboard-activation input-required" type="email" placeholder="Escribe tu correo electrónico..." required />
+          
+          <label  class="keyboard-activation" for="topic" form="contact-form">Asunto *</label>
+          <input id="topic" name="Asunto" class="contact-input keyboard-activation input-required" list="topic-list" type="text" placeholder="Escribe o selecciona un asunto..." required />
+          <datalist id="topic-list">
+            <Option value="Asesoramiento de Imagen" ></Option>
+            <Option value="Organización del Guardarropas" ></Option>
+            <Option value="Colorimetría" ></Option>
+            <Option value="Personal Shopper" ></Option>
+            <Option value="Asesoramiento para Eventos" ></Option>
+            <Option value="Asesoramiento para Novias" ></Option>
+          </datalist>
+          
+          <label class="keyboard-activation" for="topic-text" form="contact-form">Mensaje *</label>
+          <textarea id="topic-text" name="Mensaje" class="contact-textarea keyboard-activation input-required" placeholder="Escribe tu mensaje..." maxlength="300" required></textarea>
+          
+          <button type="button" id="send" class="keyboard-activation">Enviar</button>
+          <button id="invisible-send" class="keyboard-activation" form="contact-form">Enviar</button>
+
+          <div class="phone-number-asking-div">
+            
+            <div class="phone-border-div">
+              <i class="fas fa-times close-phone-asking"></i>
+              <div class="question-div">
+                <h2 class="question">¿Quieres dejarme tu teléfono para que me comunique por WhatsApp?</h2>
+              </div>
+              <div class="phone-div">
+                <label class="phone-label keyboard-avtivation" >Número de teléfono</label>
+                <input type="tel" id="phone-number" class="phone-input keyboard-activation" placeholder="Escribe tu número telefónico..." />
+              </div>
+              <div class="recaptcha-styling-div">
+                <div class="recaptcha-resizing-div">
+                  <input type="text" id="recaptcha-required-input" class="keyboard-activation">
+                  <div class="g-recaptcha" data-sitekey="6LczthgcAAAAAP8ng1LuYfEZXOcqCOVyBh_0kwH0" data-callback="verifyCaptcha" ></div>
+                </div>
+              </div>
+              <div class="phone-btns-div">
+                <button id="deny-phone" type="button" class="phone-btn keyboard-activation" >No, gracias</button>
+                <button id="send-phone" type="button" class="phone-btn keyboard-activation" >De acuerdo</button>
+              </div>              
+            </div>
+
+            <div class="confirm-closing-border-div push-bottom">
+              <i class="fas fa-times close-closing-confirmation"></i>
+              <div class="confirm-message-div">
+                <h2 class="confirm-closing-message"> Tu mensaje no será enviado, ¿deseas confirmar?</h2>
+              </div>
+              <div class="closing-confirm-btns-div">
+                <button type="button" id="confirm-closing" class="closing-btn">Confirmar</button>
+                <button type="button" id="cancel-closing" class="closing-btn">Cancelar</button>
+              </div>
+            </div>
+
+            <div class="message-sent-border-div push-bottom">
+              <a href="#header" class="form-sent">
+                <i class="fas fa-times close-message-sent"></i>
+              </a>
+              <div class="message-sent-text-div">
+                <h2 class="message-sent-text">El mensaje fue enviado con éxito, ¡Gracias por comunicarte!</h2>
+              </div>
+              <img src="./media/rominarLogo.png" class="message-sent-rominar-logo" alt="RominaR" />
+              <h2 class="message-sent-romina-ramallo-asesora">Romina Ramallo Asesora</h2>
+              <a href="#header" class="form-sent">
+                <button type="button" class="message-sent-btn">Cerrar</button>
+              </a>
+            </div>
+
+          </div>
+
         </form>
       </div>
       <div class="contact-icons-div">
@@ -325,6 +607,7 @@
         <h2>Romina Ramallo Asesora</h2>
       </div>
     </section>
-    <script src="app.js"></script> 
+
+    <script src="./javascript/app.js" async></script> 
   </body>
   </html>

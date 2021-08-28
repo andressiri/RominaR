@@ -1,8 +1,7 @@
 .navbar {
-  z-index: 100;
+  z-index: 50;
   width: 100%;
   height: var(--navbar-height);
-  padding: 0;
   position: fixed;
   top: 0;
   justify-content: space-around;
@@ -10,29 +9,30 @@
   color: var(--main-color);
   user-select: none;
 }
+.nav-link {
+  scroll-margin-top: calc(var(--navbar-height)/2);
+}
 
 .navbar a {
   margin: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: relative;
   color: var(--main-color);
   text-decoration: none;
-  font-size: calc(0.1rem + 2vmin); 
-  font-weight: 400;
+  font-size: calc(0.1rem + 2vmin);
 }
 .navbar a:hover {
-  color: var(--BG-color);
-  transition: color 0.3s ease-in  ;
+  margin-top: 2px;
+  transition: margin 0.1s ease;
 }
-.navbar a:active, .navbar a:focus, .navbar a:visited {
+.navbar a:active,
+.navbar a:focus,
+.navbar a:visited {
   color: inherit;
 }
 .navbar a::after {
   content: '';
   width: 100%; 
-  height: calc(var(--border-width)/2);
+  height: calc(var(--border-width)*0.6);
   background-color: var(--main-color);
   position: absolute;
   top: 100%;
@@ -43,25 +43,19 @@
 .navbar a.selected::after {
   opacity: 1;  
 }
-.navbar a:hover::after {
-  background-color: var(--BG-color);
-  transition: background-color 0.3s ease-in  ;
-}
 
-.nav-link {
-  scroll-margin-top: calc(var(--navbar-height)/2);
-}
-
-.left-navbar-div, .right-navbar-div {
+.left-navbar-div,
+.right-navbar-div {
   width: 15%;
   height: var(--navbar-height);
-  padding-right: calc(var(--margin-width)/2);  
+  padding-right: calc(var(--section-margins-width)/2);  
 }
 .right-navbar-div {
   justify-content: flex-end;
 }
 .center-navbar-div {
   width: 70%;
+  height: var(--navbar-height);
   justify-content: space-around;
 }
 
@@ -71,6 +65,7 @@
 }
 .navbar-text {
   margin: auto;
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 
 .navbar-contact-logo {
@@ -78,8 +73,8 @@
   font-size: calc(0.5rem + 2vmin);
 }
 .navbar-contact-logo:hover {
-  margin: 4px 5px 6px 5px;
-  transition: margin 0.3s;
+  transform: translateY(-2px);
+  transition: transform 0.5s ease-out;
 }
 .navbar-contact-logo-anchor::after {
   display: none;
@@ -90,15 +85,26 @@
   display: none;
 }
 .burguer div {
-  box-sizing: border-box;
-  width: 3vh;
-  min-width: 25px;
-  height: 0.5vh;
-  min-height: 3px;
+  width: 25px;
+  height: 3px;
   margin: 2px;
   background-color: var(--main-color);
-  border-radius: 2px;
-} 
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+.burguer {
+  flex-direction: column;
+}
+.burguer-active .line1 {
+  transform: rotate(-45deg) translate(calc(0px - var(--cards-margins-width)/2), calc(var(--cards-margins-width)*0.5));  
+}
+.burguer-active .line2 {
+  opacity: 0;  
+}
+.burguer-active .line3 {
+  transform: rotate(45deg) translate(calc(0px - var(--cards-margins-width)/2), calc(0px - var(--cards-margins-width)*0.5));
+}
+
 .burguer-menu {    
   width: 60%;
   height: calc(100vh - var(--navbar-height));
@@ -115,7 +121,6 @@
 .landscape-swap {
   flex-direction: column;
 }
-
 .burguer-menu-active {
   transform: translateX(0%);
 }
@@ -140,79 +145,23 @@
 
 /*Mobile*/
 
-/*Portrait*/
-@media (max-aspect-ratio: 6/10),  (max-width: 450px) {
-  .navbar-text {
-    display: none;
-  }
-  .navbar-icon {
-    font-size: calc(var(--navbar-height)/2.5);    
-  }
-  .left-navbar-div, .right-navbar-div {
-    display: none;
+/*Tablet*/
+@media (max-width: 1025px) {
+  .left-navbar-div {
+    width: 0%;
+  } 
+  .right-navbar-div {
+    width: 15%;
   }
   .center-navbar-div {
-    width: 80%;
-  }
-  .navbar a::after {
-    display: none;
-  }
-  .navbar a.selected {
-    color: var(--BG-color);
-    transition: color 0.5s ease;
-  }
-  /*Burguer Menu*/
-  .burguer-menu {
-    display: flex;
-  }
-  .burguer-div {
-    width: 20%;
-    height: var(--navbar-height);
-    padding-right: 20px;
-    display: flex;
-    justify-content: flex-end;
-  }
-  .burguer {
-    flex-direction: column;
-  }
-  .burguer-links, .burguer-menu, .burguer-bottom-title {
-    flex-direction: column;
-  }
-  .burguer-links {
-    height: calc(55vh - var(--navbar-height));/* Fallback for browsers that do not support Custom Properties */
-    height: calc(55vh - var(--navbar-height) - var(--browser-bar-height));
-    justify-content: space-evenly;
-  }
-  .burguer-text {
-    font-size: 4vw;
-    margin: 0px;
-  }
-  
-  .burguer-contact-div {
-    height: 10vh;
-  }
-  .burguer-contact-logo {
-    font-size: 8vw;
-    margin: auto 15px;
-  }
-  .burguer-bottom-title {
-    height: 35vh;
-    font-family: var(--title-family);
-    font-size: 6vw;
-  }
-  .burguer-rominar-logo {
-    width: 30vw;
-    margin-bottom: 10px;
-    border-radius: 50%;
-    border: 2px solid black;
-  }
-  .burguer-bottom-title h1, h2 {
-    margin: 0;
+    width: 85%;
   }
 }
 
+
+
 /*Landscape*/
-@media (min-aspect-ratio: 10/6) and (max-height: 450px) and (min-width: 450px),
+@media (max-height: 480px),
 /*To handle navbar blocking textbox vision when switching to landscape with the android keyboard active,
  without affecting devices that aren't handheld but have touch screens nor desktop devices*/
 (hover: none) and (pointer: coarse) and (min-device-aspect-ratio: 10/6), 
@@ -222,13 +171,11 @@
     --burguer-div-height: 25vh;
     --burguer-menu-width: 21vw;
   }
-  #gallery, #contact {
-    scroll-margin-top: calc(0px - var(--cards-margins-width)/2);
+  .nav-link {
+    scroll-margin-top: calc(var(--cards-margins-width)*2);
   }
-  #about, #activities {
-    scroll-margin-top: calc(0px - var(--cards-margins-width)*2);
-  }
-  .navbar-text, .right-navbar-div {
+  .navbar-text,
+  .right-navbar-div {
     display: none;
   }
   .navbar {
@@ -244,7 +191,7 @@
   .navbar a.selected {
     color: var(--BG-color);
   }
-  /*Burguer Menu*/
+  /*Landscape Burguer Menu*/
   .burguer-menu {
     display: flex;
   }
@@ -252,21 +199,32 @@
     width: var(--lateral-navbar);
     height: var(--burguer-div-height);
     display: flex;
-  }
-  .burguer {
-    z-index: 100;
+  }  
+  .center-navbar-div {
+    width: var(--lateral-navbar);
+    height: calc(100vh - var(--browser-bar-height) - var(--burguer-div-height));
     flex-direction: column;
+    justify-content: space-evenly;
   }
+  .navbar-icon {
+    font-size: calc(0.5rem + 3.5vmin);
+  }
+  .left-navbar-div {
+    width: var(--lateral-navbar);
+    height: var(--browser-bar-height);
+  }
+
   .burguer-menu {    
     width: var(--burguer-menu-width);
     min-height: 100vh;
-    padding:0;
+    padding: 0;
     top: 0;
     right: var(--lateral-navbar);
     transform: translateX(calc(100% + var(--lateral-navbar)));
   }
   .landscape-swap {
     flex-direction: column-reverse;
+    height: 100vh; /* Fallback for browsers that do not support Custom Properties */
     height: calc(100vh - var(--browser-bar-height));
   }
   .burguer-contact-div {
@@ -295,82 +253,100 @@
     width: var(--burguer-menu-width);
     min-height: var(--browser-bar-height);
   }
-  .burguer-rominar-logo {
-    display: none;
-  }
-  .burguer-bottom-title h1, .burguer-bottom-title h2 {
-    display: none;
-  }
 
-  .center-navbar-div {
-    width: var(--lateral-navbar);
-    height: calc(100vh - var(--browser-bar-height) - var(--burguer-div-height));
-    flex-direction: column;
-    justify-content: space-evenly;
-  }
-  .navbar-icon {
-    z-index: 1;
-    margin: 0px;
-    font-size: calc(0.5rem + 3.5vmin);
-  }
-
-  .left-navbar-div {
-    width: var(--lateral-navbar);
-    height: var(--browser-bar-height);
+  .burguer-rominar-logo,
+  .burguer-bottom-title h1,
+  .burguer-bottom-title h2 {
+    display: none;
   }
   .burguer-menu-active {
     transform: translateX(0%);
   }
 }
 
-/*Tablet*/
-@media (max-aspect-ratio: 17/12) {
-  .left-navbar-div {
-    width: 0%;
-  } 
+/*Portrait*/
+@media (max-width: 480px) {
+  .nav-link {
+    scroll-margin-top: calc(var(--navbar-height)/2 + var(--cards-margins-width)*2.5);
+  }
+  .navbar-text {
+    display: none;
+  }
+  .navbar-icon {
+    font-size: calc(var(--navbar-height)/2.2);    
+  }
+  .left-navbar-div,
   .right-navbar-div {
-    width: 15%;
+    display: none;
   }
   .center-navbar-div {
-    width: 85%;
+    width: 80%;
+  }
+  .navbar a::after {
+    display: none;
+  }
+  .navbar a.selected {
+    color: var(--BG-color);
+  }
+  /*Portrait Burguer Menu*/
+  .burguer-menu {
+    display: flex;
+  }
+  .burguer-div {
+    width: 20%;
+    height: var(--navbar-height);
+    padding-right: 20px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .burguer-links,
+  .burguer-menu,
+  .burguer-bottom-title {
+    flex-direction: column;
+  }
+  .burguer-links {
+    height: calc(55vh - var(--navbar-height));/* Fallback for browsers that do not support Custom Properties */
+    height: calc(55vh - var(--navbar-height) - var(--browser-bar-height));
+    justify-content: space-evenly;
+  }
+  .burguer-text {
+    font-size: 4.5vw;
+  }  
+  .burguer-contact-div {
+    height: 10vh;
+  }
+  .burguer-contact-logo {
+    font-size: 8vw;
+    margin: auto 15px;
+  }
+  .burguer-bottom-title {
+    height: 35vh;
+    font-family: var(--title-family);
+    font-size: 5vw;
+  }
+  .burguer-rominar-logo {
+    width: 30vw;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    border: 2px solid black;
+  }
+  .burguer-bottom-title h2 {
+    font-size: 1em;
   }
 }
 
 /*Larger screens*/
-@media (min-width: 1200px) and (min-aspect-ratio: 15/12) {
-  .left-navbar-div, .right-navbar-div {
+@media (min-width: 1200px) and (min-aspect-ratio: 13/10) {
+  .left-navbar-div,
+  .right-navbar-div {
     width: 25%; 
   }
   .center-navbar-div {
     width: 50%;
   }
 }
-
-/*Weird sizes*/
-
-@media (max-width: 450px) and (max-height: 600px) {
-  .burguer-rominar-logo {
-    width: 30vmin;
-  }
-  .burguer-bottom-title h1, .burguer-bottom-title h2 {
-    display: none;
-  }
-  .burguer-text {
-    font-size: calc(0.5rem + 2vmin);
-    margin: 0px;
-  }
-  .navbar-icon {
-    z-index: 1;
-    margin: 0px;
-    font-size: calc(0.5rem + 2vmin);
-  }
-  .burguer-contact-logo {
-    font-size: 6vh;
-  }
-}
-
-@media (max-height: 250px) {
-  .burguer-bottom-title, .burguer-contact-div {
-    display: none;
+@media (min-width: 1025px) and (max-aspect-ratio: 3/2) {
+  #about, #activities {
+    scroll-margin-top: calc(var(--navbar-height));
   }
 }
