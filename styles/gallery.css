@@ -17,19 +17,40 @@
   top: 0;
 }
 
-.gallery-img {
+.img-is-clickable-div {
   margin: var(--cards-margins-width);
   position: relative;
   border: var(--border-width) solid var(--main-color);
   border-radius: var(--border-radius2);
-  object-fit: cover;
   opacity: 0.9;
   cursor: pointer;
+  overflow: hidden;
 }
-.gallery-img:hover {
+.gallery-img {
+  width: calc(100% + var(--border-width)*2);
+  height: calc(100% + var(--border-width)*2);
+  object-fit: cover;
+  border-radius: var(--border-radius2);
+}
+.img-is-clickable-pointer {
+  z-index: 30;
+  position: absolute;
+  top: var(--cards-margins-width);
+  right: var(--cards-margins-width);
+  color: var(--main-color);
+  font-size: calc(0.1rem + 2vmin);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.img-is-clickable-div:hover,
+.show-clickable {
   border-style: dashed;
   opacity: 1;
 }
+.show-clickable .img-is-clickable-pointer {
+  opacity: 1;
+}
+
  /*Optional galleries*/
 .optional-buttons-div {
   width: 100%;
@@ -118,6 +139,8 @@
   width: 40vw;
   height: 30vh;
   top: 0;
+}
+.img-two {
   object-position: 50% 100%;
 }
 .gall-size-three {
@@ -134,12 +157,16 @@
   width: 40vw;
   height: 45vh;
   bottom: 15vh;
+}
+.img-five {
   object-position: 50% 35%;
 }
 .gall-size-six {
   width: 30vw;
   height: 35vh;
   bottom: 5vh;
+}
+.img-six {
   object-position: 50% 60%;
 }
 .gall-size-seven {
@@ -187,10 +214,13 @@
   #gallery-div, .optional-gallery {
     height: auto;
   }  
-  .gallery-img {
+  .img-is-clickable-div {
     width: calc(50vw - var(--cards-margins-width)*3);
     height: 40vh;
-    position: unset;
+    top: unset;
+    left: unset;
+    right: unset;
+    bottom: unset;
   }
 }
 
@@ -199,10 +229,16 @@
   #gallery-div, .optional-gallery {
     height: auto;
   }  
-  .gallery-img {
+  .img-is-clickable-div {
     width: calc(50vw - var(--lateral-navbar));
     height: 80vh;
-    position: unset;
+    top: unset;
+    left: unset;
+    right: unset;
+    bottom: unset;
+  }
+  .img-is-clickable-pointer {
+    font-size: calc(0.5rem + 3.5vmin);
   }
 }
 
@@ -211,9 +247,15 @@
   #gallery-div, .optional-gallery {
     height: auto;
   }  
-  .gallery-img {
+  .img-is-clickable-div {
     width: 90vw;
     height: 90vw;
-    position: unset;
+    top: unset;
+    left: unset;
+    right: unset;
+    bottom: unset;
+  }
+  .img-is-clickable-pointer {
+    font-size: calc(var(--navbar-height)/2.2); 
   }
 }

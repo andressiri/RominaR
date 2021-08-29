@@ -163,7 +163,7 @@ document.documentElement.style.setProperty("--browser-bar-height", `${browserBar
 //Full Screen Gallery
 
   //Variables
-const images = document.querySelectorAll(".gallery-img");
+const images = document.querySelectorAll(".img-is-clickable-div");
 const imagesArr = Array.from(images);
 const fullScreen = document.querySelector(".full-screen-display");
 const track = document.querySelector(".carousel-track");
@@ -280,6 +280,8 @@ const updateDots = (currentDot, targetDot) => {
   //Open full screen gallery at image clicked.
 imagesArr.forEach((img, index) => {
   img.addEventListener('click', () => {
+    document.querySelector("body").classList.add("lock-scrolling");
+    
     const targetSlide = slides[index];
     const targetDot = dots[index];
     
@@ -291,7 +293,6 @@ imagesArr.forEach((img, index) => {
       document.querySelector(".carousel-track").classList.add("handle-carousel-transition");      
     }, 500);
 
-    document.querySelector("body").classList.add("lock-scrolling");
   });
 });
 
@@ -366,8 +367,7 @@ dots.forEach((dot) => {
   });
 });
 
-
-//Full Screen Galler - Slide cards or dots grabbing/touching them.
+  //Slide cards or dots grabbing/touching them. - Full Screen Gallery -
   
   //variables
 let isDragging = false;
@@ -519,6 +519,27 @@ const addCarouselEvents = (elem) => {
 addCarouselEvents(track);
 addCarouselEvents(dotsArea);
 
+  //Show that image is clickable on touch devices
+const imgObserver = new IntersectionObserver((entries) => {
+  if (window.matchMedia( "(hover: none)").matches) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show-clickable");
+      } else {
+        entry.target.classList.remove("show-clickable");
+      }
+    });
+  };
+},
+  //Set the place where observer will observe. 
+{ rootMargin: "-38% 0% -60% 0%" });
+
+ //Tell observer which elements it should observe.
+images.forEach((img) => {
+  imgObserver.observe(img);
+});
+  
+
 //end of Full Screen Gallery
 
 
@@ -597,10 +618,14 @@ const checkCaptcha = () => {
 sendBtn.addEventListener('click', () => {
   const formIsValid = contactForm.checkValidity();    
   if (formIsValid) {
-    document.querySelector("body").classList.add("lock-scrolling");
-    phoneNumberAsking.classList.add("phone-number-asking-div-activated");
+    setTimeout(() => {
+      document.querySelector("body").classList.add("lock-scrolling");
+      phoneNumberAsking.classList.add("phone-number-asking-div-activated");
+      phoneAskingDiv.click(); //to handle effects of clicking a keyboard-activation element that does not activate the keyboard 
+    }, 150);
   } else {
     invisibleSend.click();
+    
   };
 });
 

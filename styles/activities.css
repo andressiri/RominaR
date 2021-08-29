@@ -106,6 +106,10 @@
     position: absolute;
     top: 0;
   }
+  .landscape-reverse .activity-title-div {
+    padding-left: 0;
+    padding-right: calc(var(--landscape-card-height) - var(--cards-margins-width)); 
+  }
   #guardarropas-card .activity-title-div {
     font-size: calc((8vw + 7vh)/2);
   }
@@ -116,6 +120,10 @@
     top: 0px;
     left: 0px;
   }
+  .landscape-reverse .activity-img {
+    left: unset;
+    right: 0;
+  }
   .activity-text-div {
     width: calc(100% - var(--landscape-card-height) - var(--cards-margins-width));
     height: calc(var(--landscape-card-height) - var(--landscape-card-title-height) - var(--consult-btn-height) - var(--cards-margins-width)*2);
@@ -123,6 +131,11 @@
     bottom: calc(var(--consult-btn-height) + var(--cards-margins-width));
     right: 0;
     font-size: calc(var(--text-font-size)*1.2);
+  }
+  .landscape-reverse .activity-text-div {
+    right: unset;
+    left: 0;
+    margin: var(--cards-margins-width) 0px var(--cards-margins-width) var(--cards-margins-width);
   }
   .contact-autofill  {
     width: calc(100% - var(--landscape-card-height) - var(--cards-margins-width));
@@ -134,6 +147,10 @@
   .contact-autofill, .consult-btn {
     height: var(--consult-btn-height);
     font-size: calc(var(--text-font-size)*1.1);
+  }
+  .landscape-reverse .contact-autofill {
+    right: unset;
+    left: 0;
   }
 }
 

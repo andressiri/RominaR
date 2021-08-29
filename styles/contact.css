@@ -79,14 +79,15 @@
 /* Phone asking before submit and confirm closing message confirmation*/
 .phone-number-asking-div {
   opacity: 0;
-  width: 100vw;
-  z-index: -999999;
+  width: 0px;
+  z-index: -9999699;
   position: absolute;
   overflow-y: scroll;
   overflow-x: hidden;
 }
 .phone-number-asking-div-activated {
   z-index: 99;
+  width: 100%;
   height: 100vh;
   position: fixed;
   align-items: flex-start;
@@ -98,7 +99,6 @@
   background-color: var(--BG-color2);
   opacity: 1;
   transition: opacity 0.5s ease-out;
-  overflow-x: hidden;
 }
 .phone-border-div,
 .confirm-closing-border-div,
@@ -189,7 +189,6 @@
   pointer-events: none;
 }
 
-
 .phone-btns-div,
 .closing-confirm-btns-div {
   display: flex;
@@ -245,7 +244,7 @@
     max-width: calc(80vw - var(--lateral-navbar)); 
   }
   .phone-number-asking-div-activated {
-    align-items: flex-start;    
+    padding-top: 0;    
   }
 }
 
@@ -262,10 +261,20 @@
     width: calc(var(--recaptcha-width)*0.8);
     height: calc(var(--recaptcha-height)*0.8);
   }
-  .phone-btn {
+  .phone-btn,
+  .closing-btn,
+  .message-sent-btn {
     min-width: 130px;
     margin: calc(var(--cards-margins-width));
   }
+  .question,
+  .confirm-closing-message,
+  .message-sent-text {
+    width: 90%;
+  }
+  .message-sent-rominar-logo {
+    width: 30%;
+  } 
 }
 @media (max-width: 300px) {
   .phone-btn {
