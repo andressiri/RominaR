@@ -47,6 +47,7 @@
   border-style: dashed;
   opacity: 1;
 }
+.img-is-clickable-div:hover .img-is-clickable-pointer,
 .show-clickable .img-is-clickable-pointer {
   opacity: 1;
 }
