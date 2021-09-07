@@ -17,8 +17,13 @@
   background-color: var(--secondary-color);
   color: var(--main-color);
   font-family: var(--title-family);
-  font-size: 3vw;
   border-radius: var(--border-radius2);
+}
+.activity-title-div h2 {
+  font-size: calc((3vmin + 2.5vmax)/2);
+}
+#guardarropas-card h2 {
+  font-size: calc((2.5vmin + 2.5vmax)/2);
 }
 .activity-card-div {
   width: 100%;
@@ -74,8 +79,11 @@
     --activity-card-width: 40vw;
     --activity-square: calc(20vw - var(--cards-margins-width)*1.5);
   }  
-  .activity-title-div {
-    font-size: 5vw;
+  .activity-title-div h2 {
+    font-size: calc((4vmin + 4vmax)/2);
+  }
+  #guardarropas-card h2 {
+    font-size: calc((3vmin + 4vmax)/2);
   }
   .activity-text-div, .consult-btn {
     font-size: calc(var(--text-font-size)*0.9);
@@ -102,16 +110,19 @@
   .activity-title-div {
     height: var(--landscape-card-title-height);
     padding-left: calc(var(--landscape-card-height) - var(--cards-margins-width));
-    font-size: calc((9vw + 8vh)/2);
     position: absolute;
     top: 0;
   }
+  .activity-title-div h2 {
+    font-size: calc((7vw + 6vh)/2);
+  }
+
   .landscape-reverse .activity-title-div {
     padding-left: 0;
-    padding-right: calc(var(--landscape-card-height) - var(--cards-margins-width)); 
+    padding-right: calc(var(--landscape-card-height) - var(--cards-margins-width));
   }
-  #guardarropas-card .activity-title-div {
-    font-size: calc((8vw + 7vh)/2);
+  #guardarropas-card h2 {
+    font-size: calc((6vw + 6vh)/2);
   }
   .activity-img {
     width: calc(var(--landscape-card-height) - var(--cards-margins-width)*2);
@@ -166,11 +177,11 @@
   #activities h1 {
     margin: var(--cards-margins-width);
   }
-  .activity-card h6 {
+  .activity-card h2 {
     font-size: 8.3vw;
     margin: calc(var(--cards-margins-width)/2) auto;
   }
-  #guardarropas-card h6 {
+  #guardarropas-card h2 {
     font-size: 7.5vw;
   }
   .activity-card-div {
@@ -200,29 +211,26 @@
     margin: calc(var(--cards-margins-width)/2) var(--cards-margins-width);
   }
 }
-@media (min-width: 1200px) and (min-aspect-ratio: 100/49) {
-  .activity-text-div, .consult-btn {
-    background-color: lightcoral;
-    font-size: calc(var(--text-font-size)*3);
-  }
-}
-@media (min-width: 1200px) and (min-aspect-ratio: 100/50) {
-  .activity-text-div, .consult-btn {
-    background-color: red;
-    font-size: calc(var(--text-font-size)*1);
-  }
-}
-@media (min-width: 1200px) and (min-aspect-ratio: 100/60) {
-  .activity-text-div, .consult-btn {
-    font-size: calc(var(--text-font-size)*0.9);
-  }
-}
 @media (min-width: 1200px) and (min-aspect-ratio: 100/65) {
   .activity-text-div, .consult-btn {
     font-size: calc(var(--text-font-size)*0.8);
   }
 }
-
+@media (min-width: 1200px) and (min-aspect-ratio: 100/60) {
+  .activity-text-div, .consult-btn {
+    font-size: calc(var(--text-font-size)*0.85);
+  }
+}
+@media (min-width: 1200px) and (min-aspect-ratio: 100/50) {
+  .activity-text-div, .consult-btn {
+    font-size: calc(var(--text-font-size)*0.9);
+  }
+}
+@media (min-width: 1200px) and (min-aspect-ratio: 100/42) {
+  .activity-text-div, .consult-btn {
+  font-size: calc(var(--text-font-size)*1);
+  }
+}
 
 /*Weird sizes*/
 @media (min-width: 481px) and (max-aspect-ratio: 10/11) {

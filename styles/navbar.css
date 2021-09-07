@@ -108,12 +108,13 @@
 .burguer-menu {    
   width: 60%;
   height: calc(100vh - var(--navbar-height));
-  padding-bottom: var(--browser-bar-height);
+  padding-bottom: 10vh;
   display: none;
   flex-direction: column;
   position: fixed;
-  right: 0px;
   top: var(--navbar-height);
+  right: 0px;
+  bottom: 0px;
   background-color: var(--BG-color2-transparent);
   transform: translateX(100%);
   transition: transform 0.5s ease-in;
@@ -158,8 +159,6 @@
   }
 }
 
-
-
 /*Landscape*/
 @media (max-height: 480px),
 /*To handle navbar blocking textbox vision when switching to landscape with the android keyboard active,
@@ -175,7 +174,10 @@
     scroll-margin-top: calc(var(--cards-margins-width)*2);
   }
   .navbar-text,
-  .right-navbar-div {
+  .right-navbar-div,
+  .left-navbar-div,
+  .navbar a::after,
+  .burguer-bottom-title {
     display: none;
   }
   .navbar {
@@ -184,10 +186,9 @@
     flex-direction: column-reverse;
     top: 0;
     right: 0;
+    bottom: 0;
   }
-  .navbar a::after {
-    display: none;
-  }
+
   .navbar a.selected {
     color: var(--BG-color);
   }
@@ -202,30 +203,29 @@
   }  
   .center-navbar-div {
     width: var(--lateral-navbar);
-    height: calc(100vh - var(--browser-bar-height) - var(--burguer-div-height));
+    height: calc(100vh - var(--burguer-div-height));
     flex-direction: column;
     justify-content: space-evenly;
   }
   .navbar-icon {
     font-size: calc(0.5rem + 3.5vmin);
   }
-  .left-navbar-div {
-    width: var(--lateral-navbar);
-    height: var(--browser-bar-height);
-  }
-
   .burguer-menu {    
     width: var(--burguer-menu-width);
     min-height: 100vh;
     padding: 0;
     top: 0;
+    bottom: 0;
     right: var(--lateral-navbar);
     transform: translateX(calc(100% + var(--lateral-navbar)));
   }
+  .navbar,
+  .landscape-swap {
+    padding-bottom: 15vh;
+  }
   .landscape-swap {
     flex-direction: column-reverse;
-    height: 100vh; /* Fallback for browsers that do not support Custom Properties */
-    height: calc(100vh - var(--browser-bar-height));
+    height: 100vh;
   }
   .burguer-contact-div {
     width: var(--burguer-menu-width);
@@ -233,12 +233,13 @@
   }
   .burguer-contact-logo {
     font-size: 8vh;
-    margin: auto 15px;
+    margin: 0 15px;
+    align-self: center;
+    justify-self: center;
   }
   .burguer-links {
     width: var(--burguer-menu-width);
-    height: calc(100vh - var(--burguer-div-height));/* Fallback for browsers that do not support Custom Properties */
-    height: calc(100vh - var(--browser-bar-height) - var(--burguer-div-height));
+    height: calc(100vh - var(--burguer-div-height));
     flex-direction: column;
     justify-content: space-evenly;
   }
@@ -249,16 +250,7 @@
     font-size: 5vh;
     margin-left: 2.5vw;
   }
-  .burguer-bottom-title {
-    width: var(--burguer-menu-width);
-    min-height: var(--browser-bar-height);
-  }
 
-  .burguer-rominar-logo,
-  .burguer-bottom-title h1,
-  .burguer-bottom-title h2 {
-    display: none;
-  }
   .burguer-menu-active {
     transform: translateX(0%);
   }
@@ -305,8 +297,7 @@
     flex-direction: column;
   }
   .burguer-links {
-    height: calc(55vh - var(--navbar-height));/* Fallback for browsers that do not support Custom Properties */
-    height: calc(55vh - var(--navbar-height) - var(--browser-bar-height));
+    height: calc(55vh - var(--navbar-height));
     justify-content: space-evenly;
   }
   .burguer-text {
@@ -317,18 +308,22 @@
   }
   .burguer-contact-logo {
     font-size: 8vw;
-    margin: auto 15px;
+    margin: 0px 15px;
   }
   .burguer-bottom-title {
     height: 35vh;
     font-family: var(--title-family);
     font-size: 5vw;
   }
-  .burguer-rominar-logo {
+  .burguer-rominar-logo-div {
     width: 30vw;
-    margin-bottom: 10px;
+    height: 30vw;
     border-radius: 50%;
     border: 2px solid black;
+    overflow: hidden;
+  }
+  .burguer-rominar-logo {
+    width: calc(100% + 3vw);
   }
   .burguer-bottom-title h2 {
     font-size: 1em;
@@ -346,7 +341,7 @@
   }
 }
 @media (min-width: 1025px) and (max-aspect-ratio: 3/2) {
-  #about, #activities {
+  #activities {
     scroll-margin-top: calc(var(--navbar-height));
   }
 }

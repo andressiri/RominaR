@@ -1,7 +1,3 @@
-:root {
-  --logo-width: 30vmin;
-}
-
 .home-header {
   width: 100%;
   height: 100vh;
@@ -50,14 +46,19 @@
   border-bottom-left-radius: 0px;
 }
 
-.rominar-logo {
+.rominar-logo-div {
   z-index: 10;
   width: var(--logo-width);
+  height: var(--logo-width);
   position: absolute;
   top: calc(42vh - var(--logo-width)/2);
   left: calc(50% - var(--logo-width)/2);
   border-radius: 50%;
   border: 2px solid var(--BG-color2);
+  overflow: hidden;
+}
+.rominar-logo {
+  width: calc(100% + 3vw);
 }
 
 .header-title-container {
@@ -92,9 +93,6 @@
 
 /*Portrait*/
 @media (max-width: 480px) {
-  :root {
-    --logo-width: 50vw;
-  }
   #header {
     margin-bottom: calc(10px - var(--navbar-height)*2);
   }
@@ -102,7 +100,7 @@
     height: 50vh;
     top: var(--navbar-height);
   }
-  .rominar-logo {
+  .rominar-logo-div {
     top: calc(45vh + var(--navbar-height) - var(--logo-width)/2);
   }
   .header-title-container {
@@ -119,3 +117,4 @@
     font-size: calc(0.5rem + 8vmin);
   }
 }
+

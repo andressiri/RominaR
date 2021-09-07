@@ -1,27 +1,3 @@
-//Burguer Menu for handheld devices.
-const burguerMenuSlide = () => {
-  const burguer = document.querySelector(".burguer");
-  const burguerMenu = document.querySelector(".burguer-menu");
-  const burguerMenuItems = document.querySelectorAll(".burguer-menu-item");
-
-  //Toggle Burguer Menu.
-  burguer.addEventListener("click", () => {
-    burguerMenu.classList.toggle("burguer-menu-active");
-
-    //Animate Burguer Menu Items.
-    burguerMenuItems.forEach((item, index) => {
-      if (item.style.animation) {
-        item.style.animation = "";
-      } else {
-        item.style.animation = `burguerMenuFade 0.5s ease forwards ${index / 25 + 0.5}s`;
-      }
-    });
-
-    //Burguer tap animation.
-    burguer.classList.toggle("burguer-active");
-  });
-};
-
 //Optional Galleries - buttons for showing more or less.
 const optionalGalleries = () => {
   const showMore = document.getElementById("show-more-label");
@@ -149,17 +125,6 @@ navbarLinks.forEach((link) => {
   }
 });
 
-//To know the browser's url bar height.
-const getBrowserBarHeight = () => {
-  const varClientHeight = document.querySelector(".home-header").offsetHeight;
-  const varInnerHeight = window.innerHeight;
-  return varClientHeight - varInnerHeight;
-};
-//To work around browser's url bar in mobile devices.
-const browserBarHeight = getBrowserBarHeight();
-document.documentElement.style.setProperty("--browser-bar-height", `${browserBarHeight}px`);
-
-
 //Full Screen Gallery
 
   //Variables
@@ -282,9 +247,13 @@ imagesArr.forEach((img, index) => {
   img.addEventListener('click', () => {
     document.querySelector("body").classList.add("lock-scrolling");
     
-    const targetSlide = slides[index];
-    const targetDot = dots[index];
+    const carouselImgs = document.querySelectorAll(".full-screen-img")
+    carouselImgs.forEach((img) => {
+      img.setAttribute("loading", "eager");
+    });
     
+    const targetSlide = slides[index];
+    const targetDot = dots[index];    
     moveToSlide(targetSlide, targetSlide);
     updateDots(targetDot, targetDot);
     
@@ -571,10 +540,24 @@ const requireCaptcha = document.getElementById('recaptcha-required-input');
 let recaptchaResponse = "";
 let phoneAux = "No se ha proporcionado teléfono";
 
+
+  // Function that loads recaptcha on form input focus for better performance
+const reCaptchaOnFocus = () => {
+  const head = document.getElementsByTagName('head')[0];
+  const script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src = 'https://www.google.com/recaptcha/api.js';
+  script.defer = true;
+  head.appendChild(script);
+  formEmail.removeEventListener('focus', reCaptchaOnFocus)
+};
+formEmail.addEventListener('focus', reCaptchaOnFocus);
+
+
 contactForm.addEventListener('submit', (event) => {
   event.preventDefault();
   
-  fetch("https://formsubmit.co/ajax/andres.siri@hotmail.com", {
+  fetch("https://formsubmit.co/ajax/c5c94ecf4a0de2842b63277495ded3c2", {
     method: "POST",
     headers: { 
         'Content-Type': 'application/json',
@@ -708,7 +691,6 @@ closeMessageSentBtns.forEach((btn) => {
 
 
 //Call functions.
-burguerMenuSlide();
 optionalGalleries();
 handleKeyboardViewportResizing();
 contactAutofill();

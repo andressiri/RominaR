@@ -216,10 +216,15 @@
 .form-sent {
   text-decoration: none;
 }
-.message-sent-rominar-logo {
-  width: 20%;
+.message-sent-rominar-logo-div {
+  width: calc(var(--logo-width)*0.66);
+  height: calc(var(--logo-width)*0.66);
   border-radius: 50%;
   border: 2px solid var(--BG-color2);
+  overflow: hidden;
+}
+.message-sent-rominar-logo {
+  width: calc(100% + 2vw);
 }
 
 .push-bottom {
@@ -272,7 +277,7 @@
   .message-sent-text {
     width: 90%;
   }
-  .message-sent-rominar-logo {
+  .message-sent-rominar-logo-div {
     width: 30%;
   } 
 }

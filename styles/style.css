@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap');
 @import "./navbar.css";
 @import "./header.css";
 @import "./about.css";
@@ -24,9 +22,9 @@
   --border-width: 2px;
   --navbar-height: 6vh;
   --lateral-navbar: 7.5vw;
+  --logo-width: 30vmin;
   --section-margins-width: 4vw;
   --cards-margins-width: 10px;  
-  --browser-bar-height: 0px;/*To work around browser's url bar in mobile devices.*/
 }
 
 html {
@@ -48,7 +46,6 @@ body {
   caret-color: transparent;
   background-color: var(--BG-color2);
   overflow-x: hidden;
-  overflow-y: scroll;
 }
 ::selection {
   background: rgba(35, 234, 237, 0.4);
@@ -69,14 +66,14 @@ section {
   position: relative;
   background-color: var(--BG-color2);
 }
-section h1, h2 {
+section h1, .romina-ramallo-asesora-h2 {
   width: 100%;
   margin: 0;
   font-family: var(--title-family);
   font-size: calc(1rem + (5vmin + 5vmax)/2);
   text-align: center;
 }
-#gallery h1, #contact h1, h2 {
+#gallery h1, #contact h1, #contact .romina-ramallo-asesora-h2 {
   color: var(--main-color);
 }
 .section-border-div {
@@ -119,9 +116,10 @@ section h1, h2 {
   :root {
     --border-radius6: 15px;
     --text-font-size: 1em;
+    --logo-width: 45vw;
   }
   section {
-    margin-top: calc(var(--cards-margins-width)*4);
+    margin-top: calc(var(--navbar-height)*2);
   }
   .section-border-div {
     width: calc(100% - var(--cards-margins-width)*2);
