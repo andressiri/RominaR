@@ -6,7 +6,7 @@
 
   <summary>Español</summary>
   
-  # Motivación para el proyecto
+  ### Motivación para el proyecto
   
   Esta aplicación fue creada teniendo en consideración el negocio de Romina pero principalmente con la finalidad de aplicar a un fin y potenciar el conocimiento en las tecnologías base del desarrollo web: `HTML`, `CSS` y `JavaScript`. Se llevó adelante entonces la construcción de un sitio en una sola página con funcionalidades básicas de contacto que cumpliera con los requerimientos para el negocio del cliente.
   
@@ -18,7 +18,7 @@
   
   Este sitio fue mejorado con lighthouse, teniendo en cuenta la carga de activos críticos (critical assets preloading) y la carga perezosa (lazy loading) del resto de la aplicación, cuestiones de accesibilidad y mejores prácticas, y por supuesto, la optimización para motores de búsqueda (SEO). Algunas cuestiones que bajan la puntuación en rendimiento o accesibilidad están relacionadas con no tener las imágenes adecuadas para mostrar, cosas que se pueden mejorar fácilmente pero que no merecen la pena en el estado en el que se encuentra el sitio.
   
-  [<img src="/media/lighthouse-performance.png" alt="Lighthouse performance" />](#)
+  [<img src="/media/lighthouse-performance.jpg" alt="Lighthouse performance" />](#)
   
 </details> 
 
@@ -26,7 +26,7 @@
 
 <summary>English</summary>
   
-  # Motivation for the project
+  ### Motivation for the project
   
   This application was created taking into consideration Romina's business but mainly with the purpose of applying to an end and enhance the knowledge in the basic technologies of web development: `HTML`, `CSS` and `JavaScript`. It was then carried out the construction of a single page site with basic contact functionalities that met the requirements for the client's business.
   
@@ -38,6 +38,6 @@
   
   This site was improved with lighthouse, taking in consideration the preloading of critical assets and the lazy loading of the rest of the application, accessibility and best preactices issues, and of course, Search Engine Optimization (SEO). Some issues that lower score in performance or accesibility are related to not having the proper images to display, things that can be easily improved but do not worth the trouble in the state the site is.
   
-  [<img src="/media/lighthouse-performance.png" alt="Lighthouse performance" />](#)
+  [<img src="/media/lighthouse-performance.jpg" alt="Lighthouse performance" />](#)
   
 </details> 
