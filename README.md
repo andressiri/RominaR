@@ -2,6 +2,8 @@
 
 * [Go to RominaR site](https://andressiri.github.io/RominaR)
 
+***
+
 <details>
 
   <summary>Español</summary>
@@ -20,7 +22,9 @@
   
   [<img src="/media/lighthouse-performance.jpg" alt="Lighthouse performance" />](#)
   
-</details> 
+</details>
+
+***
 
 <details>
 
