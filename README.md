@@ -8,7 +8,7 @@
   
   ### Motivación para el proyecto
   
-  Esta aplicación fue creada teniendo en consideración el negocio de Romina pero principalmente con la finalidad de aplicar a un fin y potenciar el conocimiento en las tecnologías base del desarrollo web: `HTML`, `CSS` y `JavaScript`. Se llevó adelante entonces la construcción de un sitio en una sola página con funcionalidades básicas de contacto que cumpliera con los requerimientos para el negocio del cliente.
+  Esta aplicación fue creada teniendo en consideración el negocio de Romina pero principalmente con la finalidad de aplicar a un fin y potenciar el conocimiento en las tecnologías base del desarrollo web: `HTML`, `CSS` y `JavaScript`. Se llevó adelante entonces la construcción de un sitio en una sola página con funcionalidades básicas para incentivar el contacto del usuario y una buena exposición de la información del negocio del cliente.
   
   ### Estado actual de la aplicación
   
@@ -28,7 +28,7 @@
   
   ### Motivation for the project
   
-  This application was created taking into consideration Romina's business but mainly with the purpose of applying to an end and enhance the knowledge in the basic technologies of web development: `HTML`, `CSS` and `JavaScript`. It was then carried out the construction of a single page site with basic contact functionalities that met the requirements for the client's business.
+  This application was created taking into consideration Romina's business but mainly with the purpose of applying to an end and enhance the knowledge in the basic technologies of web development: `HTML`, `CSS` and `JavaScript`. It was then carried out the construction of a single page site with basic functionalities to encourage user contact and a good exposure of the client's business information.
   
   ### Build status
   
