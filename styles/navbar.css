@@ -1,49 +1,347 @@
 .navbar {
-  z-index: 1;
+  z-index: 50;
   width: 100%;
-  height: 40px;
-  padding: 0;
+  height: var(--navbar-height);
   position: fixed;
   top: 0;
-  display: flex;
   justify-content: space-around;
-  align-items: center;
   background-color: var(--BG-color2);
   color: var(--main-color);
   user-select: none;
 }
+.nav-link {
+  scroll-margin-top: calc(var(--navbar-height)/2);
+}
 
 .navbar a {
+  margin: 5px;
+  position: relative;
   color: var(--main-color);
   text-decoration: none;
-  margin: 5px;
+  font-size: calc(0.1rem + 2vmin);
 }
 .navbar a:hover {
-  margin: 4px 5px 6px 5px;
-  transition: margin 0.3s;
+  margin-top: 2px;
+  transition: margin 0.1s ease;
 }
-.navbar a:focus {
-  color: var(--BG-color);
+.navbar a:active,
+.navbar a:focus,
+.navbar a:visited {
+  color: inherit;
+}
+.navbar a::after {
+  content: '';
+  width: 100%; 
+  height: calc(var(--border-width)*0.6);
+  background-color: var(--main-color);
+  position: absolute;
+  top: 100%;
+  right: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+.navbar a.selected::after {
+  opacity: 1;  
 }
 
-.nav-link {
-  scroll-margin-top: 15px;
+.left-navbar-div,
+.right-navbar-div {
+  width: 15%;
+  height: var(--navbar-height);
+  padding-right: calc(var(--section-margins-width)/2);  
+}
+.right-navbar-div {
+  justify-content: flex-end;
+}
+.center-navbar-div {
+  width: 70%;
+  height: var(--navbar-height);
+  justify-content: space-around;
 }
 
-.navbar-div {
-  width: 25%;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content:flex-end;
+.navbar-icon {
+  margin-right: calc(var(--cards-margins-width)/2);
+  margin-bottom: calc(0px - var(--cards-margins-width)/5);
+}
+.navbar-text {
+  margin: auto;
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 
 .navbar-contact-logo {
-  width: 20px;
   margin: 5px;
-  border-radius: var(--border-radius);
+  font-size: calc(0.5rem + 2vmin);
 }
 .navbar-contact-logo:hover {
-  margin: 4px 5px 6px 5px;
-  transition: margin 0.3s;
+  transform: translateY(-2px);
+  transition: transform 0.5s ease-out;
+}
+.navbar-contact-logo-anchor::after {
+  display: none;
+}
+
+/*Responsive Design*/
+.burguer-div {
+  display: none;
+}
+.burguer div {
+  width: 25px;
+  height: 3px;
+  margin: 2px;
+  background-color: var(--main-color);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+.burguer {
+  flex-direction: column;
+}
+.burguer-active .line1 {
+  transform: rotate(-45deg) translate(calc(0px - var(--cards-margins-width)/2), calc(var(--cards-margins-width)*0.5));  
+}
+.burguer-active .line2 {
+  opacity: 0;  
+}
+.burguer-active .line3 {
+  transform: rotate(45deg) translate(calc(0px - var(--cards-margins-width)/2), calc(0px - var(--cards-margins-width)*0.5));
+}
+
+.burguer-menu {    
+  width: 60%;
+  height: calc(100vh - var(--navbar-height));
+  padding-bottom: 10vh;
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  top: var(--navbar-height);
+  right: 0px;
+  bottom: 0px;
+  background-color: var(--BG-color2-transparent);
+  transform: translateX(100%);
+  transition: transform 0.5s ease-in;
+}
+.landscape-swap {
+  flex-direction: column;
+}
+.burguer-menu-active {
+  transform: translateX(0%);
+}
+
+.burguer-menu-item {
+  transform: translateX(50px);
+  opacity: 0;
+}
+.burguer-menu-item-active {
+  opacity: 1;
+}
+@keyframes burguerMenuFade {
+  from {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+/*Mobile*/
+
+/*Tablet*/
+@media (max-width: 1025px) {
+  .left-navbar-div {
+    width: 0%;
+  } 
+  .right-navbar-div {
+    width: 15%;
+  }
+  .center-navbar-div {
+    width: 85%;
+  }
+}
+
+/*Landscape*/
+@media (max-height: 480px),
+/*To handle navbar blocking textbox vision when switching to landscape with the android keyboard active,
+ without affecting devices that aren't handheld but have touch screens nor desktop devices*/
+(hover: none) and (pointer: coarse) and (min-device-aspect-ratio: 10/6), 
+/*for older devices*/(hover: on-demand) and (pointer: coarse) and (min-device-aspect-ratio: 10/6)
+{
+  :root {
+    --burguer-div-height: 25vh;
+    --burguer-menu-width: 21vw;
+  }
+  .nav-link {
+    scroll-margin-top: calc(var(--cards-margins-width)*2);
+  }
+  .navbar-text,
+  .right-navbar-div,
+  .left-navbar-div,
+  .navbar a::after,
+  .burguer-bottom-title {
+    display: none;
+  }
+  .navbar {
+    width: var(--lateral-navbar);
+    height: 100vh;
+    flex-direction: column-reverse;
+    top: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .navbar a.selected {
+    color: var(--BG-color);
+  }
+  /*Landscape Burguer Menu*/
+  .burguer-menu {
+    display: flex;
+  }
+  .burguer-div {
+    width: var(--lateral-navbar);
+    height: var(--burguer-div-height);
+    display: flex;
+  }  
+  .center-navbar-div {
+    width: var(--lateral-navbar);
+    height: calc(100vh - var(--burguer-div-height));
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .navbar-icon {
+    font-size: calc(0.5rem + 3.5vmin);
+  }
+  .burguer-menu {    
+    width: var(--burguer-menu-width);
+    min-height: 100vh;
+    padding: 0;
+    top: 0;
+    bottom: 0;
+    right: var(--lateral-navbar);
+    transform: translateX(calc(100% + var(--lateral-navbar)));
+  }
+  .navbar,
+  .landscape-swap {
+    padding-bottom: 15vh;
+  }
+  .landscape-swap {
+    flex-direction: column-reverse;
+    height: 100vh;
+  }
+  .burguer-contact-div {
+    width: var(--burguer-menu-width);
+    height: var(--burguer-div-height);
+  }
+  .burguer-contact-logo {
+    font-size: 8vh;
+    margin: 0 15px;
+    align-self: center;
+    justify-self: center;
+  }
+  .burguer-links {
+    width: var(--burguer-menu-width);
+    height: calc(100vh - var(--burguer-div-height));
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .burguer-links .burguer-menu-item {
+    align-self: flex-end;
+  }
+  .burguer-text {    
+    font-size: 5vh;
+    margin-left: 2.5vw;
+  }
+
+  .burguer-menu-active {
+    transform: translateX(0%);
+  }
+}
+
+/*Portrait*/
+@media (max-width: 480px) {
+  .nav-link {
+    scroll-margin-top: calc(var(--navbar-height)/2 + var(--cards-margins-width)*2.5);
+  }
+  .navbar-text {
+    display: none;
+  }
+  .navbar-icon {
+    font-size: calc(var(--navbar-height)/2.2);    
+  }
+  .left-navbar-div,
+  .right-navbar-div {
+    display: none;
+  }
+  .center-navbar-div {
+    width: 80%;
+  }
+  .navbar a::after {
+    display: none;
+  }
+  .navbar a.selected {
+    color: var(--BG-color);
+  }
+  /*Portrait Burguer Menu*/
+  .burguer-menu {
+    display: flex;
+  }
+  .burguer-div {
+    width: 20%;
+    height: var(--navbar-height);
+    padding-right: 20px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .burguer-links,
+  .burguer-menu,
+  .burguer-bottom-title {
+    flex-direction: column;
+  }
+  .burguer-links {
+    height: calc(55vh - var(--navbar-height));
+    justify-content: space-evenly;
+  }
+  .burguer-text {
+    font-size: 4.5vw;
+  }  
+  .burguer-contact-div {
+    height: 10vh;
+  }
+  .burguer-contact-logo {
+    font-size: 8vw;
+    margin: 0px 15px;
+  }
+  .burguer-bottom-title {
+    height: 35vh;
+    font-family: var(--title-family);
+    font-size: 5vw;
+  }
+  .burguer-rominar-logo-div {
+    width: 30vw;
+    height: 30vw;
+    border-radius: 50%;
+    border: 2px solid black;
+    overflow: hidden;
+  }
+  .burguer-rominar-logo {
+    width: calc(100% + 3vw);
+  }
+  .burguer-bottom-title h2 {
+    font-size: 1em;
+  }
+}
+
+/*Larger screens*/
+@media (min-width: 1200px) and (min-aspect-ratio: 13/10) {
+  .left-navbar-div,
+  .right-navbar-div {
+    width: 25%; 
+  }
+  .center-navbar-div {
+    width: 50%;
+  }
+}
+@media (min-width: 1025px) and (max-aspect-ratio: 3/2) {
+  #activities {
+    scroll-margin-top: calc(var(--navbar-height));
+  }
 }

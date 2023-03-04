@@ -1,186 +1,1343 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+<!-- Head Section -->
+  <head>    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous" />
+    <link rel="preload" href="./styles/activities.css" as="style" type="text/css">
+    <link rel="preload" href="./styles/about.css" as="style" type="text/css">
+    <link rel="preload" href="./styles/gallery.css" as="style" type="text/css">
+    <link rel="preload" href="./styles/contact.css" as="style" type="text/css">
+    <link rel="preload" href="./styles/fullScreenCarousel.css" as="style" type="text/css">
+    <!--Critical CSS-->
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
 
-  <head>
+      :root {
+        --main-color: rgba(35, 234, 237, 0.8);
+        --text-color: rgba(0, 0, 0, 1);;
+        --secondary-color: rgba(0, 0, 0, 1);;
+        --BG-color: rgba(247, 247, 247, 0.9);
+        --BG-color2: rgba(0, 0, 0, 1);
+        --BG-color2-transparent: rgba(0, 0, 0, 0.8);
+        --title-family: 'Dancing Script', cursive;
+        --text-font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+        --text-font-size: calc((2.3vmin + 1.2vmax)/2);
+        --border-radius: 5px;
+        --border-radius2: 10px;
+        --border-radius6: 20px;
+        --border-width: 2px;
+        --navbar-height: 6vh;
+        --lateral-navbar: 7.5vw;
+        --logo-width: 30vmin;
+        --section-margins-width: 4vw;
+        --cards-margins-width: 10px;  
+      }
+
+      html {
+        scroll-behavior: smooth;
+        max-width: 100vw;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      div, header, nav, section, a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      body {
+        font-family: var(--text-font-family);
+        caret-color: transparent;
+        background-color: var(--BG-color2);
+        overflow-x: hidden;
+      }
+      ::selection {
+        background: rgba(35, 234, 237, 0.4);
+      }
+      img {
+        user-select: none;
+      }
+      .lock-scrolling {
+        overflow-y: hidden;
+        overscroll-behavior: contain;
+      }
+
+      section {
+        width: 100%;
+        height: auto;
+        min-height: 100vh;
+        margin-top: calc(var(--navbar-height)/2);
+        position: relative;
+        background-color: var(--BG-color2);
+      }
+      section h1, .romina-ramallo-asesora-h2 {
+        width: 100%;
+        margin: 0;
+        font-family: var(--title-family);
+        font-size: calc(1rem + (5vmin + 5vmax)/2);
+        text-align: center;
+      }
+      #gallery h1, #contact h1, #contact .romina-ramallo-asesora-h2 {
+        color: var(--main-color);
+      }
+      .section-border-div {
+        width: calc(100% - var(--section-margins-width));
+        height: auto;
+        min-height: calc(100vh - var(--navbar-height));
+        position: relative;
+        flex-wrap: wrap;
+        background-color: var(--BG-color);
+        border: calc(var(--cards-margins-width)*0.3) solid var(--main-color);
+        border-radius: var(--border-radius6);
+      }
+
+      /*Responsive Design*/
+
+      /*Mobile*/
+
+      /*Tablet*/
+
+      /*Landscape*/
+      @media (max-height: 480px) and (min-width: 480px) {
+        :root {
+          --text-font-size: calc((6vh + 1vw)/2);
+        }
+        section {
+          width: calc(100% - var(--lateral-navbar)/2);
+          margin-top: calc(var(--cards-margins-width)*3);
+        }
+        #about, #activities {
+          width: calc(100% - var(--lateral-navbar));
+          justify-content: flex-end;
+        }
+        .section-border-div {
+          width: calc(100% - var(--section-margins-width)/2);
+        }
+      }
+
+      /*Portrait*/
+      @media (max-width: 480px) {
+        :root {
+          --border-radius6: 15px;
+          --text-font-size: 1em;
+          --logo-width: 45vw;
+        }
+        section {
+          margin-top: calc(var(--navbar-height)*2);
+        }
+        .section-border-div {
+          width: calc(100% - var(--cards-margins-width)*2);
+        }
+      }
+
+      /*Larger Screens*/
+      @media (min-width: 1200px) {
+        :root {
+          --border-radius: 0.8vmin;
+          --border-radius2: 1.6vmin;
+          --border-radius6: 3.2vmin;
+          --border-width: 0.35vmin;
+          --cards-margins-width: 1.5vmin; 
+        }
+      }
+
+      /* ------------- Navbar CSS ------------------*/
+
+      .navbar {
+        z-index: 50;
+        width: 100%;
+        height: var(--navbar-height);
+        position: fixed;
+        top: 0;
+        justify-content: space-around;
+        background-color: var(--BG-color2);
+        color: var(--main-color);
+        user-select: none;
+      }
+      .nav-link {
+        scroll-margin-top: calc(var(--navbar-height)/2);
+      }
+
+      .navbar a {
+        margin: 5px;
+        position: relative;
+        color: var(--main-color);
+        text-decoration: none;
+        font-size: calc(0.1rem + 2vmin);
+      }
+      .navbar a:hover {
+        margin-top: 2px;
+        transition: margin 0.1s ease;
+      }
+      .navbar a:active,
+      .navbar a:focus,
+      .navbar a:visited {
+        color: inherit;
+      }
+      .navbar a::after {
+        content: '';
+        width: 100%; 
+        height: calc(var(--border-width)*0.6);
+        background-color: var(--main-color);
+        position: absolute;
+        top: 100%;
+        right: 0;
+        opacity: 0;
+        transition: opacity 0.5s ease-in;
+      }
+      .navbar a.selected::after {
+        opacity: 1;  
+      }
+
+      .left-navbar-div,
+      .right-navbar-div {
+        width: 15%;
+        height: var(--navbar-height);
+        padding-right: calc(var(--section-margins-width)/2);  
+      }
+      .right-navbar-div {
+        justify-content: flex-end;
+      }
+      .center-navbar-div {
+        width: 70%;
+        height: var(--navbar-height);
+        justify-content: space-around;
+      }
+
+      .navbar-icon {
+        margin-right: calc(var(--cards-margins-width)/2);
+        margin-bottom: calc(0px - var(--cards-margins-width)/5);
+      }
+      .navbar-text {
+        margin: auto;
+        -webkit-font-smoothing: subpixel-antialiased;
+      }
+
+      .navbar-contact-logo {
+        margin: 5px;
+        font-size: calc(0.5rem + 2vmin);
+      }
+      .navbar-contact-logo:hover {
+        transform: translateY(-2px);
+        transition: transform 0.5s ease-out;
+      }
+      .navbar-contact-logo-anchor::after {
+        display: none;
+      }
+
+      /*Responsive Design*/
+      .burguer-div {
+        display: none;
+      }
+      .burguer div {
+        width: 25px;
+        height: 3px;
+        margin: 2px;
+        background-color: var(--main-color);
+        border-radius: 50%;
+        transition: all 0.3s ease;
+      }
+      .burguer {
+        flex-direction: column;
+      }
+      .burguer-active .line1 {
+        transform: rotate(-45deg) translate(calc(0px - var(--cards-margins-width)/2), calc(var(--cards-margins-width)*0.5));  
+      }
+      .burguer-active .line2 {
+        opacity: 0;  
+      }
+      .burguer-active .line3 {
+        transform: rotate(45deg) translate(calc(0px - var(--cards-margins-width)/2), calc(0px - var(--cards-margins-width)*0.5));
+      }
+
+      .burguer-menu {    
+        width: 60%;
+        height: calc(100vh - var(--navbar-height));
+        padding-bottom: 10vh;
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: var(--navbar-height);
+        right: 0px;
+        bottom: 0px;
+        background-color: var(--BG-color2-transparent);
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+      }
+      .landscape-swap {
+        flex-direction: column;
+      }
+      .burguer-menu-active {
+        transform: translateX(0%);
+      }
+
+      .burguer-menu-item {
+        transform: translateX(50px);
+        opacity: 0;
+      }
+      .burguer-menu-item-active {
+        opacity: 1;
+      }
+      @keyframes burguerMenuFade {
+        from {
+          transform: translateX(50px);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0px);
+          opacity: 1;
+        }
+      }
+
+      /*Mobile*/
+
+      /*Tablet*/
+      @media (max-width: 1025px) {
+        .left-navbar-div {
+          width: 0%;
+        } 
+        .right-navbar-div {
+          width: 15%;
+        }
+        .center-navbar-div {
+          width: 85%;
+        }
+      }
+
+      /*Landscape*/
+      @media (max-height: 480px),
+      /*To handle navbar blocking textbox vision when switching to landscape with the android keyboard active,
+       without affecting devices that aren't handheld but have touch screens nor desktop devices*/
+      (hover: none) and (pointer: coarse) and (min-device-aspect-ratio: 10/6), 
+      /*for older devices*/(hover: on-demand) and (pointer: coarse) and (min-device-aspect-ratio: 10/6)
+      {
+        :root {
+          --burguer-div-height: 25vh;
+          --burguer-menu-width: 21vw;
+        }
+        .nav-link {
+          scroll-margin-top: calc(var(--cards-margins-width)*2);
+        }
+        .navbar-text,
+        .right-navbar-div,
+        .left-navbar-div,
+        .navbar a::after,
+        .burguer-bottom-title {
+          display: none;
+        }
+        .navbar {
+          width: var(--lateral-navbar);
+          height: 100vh;
+          flex-direction: column-reverse;
+          top: 0;
+          right: 0;
+          bottom: 0;
+        }
+      
+        .navbar a.selected {
+          color: var(--BG-color);
+        }
+        /*Landscape Burguer Menu*/
+        .burguer-menu {
+          display: flex;
+        }
+        .burguer-div {
+          width: var(--lateral-navbar);
+          height: var(--burguer-div-height);
+          display: flex;
+        }  
+        .center-navbar-div {
+          width: var(--lateral-navbar);
+          height: calc(100vh - var(--burguer-div-height));
+          flex-direction: column;
+          justify-content: space-evenly;
+        }
+        .navbar-icon {
+          font-size: calc(0.5rem + 3.5vmin);
+        }
+        .burguer-menu {    
+          width: var(--burguer-menu-width);
+          min-height: 100vh;
+          padding: 0;
+          top: 0;
+          bottom: 0;
+          right: var(--lateral-navbar);
+          transform: translateX(calc(100% + var(--lateral-navbar)));
+        }
+        .navbar,
+        .landscape-swap {
+          padding-bottom: 15vh;
+        }
+        .landscape-swap {
+          flex-direction: column-reverse;
+          height: 100vh;
+        }
+        .burguer-contact-div {
+          width: var(--burguer-menu-width);
+          height: var(--burguer-div-height);
+        }
+        .burguer-contact-logo {
+          font-size: 8vh;
+          margin: 0 15px;
+          align-self: center;
+          justify-self: center;
+        }
+        .burguer-links {
+          width: var(--burguer-menu-width);
+          height: calc(100vh - var(--burguer-div-height));
+          flex-direction: column;
+          justify-content: space-evenly;
+        }
+        .burguer-links .burguer-menu-item {
+          align-self: flex-end;
+        }
+        .burguer-text {    
+          font-size: 5vh;
+          margin-left: 2.5vw;
+        }
+      
+        .burguer-menu-active {
+          transform: translateX(0%);
+        }
+      }
+
+      /*Portrait*/
+      @media (max-width: 480px) {
+        .nav-link {
+          scroll-margin-top: calc(var(--navbar-height)/2 + var(--cards-margins-width)*2.5);
+        }
+        .navbar-text {
+          display: none;
+        }
+        .navbar-icon {
+          font-size: calc(var(--navbar-height)/2.2);    
+        }
+        .left-navbar-div,
+        .right-navbar-div {
+          display: none;
+        }
+        .center-navbar-div {
+          width: 80%;
+        }
+        .navbar a::after {
+          display: none;
+        }
+        .navbar a.selected {
+          color: var(--BG-color);
+        }
+        /*Portrait Burguer Menu*/
+        .burguer-menu {
+          display: flex;
+        }
+        .burguer-div {
+          width: 20%;
+          height: var(--navbar-height);
+          padding-right: 20px;
+          display: flex;
+          justify-content: flex-end;
+        }
+        .burguer-links,
+        .burguer-menu,
+        .burguer-bottom-title {
+          flex-direction: column;
+        }
+        .burguer-links {
+          height: calc(55vh - var(--navbar-height));
+          justify-content: space-evenly;
+        }
+        .burguer-text {
+          font-size: 4.5vw;
+        }  
+        .burguer-contact-div {
+          height: 10vh;
+        }
+        .burguer-contact-logo {
+          font-size: 8vw;
+          margin: 0px 15px;
+        }
+        .burguer-bottom-title {
+          height: 35vh;
+          font-family: var(--title-family);
+          font-size: 5vw;
+        }
+        .burguer-rominar-logo-div {
+          width: 30vw;
+          height: 30vw;
+          border-radius: 50%;
+          border: 2px solid black;
+          overflow: hidden;
+        }
+        .burguer-rominar-logo {
+          width: calc(100% + 3vw);
+        }
+        .burguer-bottom-title h2 {
+          font-size: 1em;
+        }
+      }
+
+      /*Larger screens*/
+      @media (min-width: 1200px) and (min-aspect-ratio: 13/10) {
+        .left-navbar-div,
+        .right-navbar-div {
+          width: 25%; 
+        }
+        .center-navbar-div {
+          width: 50%;
+        }
+      }
+      @media (min-width: 1025px) and (max-aspect-ratio: 3/2) {
+        #activities {
+          scroll-margin-top: calc(var(--navbar-height));
+        }
+      }
+
+      /*------------ Header Css --------------------*/
+
+      .home-header {
+        width: 100%;
+        height: 100vh;
+        position: relative;
+        flex-direction: column;
+        justify-content: unset;
+        background-color: var(--BG-color2);
+      }
+
+      .header-title-container h1, .header-title-container h2 {
+        z-index: 15;
+        color: var(--main-color);
+        font-family: var(--title-family);
+        text-align: center;
+      }
+      .header-title-container h1 {
+        font-size: calc((6vmin + 5vmax)/2);
+      }
+      .header-title-container h2 {
+        font-size: calc((3.5vmin + 3.5vmax)/2);
+      }
+
+      .background-container, .header-img {
+        height: calc(100vh - var(--navbar-height)*2);
+        border-radius: var(--border-radius6);
+        overflow: hidden;
+      }
+      .background-container {  
+        width: calc(100% - var(--section-margins-width));
+        position: absolute;
+        top: var(--navbar-height);
+        background-color: var(--BG-color2);
+        border: calc(var(--cards-margins-width)*0.3) solid var(--main-color);
+      }
+      .header-img {
+        width: 50%;
+        object-fit: cover;
+        object-position: top;
+      }
+      .h-img-1 {
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+      }
+      .h-img-2 {
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+      }
+
+      .rominar-logo-div {
+        z-index: 10;
+        width: var(--logo-width);
+        height: var(--logo-width);
+        position: absolute;
+        top: calc(42vh - var(--logo-width)/2);
+        left: calc(50% - var(--logo-width)/2);
+        border-radius: 50%;
+        border: 2px solid var(--BG-color2);
+        overflow: hidden;
+      }
+      .rominar-logo {
+        width: calc(100% + 3vw);
+      }
+
+      .header-title-container {
+        width: calc((40vmax + 50vmin)/2);
+        height: calc((35vmin + 10vmax)/2);
+        padding-top: 4vh;
+        position: relative;
+        top: 50vh;
+        flex-direction: column;
+        background-color: var(--BG-color2);
+        border: var(--border-width) solid var(--main-color);
+        border-radius: var(--border-radius6)
+      }
+
+      /*Responsive Design*/
+
+      /*Mobile*/
+
+      /*Tablet*/
+
+      /*Landscape*/
+      @media (max-height: 480px) {
+        .background-container, .header-img {
+          height: calc(100vh - var(--section-margins-width));
+        }
+        .background-container {
+          width: calc(100% - var(--section-margins-width)/2 - var(--lateral-navbar));
+          top: calc(var(--section-margins-width)/2);
+          right: calc(var(--lateral-navbar));
+        }
+      }
+
+      /*Portrait*/
+      @media (max-width: 480px) {
+        #header {
+          margin-bottom: calc(10px - var(--navbar-height)*2);
+        }
+        .background-container, .header-img {
+          height: 50vh;
+          top: var(--navbar-height);
+        }
+        .rominar-logo-div {
+          top: calc(45vh + var(--navbar-height) - var(--logo-width)/2);
+        }
+        .header-title-container {
+          width: calc(100% - var(--section-margins-width));
+          height: calc(50vh - var(--navbar-height));
+          border: none;
+          top: calc(50vh + var(--navbar-height));
+        }
+        .header-title-container h1 {
+          font-size: calc(1rem + 9vmin);
+          margin-top: -6vh;
+        }
+        .header-title-container h2 {
+          font-size: calc(0.5rem + 8vmin);
+        }
+      }
+
+
+    </style>
 
     <meta charset="UTF-8" />
-    <link rel="icon" href="./media/rominarLogo.png" />
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="icon" href="./media/rominarLogo.jpg" />
+    <!--<link rel="stylesheet" href="./styles/style.css" />-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!--This is modified at app.js-->
+    <meta name="description" content="Página oficial de Romina Ramallo asesora" />
     <title>RominaR</title>
+    <!--reCaptcha script loads dynamically-->
+    <meta name="theme-color" content="rgba(0, 0, 0, 1)"/>
 
   </head>
-
+<!-- Body Section -->
   <body>
+    <header id="header" class="home-header nav-link">
+<!-- Navbar -->      
+      <nav class="navbar">
+        <div class="left-navbar-div">       
+        </div>
+        <div class="center-navbar-div">
+          <a class="section-link" href="#header">
+            <i class="fas fa-home navbar-icon" aria-label="Inicio"></i>
+            <p class="navbar-text">Inicio</p>
+          </a>
+          <a class="section-link" href="#about">
+            <i class="fas fa-street-view navbar-icon" aria-label="Quién soy"></i>
+            <p class="navbar-text">Quién soy</p>
+          </a>
+          <a class="section-link" href="#activities">
+            <i class="fas fa-business-time navbar-icon" aria-label="Actividades"></i>
+            <p class="navbar-text">Actividades</p>
+          </a>
+          <a class="section-link" href="#gallery">
+            <i class="fas fa-images navbar-icon" aria-label="Galería"></i>
+            <p class="navbar-text">Galería</p>
+          </a>
+          <a class="section-link" href="#contact">
+            <i class="fas fa-envelope navbar-icon" aria-label="Contacto"></i>
+            <p class="navbar-text">Contacto</p>
+          </a>
+        </div>        
+        <div class="right-navbar-div">
+          <a class="navbar-contact-logo-anchor" href="https://www.instagram.com/romina.ramallo.33/" target="_blank" rel="noopener noreferrer" >
+            <i class="fab fa-instagram-square navbar-contact-logo" aria-label="Instagram"></i>
+          </a>
+          <a class="navbar-contact-logo-anchor" href="https://www.facebook.com/romina.ramallo.33" target="_blank" rel="noopener noreferrer" >
+            <i class="fab fa-facebook-square navbar-contact-logo" aria-label="Facebook"></i>
+          </a>
+        </div>
 
-    <nav class="navbar">
-      <div class="navbar-div"></div>
-      <a id="header-nav" href="#header">INICIO</a>
-      <a id="about-nav" href="#about">QUIÉN SOY</a>
-      <a id="activities-nav" href="#activities">ACTIVIDADES</a>
-      <a id="gallery-nav" href="#gallery">GALERÍA</a>
-      <a id="contact-nav" href="#contact">CONTACTO</a>
-      <div class="navbar-div">
-        <a href="https://www.instagram.com/romina.ramallo.33/" target="_blank"><img class="navbar-contact-logo" src="./media/instagram logo.png" alt="Instagram logo."></a>
-        <a href="https://www.facebook.com/romina.ramallo.33" target="_blank"><img class="navbar-contact-logo" src="./media/facebook logo.png" alt="Facebook logo."></a>
-      </div> 
-    </nav>
+<!-- Burguer Menu for Cellphones -->
+        <div class="burguer-div">
+          <div class="burguer">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+          </div>
+        </div>
+        <div class="burguer-menu">
+          <div class="landscape-swap">
+            <div class="burguer-links">
+              <a class="section-link burguer-menu-item" href="#header">
+                <i class="fas fa-home navbar-icon"></i>
+                <p class="burguer-text">Inicio</p>
+              </a>
+              <a class="section-link burguer-menu-item" href="#about">
+                <i class="fas fa-street-view navbar-icon"></i>
+                <p class="burguer-text">Quién soy</p>
+              </a>
+              <a class="section-link burguer-menu-item" href="#activities">
+                <i class="fas fa-business-time navbar-icon"></i>
+                <p class="burguer-text">Actividades</p>
+              </a>
+              <a class="section-link burguer-menu-item" href="#gallery">
+                <i class="fas fa-images navbar-icon"></i>
+                <p class="burguer-text">Galería</p>
+              </a>
+              <a class="section-link burguer-menu-item" href="#contact">
+                <i class="fas fa-envelope navbar-icon"></i>
+                <p class="burguer-text">Contacto</p>
+              </a>
+            </div>
+            <div class="burguer-contact-div burguer-menu-item">
+              <a class="navbar-contact-logo-anchor" href="https://www.instagram.com/romina.ramallo.33/" target="_blank" rel="noopener noreferrer" >
+                <i class="fab fa-instagram-square burguer-contact-logo" aria-label="Instagram"></i>
+              </a>
+              <a class="navbar-contact-logo-anchor" href="https://www.facebook.com/romina.ramallo.33" target="_blank" rel="noopener noreferrer" >
+                <i class="fab fa-facebook-square burguer-contact-logo" aria-label="Facebook"></i>
+              </a>
+            </div>
+          </div>
+          <div class="burguer-bottom-title">
+            <div class="burguer-rominar-logo-div burguer-menu-item">
+              <img src="./media/rominarLogo.jpg" class="burguer-rominar-logo" alt="RominaR" />
+            </div>
+            <h1 class="burguer-menu-item">Romina Ramallo</h1>
+            <h2 class="burguer-menu-item">Asesora</h2>
+          </div>
+        </div>
+      </nav>
 
-    <header id="header" class="video-header nav-link">
-      <div class="video-container">
-        <video class="header-video" src="./media/placeholderVideo.mp4" autoplay muted loop></video>
+<!-- Header Section -->
+      <div class="background-container">
+        <img  class="header-img h-img-1" src="./media/header1.jpeg" alt="Romina posando en una banqueta." />
+        <img  class="header-img h-img-2" src="./media/header2.jpeg" alt="Romina posando en una banqueta." />
       </div>
-      <img src="./media/rominarLogo.png" class="RominaR-logo" alt="RominaR">
-      <div class="header-container">
-        <h1>Romina Ramallo Asesora</h1>
+      <div class="rominar-logo-div">
+        <img src="./media/rominarLogo.jpg" class="rominar-logo" alt="RominaR" />
+      </div>
+      <div class="header-title-container">
+        <h1>Romina Ramallo</h1>
+        <h2>Asesora</h2>
       </div>      
     </header>
-
+<!-- About Section -->
     <section id="about" class="nav-link">
-      <div class="border-div">
+      <div class="section-border-div">
         <h1>Acerca de mí</h1>
-        <div class="card">
-          <img src="./media/romi.png" alt="Una foto de Romina en un restaurante." class="card-img">
-          <div class="card-text-div ctd-right">
-            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit facere blanditiis temporibus quas eum, eius quam nesciunt, tenetur atque consequatur iure. Magni recusandae adipisci laborum temporibus placeat nemo hic aliquam. Vitae delectus, quod odit maiores dolor praesentium temporibus? Sunt libero qui fugit quaerat rem? Blanditiis eum dolorem cum error dicta.</p>
+        <div id="card-img-left" class="card">
+          <img loading="lazy" src="./media/romi3.jpeg" alt="Una foto de Romina y su hija." class="card-img img-left">
+          <div class="card-text-div">
+            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit dolore illo magni, nemo alias ducimus voluptate distinctio! Consequuntur modi corporis optio reprehenderit! Veniam nulla soluta blanditiis facere, dolor qui, fugit eveniet facilis fuga doloremque at necessitatibus unde ratione illo commodi laborum ipsum! Expedita repellendus, nisi sunt excepturi blanditiis consequuntur architecto.</p>
           </div>
         </div>  
         <div class="comment">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus natus doloribus ipsa nemo, accusantium sequi officiis sit, voluptatibus perspiciatis velit iusto minus possimus, est amet rerum quas consectetur explicabo dolorum.</p>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta quidem provident recusandae non repellendus vitae optio expedita qui aliquid. Vel corporis voluptate quam sunt maiores ipsa omnis rerum nihil architecto.</p>
         </div>
         <div class="comment">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste culpa minus explicabo suscipit repellendus eveniet itaque cumque sapiente sequi qui, quo ipsa earum similique? Pariatur voluptatibus maiores molestiae in.</p>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum, incidunt quia quo quaerat praesentium maxime, illo voluptates perspiciatis, facere consequatur provident fugiat est. Exercitationem, a ducimus. Itaque sunt ab ullam! </p>
         </div>
-        <div class="card">
-          <div class="card-text-div ctd-left">
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, inventore sunt fugit nam qui minima consequuntur placeat natus officia. Cum voluptate sequi dicta adipisci sed quisquam, suscipit debitis eveniet sunt consequatur repellat id? Id nostrum quas ad aperiam quaerat facilis aspernatur, incidunt, ipsam aliquam dolor explicabo perferendis velit vel reprehenderit!</p>
+        <div id="card-img-right" class="card">
+          <div class="card-text-div">
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur magnam consequatur iure ut fuga odio quo, quaerat totam repudiandae cum quae doloribus nihil facere adipisci cupiditate quos nemo autem quisquam? Eaque ex nostrum libero neque deleniti. Similique debitis consequatur dolores ipsum! Eligendi fugit at unde, iure exercitationem error fugiat nostrum!</p>
           </div>
-          <img src="./media/romi2.jpg" alt="Una foto de Romina y su hija." class="card-img">
+          <img loading="lazy" src="./media/romi4.jpeg" alt="Una foto de Romina sonriendo." class="card-img img-right">
         </div>
       </div>
     </section>
-
+<!-- Activities Section -->
     <section id="activities" class="nav-link">
-      <div class="border-div">
+      <div class="section-border-div">
         <h1>Actividades</h1>
+        
         <div class="activity-card">
           <div class="activity-title-div">
-            <h6 class="activity-title">Asesoramiento de imagen</h6>
+            <h2 class="activity-title">Asesoramiento de imagen</h2>
           </div>
           <div class="activity-card-div">
-            <img src="./media/activities/imagen.jpg" alt="Una foto de Romina trabajando." class="activity-img">
+            <img loading="lazy" id="imagen-img" src="./media/activities/imagen2.jpeg" alt="Una foto de Romina trabajando." class="activity-img" />
             <div class="activity-text-div">
               <p class="activity-text">Asesoramiento integral de acuerdo al estilo personal, tipo de cuerpo, prendas acordes a él y ocasión de uso. Tipología corporal y colorimetría.</p>
             </div>
           </div>
+          <a id="imagen-activity-anchor" href="#name" class="contact-autofill">
+            <button class="consult-btn keyboard-activation" tabindex="-1">Consultar</button>
+          </a>
         </div>
-        <div class="activity-card">
+      
+        <div id="guardarropas-card" class="activity-card landscape-reverse">
           <div class="activity-title-div">
-            <h6 class="activity-title">Organización del guardarropas</h6>
+            <h2 class="activity-title">Organización de guardarropas</h2>
           </div>
           <div class="activity-card-div">
-            <img src="./media/activities/guardarropas.jpg" alt="Una foto de un guardarropas." class="activity-img">
+            <img loading="lazy" src="./media/activities/guardarropas1.jpg" alt="Una foto de un guardarropas." class="activity-img" />
             <div class="activity-text-div">
               <p class="activity-text">Análisis y organización del guardarropa para saber si es representativo del estilo, tipo de cuerpo y actividades que realiza.</p>
             </div>
           </div>
+          <a id="guardarropas-activity-anchor" href="#name" class="contact-autofill">
+            <button class="consult-btn keyboard-activation" tabindex="-1">Consultar</button>
+          </a>
         </div>
+     
         <div class="activity-card">
           <div class="activity-title-div">
-            <h6 class="activity-title">Colorimetría</h6>
+            <h2 class="activity-title">Colorimetría</h2>
           </div>
           <div class="activity-card-div">
-            <img src="./media/activities/colorimetría.jpg" alt="Una foto de una paleta de colores." class="activity-img">
+            <img loading="lazy" src="./media/activities/colorimetría.jpeg" alt="Una foto de una paleta de colores." class="activity-img" />
             <div class="activity-text-div">
               <p class="activity-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident rerum harum ex nemo dicta temporibus corrupti accusamus esse quibusdam quasi.</p>
             </div>
           </div>
+          <a id="colorimetria-activity-anchor" href="#name" class="contact-autofill">
+            <button class="consult-btn keyboard-activation" tabindex="-1">Consultar</button>
+          </a>
         </div>
-        <div class="activity-card">
+      
+        <div class="activity-card  landscape-reverse">
           <div class="activity-title-div">
-            <h6 class="activity-title">Personal Shopper</h6>
+            <h2 class="activity-title">Personal Shopper</h2>
           </div>
           <div class="activity-card-div">
-            <img src="./media/activities/shopper.jpg" alt="Una foto de Romina de alguien llevando bolsas de compras." class="activity-img">
+            <img loading="lazy" src="./media/activities/shopper.jpg" alt="Una foto de Romina de alguien llevando bolsas de compras." class="activity-img" />
             <div class="activity-text-div">
               <p class="activity-text">Un recorrido de compras a la medida de las necesidades del cliente, dónde enseñaré a elegir tus mejores looks, teniendo en cuenta tu presupuesto.</p>
             </div>
           </div>
+          <a id="shopper-activity-anchor" href="#name" class="contact-autofill">
+            <button class="consult-btn keyboard-activation" tabindex="-1">Consultar</button>
+          </a>
         </div>
+
         <div class="activity-card">
           <div class="activity-title-div">
-            <h6 class="activity-title">Asesoramiento para eventos</h6>
+            <h2 class="activity-title">Asesoramiento para eventos</h2>
           </div>
           <div class="activity-card-div">
-            <img src="./media/activities/eventos.jpg" alt="Una foto de una mujer posando." class="activity-img">
+            <img loading="lazy" src="./media/activities/eventos1.jpg" alt="Una foto de una mujer posando." class="activity-img" />
             <div class="activity-text-div">
-              <p class="activity-text">Relevamiento del tipo de fiesta. Diagnóstico de estilo.
-                Sugerencia de estilismo integral para los protagonistas...</p>
+              <p class="activity-text">Relevamiento del tipo de fiesta. Diagnóstico de estilo. Sugerencia de estilismo integral para los protagonistas.</p>
             </div>
           </div>
+          <a id="eventos-activity-anchor" href="#name" class="contact-autofill">
+            <button class="consult-btn keyboard-activation" tabindex="-1">Consultar</button>
+          </a>  
         </div>
-        <div class="activity-card">
+      
+        <div class="activity-card landscape-reverse">
           <div class="activity-title-div">
-            <h6 class="activity-title">Asesoramiento para novias</h6>
+            <h2 class="activity-title">Asesoramiento para novias</h2>
           </div>
           <div class="activity-card-div">
-            <img src="./media/activities/novias.jpg" alt="Una foto de una novia." class="activity-img">
+            <img loading="lazy" id="novias-img" src="./media/activities/novias1.jpg" alt="Una foto de una novia." class="activity-img" />
             <div class="activity-text-div">
               <p class="activity-text">Relevamiento del tipo de fiesta. Diagnostico de estilo. Propuesta de proveedores. Selección de marcas y diseñadores. Elección de todo lo referido al total look.</p>
             </div>
           </div>
+          <a id="novias-activity-anchor" href="#name" class="contact-autofill">
+            <button class="consult-btn keyboard-activation" tabindex="-1" >Consultar</button>
+          </a>  
         </div>
       </div>
     </section>
-
+<!-- Gallery Section-->
     <section id="gallery" class="nav-link">
       <div class="gallery-title-div">
         <h1>Galería</h1>
       </div>
       <div id="gallery-div">
-        <img src="./media/Galería/gallery1.jpg" alt="Una nota inspiradora." class="gallery-img gall-size-one">
-        <img src="./media/Galería/gallery2.jpg" alt="Romina cenando con amigas." class="gallery-img gall-size-two">
-        <img src="./media/Galería/gallery3.jpg" alt="Una foto inspiradora." class="gallery-img gall-size-three">
-        <img src="./media/Galería/gallery4.jpg" alt="Romina en un evento." class="gallery-img gall-size-four">
-        <img src="./media/Galería/gallery5.jpg" alt="Una selfie de Romina." class="gallery-img gall-size-five">
-        <img src="./media/Galería/gallery6.jpg" alt="Romina en un almuerzo al aire libre." class="gallery-img gall-size-six">
-      </div>      
-      <div id="optional-gallery-div">
-        <img src="./media/Galería/gallery7.jpg" alt="Una foto inspiradora." class="gallery-img gall-size-seven">
-        <img src="./media/Galería/gallery8.jpg" alt="Una foto de Romina en la costanera con su grupo de ciclismo." class="gallery-img gall-size-eight">
-        <img src="./media/Galería/gallery9.jpg" alt="Una nota inspiradora." class="gallery-img gall-size-nine">
-        <img src="./media/Galería/gallery10.jpg" alt="Una foto de Romina con su padre y su hija." class="gallery-img gall-size-ten">
-        <img src="./media/Galería/gallery11.jpg" alt="Una foto de Romina en Disney." class="gallery-img gall-size-eleven">
-        <img src="./media/Galería/gallery12.jpg" alt="Una foto de Romina en Buenos Aires." class="gallery-img gall-size-twelve">
+        <div class="img-is-clickable-div gall-size-one">
+          <i class="fas fa-hand-pointer img-is-clickable-pointer"></i>
+          <img loading="lazy" src="./media/Galería/gallery1.jpg" alt="Una nota inspiradora." class="gallery-img img-one" />
+        </div>
+        <div class="img-is-clickable-div gall-size-two">
+          <i class="fas fa-hand-pointer img-is-clickable-pointer"></i>        
+          <img loading="lazy" src="./media/Galería/gallery2.jpg" alt="Romina cenando con amigas." class="gallery-img img-two" />
+        </div>
+        <div class="img-is-clickable-div gall-size-three">
+          <i class="fas fa-hand-pointer img-is-clickable-pointer"></i>
+          <img loading="lazy" src="./media/Galería/gallery3.jpg" alt="Una foto inspiradora." class="gallery-img img-three" />
+        </div>
+        <div class="img-is-clickable-div gall-size-four">
+          <i class="fas fa-hand-pointer img-is-clickable-pointer"></i>
+          <img loading="lazy" src="./media/Galería/gallery4.jpg" alt="Romina en un evento." class="gallery-img img-four" />
+        </div> 
+        <div class="img-is-clickable-div gall-size-five">
+          <i class="fas fa-hand-pointer img-is-clickable-pointer"></i>
+          <img loading="lazy" src="./media/Galería/gallery5.jpg" alt="Una selfie de Romina." class="gallery-img img-five" />
+        </div>
+        <div class="img-is-clickable-div gall-size-six">
+          <i class="fas fa-hand-pointer img-is-clickable-pointer"></i>   
+          <img loading="lazy" src="./media/Galería/gallery6.jpg" alt="Romina en un almuerzo al aire libre." class="gallery-img img-six" />
+        </div>
+      </div>
+      <!-- Optional Galleries -->      
+      <div id="optional-gallery-div1" class="optional-gallery optional-hide">
+        <div class="img-is-clickable-div gall-size-seven">
+          <i class="fas fa-hand-pointer img-is-clickable-pointer"></i> 
+          <img loading="lazy" src="./media/Galería/gallery7.jpg" alt="Una foto inspiradora." class="gallery-img img-seven" />
+        </div>
+        <div class="img-is-clickable-div gall-size-eight">
+          <i class="fas fa-hand-pointer img-is-clickable-pointer"></i> 
+          <img loading="lazy" src="./media/Galería/gallery8.jpg" alt="Una foto de Romina en la costanera con su grupo de ciclismo." class="gallery-img img-eight" />
+        </div>
+        <div class="img-is-clickable-div gall-size-nine">
+          <i class="fas fa-hand-pointer img-is-clickable-pointer"></i> 
+          <img loading="lazy" src="./media/Galería/gallery9.jpg" alt="Una nota inspiradora." class="gallery-img img-nine" />
+        </div>
+        <div class="img-is-clickable-div gall-size-ten">
+          <i class="fas fa-hand-pointer img-is-clickable-pointer"></i> 
+          <img loading="lazy" src="./media/Galería/gallery10.jpg" alt="Una foto de Romina con su padre y su hija." class="gallery-img img-ten" />
+        </div>
+        <div class="img-is-clickable-div gall-size-eleven">
+          <i class="fas fa-hand-pointer img-is-clickable-pointer"></i> 
+          <img loading="lazy" src="./media/Galería/gallery11.jpg" alt="Una foto de Romina en Disney." class="gallery-img img-eleven" />
+        </div>
+        <div class="img-is-clickable-div gall-size-twelve">
+          <i class="fas fa-hand-pointer img-is-clickable-pointer"></i> 
+          <img loading="lazy" src="./media/Galería/gallery12.jpg" alt="Una foto de Romina en Buenos Aires." class="gallery-img img-twelve" />
+        </div>
+      </div>
+      
+      <div id="optional-gallery-div2" class="optional-gallery optional-hide">
+        <div class="img-is-clickable-div gall-size-one">
+          <i class="fas fa-hand-pointer img-is-clickable-pointer"></i> 
+          <img loading="lazy" src="./media/Galería/gallery13.jpg" alt="Una foto inspiradora." class="gallery-img img-thirteen" />
+        </div>
+        <div class="img-is-clickable-div gall-size-two">
+          <i class="fas fa-hand-pointer img-is-clickable-pointer"></i> 
+          <img loading="lazy" src="./media/Galería/gallery14.jpg" alt="Una foto de Romina en la costanera con su grupo de ciclismo." class="gallery-img img-fourteen" />
+        </div>
+        <div class="img-is-clickable-div gall-size-three">
+          <i class="fas fa-hand-pointer img-is-clickable-pointer"></i> 
+          <img loading="lazy" src="./media/Galería/gallery15.jpg" alt="Una nota inspiradora." class="gallery-img img-fifteen" />
+        </div>
+        <div class="img-is-clickable-div gall-size-four">
+          <i class="fas fa-hand-pointer img-is-clickable-pointer"></i> 
+          <img loading="lazy" src="./media/Galería/gallery16.jpg" alt="Una foto de Romina con su padre y su hija." class="gallery-img img-sixteen" />
+        </div>
+        <div class="img-is-clickable-div gall-size-five">
+          <i class="fas fa-hand-pointer img-is-clickable-pointer"></i> 
+          <img loading="lazy" src="./media/Galería/gallery17.jpg" alt="Una foto de Romina en Disney." class="gallery-img img-seventeen" />
+        </div>
+        <div class="img-is-clickable-div gall-size-six">
+          <i class="fas fa-hand-pointer img-is-clickable-pointer"></i> 
+          <img loading="lazy" src="./media/Galería/gallery18.jpg" alt="Una foto de Romina en Buenos Aires." class="gallery-img img-eighteen" />
+        </div>
+      </div>
+      
+      <div id="optional-gallery-div3" class="optional-gallery optional-hide">
+        <div class="img-is-clickable-div gall-size-seven">
+          <i class="fas fa-hand-pointer img-is-clickable-pointer"></i> 
+          <img loading="lazy" src="./media/Galería/gallery19.jpg" alt="Una foto inspiradora." class="gallery-img img-nineteen" />
+        </div>
+        <div class="img-is-clickable-div gall-size-eight">
+          <i class="fas fa-hand-pointer img-is-clickable-pointer"></i> 
+          <img loading="lazy" src="./media/Galería/gallery20.jpg" alt="Una foto de Romina en la costanera con su grupo de ciclismo." class="gallery-img img-twenty" />
+        </div>
+        <div class="img-is-clickable-div gall-size-nine">
+          <i class="fas fa-hand-pointer img-is-clickable-pointer"></i> 
+          <img loading="lazy" src="./media/Galería/gallery21.jpg" alt="Una nota inspiradora." class="gallery-img img-twentyone" />
+        </div>
+        <div class="img-is-clickable-div gall-size-ten">
+          <i class="fas fa-hand-pointer img-is-clickable-pointer"></i> 
+          <img loading="lazy" src="./media/Galería/gallery22.jpg" alt="Una foto de Romina con su padre y su hija." class="gallery-img img-twentytwo" />
+        </div>
+        <div class="img-is-clickable-div gall-size-eleven">
+          <i class="fas fa-hand-pointer img-is-clickable-pointer"></i> 
+          <img loading="lazy" src="./media/Galería/gallery23.jpg" alt="Una foto de Romina en Disney." class="gallery-img img-twentythree" />
+        </div>
+        <div class="img-is-clickable-div gall-size-twelve">
+          <i class="fas fa-hand-pointer img-is-clickable-pointer"></i> 
+          <img loading="lazy" src="./media/Galería/gallery24.jpg" alt="Una foto de Romina en Buenos Aires." class="gallery-img img-twentyfour" />
+        </div>
       </div>
     </section>
+<!-- Show more or less gallery buttons -->    
+    <div class="optional-buttons-div">
+      <label id="show-more-label" class="optional-btn-label" for="show-more" tabindex="0">
+        <div id="show-more" class="arrow-down">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        Mostrar más
+      </label>
+      <label id="show-less-label" class="optional-btn-label optional-hide" for="show-less" tabindex="0">
+        <div id="show-less" class="arrow-up">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        Mostrar menos
+      </label>
+    </div>
+<!-- Display full screen Gallery photos at click -->
+    <div class="full-screen-display" tabindex="-1">
+      <div class="full-screen-navbar">
+        <i class="fas fa-times full-screen-navbar-icon"></i>
+      </div>
+      <div class="carousel-div">
+        <div class="carousel-track">
+          
+          <div class="carousel-card">
+            <img loading="lazy" src="media/Galería/gallery1.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem50 ipsum dolor sit amet consectetur adipisicing elit. Assumenda cupiditate placeat veritatis suscipit ducimus autem reprehenderit nesciunt? Cumque nisi nemo, vitae dolore distinctio blanditiis cupiditate fugiat nihil ad alias soluta officia illo omnis deleniti eum rerum enim quam consequuntur veritatis aut at numquam saepe porro? Aperiam accusamus provident recusandae corporis.</p>
+            </div>
+          </div>
+          
+          <div class="carousel-card">
+            <img loading="lazy" src="media/Galería/gallery2.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem quod voluptatum omnis ipsum quia natus ad. Dignissimos quaerat odio excepturi laboriosam illo perspiciatis velit aliquid distinctio aperiam quos sunt, recusandae, praesentium officiis voluptas molestias non exercitationem? Reprehenderit exercitationem magni consequatur adipisci error! Laboriosam ducimus maxime reiciendis veniam mollitia hic molestiae?</p>
+            </div>
+          </div>
+          
+          <div class="carousel-card">
+            <img loading="lazy" src="media/Galería/gallery3.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam aspernatur suscipit nam necessitatibus molestias, aliquid quis magni eos quas corrupti perspiciatis possimus pariatur deserunt nulla assumenda, quia ducimus nisi provident itaque maxime? Animi repudiandae illum non aliquid laudantium provident libero placeat magni totam suscipit maxime, perspiciatis, voluptates inventore reprehenderit sapiente?</p>
+            </div>
+          </div>
+                    
+          <div class="carousel-card">
+            <img loading="lazy" src="media/Galería/gallery4.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem50 ipsum dolor sit amet consectetur adipisicing elit. Assumenda cupiditate placeat veritatis suscipit ducimus autem reprehenderit nesciunt? Cumque nisi nemo, vitae dolore distinctio blanditiis cupiditate fugiat nihil ad alias soluta officia illo omnis deleniti eum rerum enim quam consequuntur veritatis aut at numquam saepe porro? Aperiam accusamus provident recusandae corporis.</p>
+            </div>
+          </div>
+          
+          <div class="carousel-card">
+            <img loading="lazy" src="media/Galería/gallery5.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem quod voluptatum omnis ipsum quia natus ad. Dignissimos quaerat odio excepturi laboriosam illo perspiciatis velit aliquid distinctio aperiam quos sunt, recusandae, praesentium officiis voluptas molestias non exercitationem? Reprehenderit exercitationem magni consequatur adipisci error! Laboriosam ducimus maxime reiciendis veniam mollitia hic molestiae?</p>
+            </div>
+          </div>
+          
+          <div class="carousel-card">
+            <img loading="lazy" src="media/Galería/gallery6.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam aspernatur suscipit nam necessitatibus molestias, aliquid quis magni eos quas corrupti perspiciatis possimus pariatur deserunt nulla assumenda, quia ducimus nisi provident itaque maxime? Animi repudiandae illum non aliquid laudantium provident libero placeat magni totam suscipit maxime, perspiciatis, voluptates inventore reprehenderit sapiente?</p>
+            </div>
+          </div>
+                    
+          <div class="carousel-card">
+            <img loading="lazy" src="media/Galería/gallery7.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem50 ipsum dolor sit amet consectetur adipisicing elit. Assumenda cupiditate placeat veritatis suscipit ducimus autem reprehenderit nesciunt? Cumque nisi nemo, vitae dolore distinctio blanditiis cupiditate fugiat nihil ad alias soluta officia illo omnis deleniti eum rerum enim quam consequuntur veritatis aut at numquam saepe porro? Aperiam accusamus provident recusandae corporis.</p>
+            </div>
+          </div>
+          
+          <div class="carousel-card">
+            <img loading="lazy" src="media/Galería/gallery8.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem quod voluptatum omnis ipsum quia natus ad. Dignissimos quaerat odio excepturi laboriosam illo perspiciatis velit aliquid distinctio aperiam quos sunt, recusandae, praesentium officiis voluptas molestias non exercitationem? Reprehenderit exercitationem magni consequatur adipisci error! Laboriosam ducimus maxime reiciendis veniam mollitia hic molestiae?</p>
+            </div>
+          </div>
+          
+          <div class="carousel-card">
+            <img loading="lazy" src="media/Galería/gallery9.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam aspernatur suscipit nam necessitatibus molestias, aliquid quis magni eos quas corrupti perspiciatis possimus pariatur deserunt nulla assumenda, quia ducimus nisi provident itaque maxime? Animi repudiandae illum non aliquid laudantium provident libero placeat magni totam suscipit maxime, perspiciatis, voluptates inventore reprehenderit sapiente?</p>
+            </div>
+          </div>
+                    
+          <div class="carousel-card">
+            <img loading="lazy" src="media/Galería/gallery10.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem50 ipsum dolor sit amet consectetur adipisicing elit. Assumenda cupiditate placeat veritatis suscipit ducimus autem reprehenderit nesciunt? Cumque nisi nemo, vitae dolore distinctio blanditiis cupiditate fugiat nihil ad alias soluta officia illo omnis deleniti eum rerum enim quam consequuntur veritatis aut at numquam saepe porro? Aperiam accusamus provident recusandae corporis.</p>
+            </div>
+          </div>
+          
+          <div class="carousel-card">
+            <img loading="lazy" src="media/Galería/gallery11.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem quod voluptatum omnis ipsum quia natus ad. Dignissimos quaerat odio excepturi laboriosam illo perspiciatis velit aliquid distinctio aperiam quos sunt, recusandae, praesentium officiis voluptas molestias non exercitationem? Reprehenderit exercitationem magni consequatur adipisci error! Laboriosam ducimus maxime reiciendis veniam mollitia hic molestiae?</p>
+            </div>
+          </div>
+          
+          <div class="carousel-card">
+            <img loading="lazy" src="media/Galería/gallery12.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam aspernatur suscipit nam necessitatibus molestias, aliquid quis magni eos quas corrupti perspiciatis possimus pariatur deserunt nulla assumenda, quia ducimus nisi provident itaque maxime? Animi repudiandae illum non aliquid laudantium provident libero placeat magni totam suscipit maxime, perspiciatis, voluptates inventore reprehenderit sapiente?</p>
+            </div>
+          </div>
+                    
+          <div class="carousel-card">
+            <img loading="lazy" src="media/Galería/gallery13.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem50 ipsum dolor sit amet consectetur adipisicing elit. Assumenda cupiditate placeat veritatis suscipit ducimus autem reprehenderit nesciunt? Cumque nisi nemo, vitae dolore distinctio blanditiis cupiditate fugiat nihil ad alias soluta officia illo omnis deleniti eum rerum enim quam consequuntur veritatis aut at numquam saepe porro? Aperiam accusamus provident recusandae corporis.</p>
+            </div>
+          </div>
+          
+          <div class="carousel-card">
+            <img loading="lazy" src="media/Galería/gallery14.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem quod voluptatum omnis ipsum quia natus ad. Dignissimos quaerat odio excepturi laboriosam illo perspiciatis velit aliquid distinctio aperiam quos sunt, recusandae, praesentium officiis voluptas molestias non exercitationem? Reprehenderit exercitationem magni consequatur adipisci error! Laboriosam ducimus maxime reiciendis veniam mollitia hic molestiae?</p>
+            </div>
+          </div>
+          
+          <div class="carousel-card">
+            <img loading="lazy" src="media/Galería/gallery15.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam aspernatur suscipit nam necessitatibus molestias, aliquid quis magni eos quas corrupti perspiciatis possimus pariatur deserunt nulla assumenda, quia ducimus nisi provident itaque maxime? Animi repudiandae illum non aliquid laudantium provident libero placeat magni totam suscipit maxime, perspiciatis, voluptates inventore reprehenderit sapiente?</p>
+            </div>
+          </div>
+                    
+          <div class="carousel-card">
+            <img loading="lazy" src="media/Galería/gallery16.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem50 ipsum dolor sit amet consectetur adipisicing elit. Assumenda cupiditate placeat veritatis suscipit ducimus autem reprehenderit nesciunt? Cumque nisi nemo, vitae dolore distinctio blanditiis cupiditate fugiat nihil ad alias soluta officia illo omnis deleniti eum rerum enim quam consequuntur veritatis aut at numquam saepe porro? Aperiam accusamus provident recusandae corporis.</p>
+            </div>
+          </div>
+          
+          <div class="carousel-card">
+            <img loading="lazy" src="media/Galería/gallery17.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem quod voluptatum omnis ipsum quia natus ad. Dignissimos quaerat odio excepturi laboriosam illo perspiciatis velit aliquid distinctio aperiam quos sunt, recusandae, praesentium officiis voluptas molestias non exercitationem? Reprehenderit exercitationem magni consequatur adipisci error! Laboriosam ducimus maxime reiciendis veniam mollitia hic molestiae?</p>
+            </div>
+          </div>
+          
+          <div class="carousel-card">
+            <img loading="lazy" src="media/Galería/gallery18.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam aspernatur suscipit nam necessitatibus molestias, aliquid quis magni eos quas corrupti perspiciatis possimus pariatur deserunt nulla assumenda, quia ducimus nisi provident itaque maxime? Animi repudiandae illum non aliquid laudantium provident libero placeat magni totam suscipit maxime, perspiciatis, voluptates inventore reprehenderit sapiente?</p>
+            </div>
+          </div>
+                    
+          <div class="carousel-card">
+            <img loading="lazy" src="media/Galería/gallery19.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem50 ipsum dolor sit amet consectetur adipisicing elit. Assumenda cupiditate placeat veritatis suscipit ducimus autem reprehenderit nesciunt? Cumque nisi nemo, vitae dolore distinctio blanditiis cupiditate fugiat nihil ad alias soluta officia illo omnis deleniti eum rerum enim quam consequuntur veritatis aut at numquam saepe porro? Aperiam accusamus provident recusandae corporis.</p>
+            </div>
+          </div>
+          
+          <div class="carousel-card">
+            <img loading="lazy" src="media/Galería/gallery20.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem quod voluptatum omnis ipsum quia natus ad. Dignissimos quaerat odio excepturi laboriosam illo perspiciatis velit aliquid distinctio aperiam quos sunt, recusandae, praesentium officiis voluptas molestias non exercitationem? Reprehenderit exercitationem magni consequatur adipisci error! Laboriosam ducimus maxime reiciendis veniam mollitia hic molestiae?</p>
+            </div>
+          </div>
+          
+          <div class="carousel-card">
+            <img loading="lazy" src="media/Galería/gallery21.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam aspernatur suscipit nam necessitatibus molestias, aliquid quis magni eos quas corrupti perspiciatis possimus pariatur deserunt nulla assumenda, quia ducimus nisi provident itaque maxime? Animi repudiandae illum non aliquid laudantium provident libero placeat magni totam suscipit maxime, perspiciatis, voluptates inventore reprehenderit sapiente?</p>
+            </div>
+          </div>
+                             
+          <div class="carousel-card">
+            <img loading="lazy" src="media/Galería/gallery22.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem50 ipsum dolor sit amet consectetur adipisicing elit. Assumenda cupiditate placeat veritatis suscipit ducimus autem reprehenderit nesciunt? Cumque nisi nemo, vitae dolore distinctio blanditiis cupiditate fugiat nihil ad alias soluta officia illo omnis deleniti eum rerum enim quam consequuntur veritatis aut at numquam saepe porro? Aperiam accusamus provident recusandae corporis.</p>
+            </div>
+          </div>
+          
+          <div class="carousel-card">
+            <img loading="lazy" src="media/Galería/gallery23.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem quod voluptatum omnis ipsum quia natus ad. Dignissimos quaerat odio excepturi laboriosam illo perspiciatis velit aliquid distinctio aperiam quos sunt, recusandae, praesentium officiis voluptas molestias non exercitationem? Reprehenderit exercitationem magni consequatur adipisci error! Laboriosam ducimus maxime reiciendis veniam mollitia hic molestiae?</p>
+            </div>
+          </div>
+          
+          <div class="carousel-card">
+            <img loading="lazy" src="media/Galería/gallery24.jpg" alt="" class="full-screen-img" />
+            <div class="carousel-text-div">
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam aspernatur suscipit nam necessitatibus molestias, aliquid quis magni eos quas corrupti perspiciatis possimus pariatur deserunt nulla assumenda, quia ducimus nisi provident itaque maxime? Animi repudiandae illum non aliquid laudantium provident libero placeat magni totam suscipit maxime, perspiciatis, voluptates inventore reprehenderit sapiente?</p>
+            </div>
+          </div>
+  
+        </div>
+        <div class="carousel-nav">
+          <i class="fas fa-angle-double-left carousel-btn-first"></i>
+          <i class="fas fa-chevron-left carousel-btn-prev"></i>
+          <div class="carousel-nav-dots">
+            <div class="dots-nav-shadow-div-left"></div>
+            <div class="carousel-nav-dots-track">
+              <button class="carousel-number-indicator">1</button>
+              <button class="carousel-number-indicator">2</button>
+              <button class="carousel-number-indicator">3</button>
+              <button class="carousel-number-indicator">4</button>
+              <button class="carousel-number-indicator">5</button>
+              <button class="carousel-number-indicator">6</button>
+              <button class="carousel-number-indicator">7</button>
+              <button class="carousel-number-indicator">8</button>
+              <button class="carousel-number-indicator">9</button>
+              <button class="carousel-number-indicator">10</button>
+              <button class="carousel-number-indicator">11</button>
+              <button class="carousel-number-indicator">12</button>
+              <button class="carousel-number-indicator">13</button>
+              <button class="carousel-number-indicator">14</button>
+              <button class="carousel-number-indicator">15</button>
+              <button class="carousel-number-indicator">16</button>
+              <button class="carousel-number-indicator">17</button>
+              <button class="carousel-number-indicator">18</button>        
+              <button class="carousel-number-indicator">19</button>
+              <button class="carousel-number-indicator">20</button>
+              <button class="carousel-number-indicator">21</button>
+              <button class="carousel-number-indicator">22</button>
+              <button class="carousel-number-indicator">23</button>
+              <button class="carousel-number-indicator">24</button>
+            </div>
+            <div class="dots-nav-shadow-div-right"></div>
+          </div>
+          <i class="fas fa-chevron-right carousel-btn-next"></i>
+          <i class="fas fa-angle-double-right carousel-btn-last"></i>
+        </div>
+      </div>
 
+
+
+    </div>
+<!-- Contact Section -->
     <section id="contact" class="nav-link">
-      <h1>Contactame</h1>
+      <div class="contact-title-div">
+        <h1>Contactame</h1>
+      </div>
       <div class="contact-form-div">
-        <form id="contact-form" action="#">
-          <label for="name" form="contact-form">Nombre *
-            <input id="name" class="contact-input" type="name" placeholder="Escribe tu nombre..." required>
-          </label>
-          <label for="email" form="contact-form">Correo electrónico *
-            <input id="email" class="contact-input" type="email" placeholder="Escribe tu correo electrónico..." required>
-          </label>
-          <label for="topic" form="contact-form">Asunto *
-            <input id="topic" class="contact-input" type="text" placeholder="Escribe o selecciona un asunto..." required>
-          </label>
-          <label for="topic-text" form="contact-form">Mensaje *
-            <textarea id="topic-text" class="contact-textarea" placeholder="Escribe tu mensaje..." maxlength="500" required></textarea>
-          </label>
-          <button id="send">Enviar</button>
+        <form id="contact-form"> <!--Form is submitted at app.js-->
+          <input type="text" name="_honey" style="display:none" />             
+          <input type="hidden" name="_captcha" value="false">
+
+          <label class="keyboard-activation" for="name" form="contact-form">Nombre *</label>
+          <input id="name" name="Nombre" class="contact-input keyboard-activation handle-enter-submit input-required" type="name" placeholder="Escribe tu nombre..." required />
+          
+          <label  class="keyboard-activation" for="email" form="contact-form">Correo electrónico *</label>
+          <input id="email" name="Correo electrónico - Email" class="contact-input keyboard-activation input-required" type="email" placeholder="Escribe tu correo electrónico..." required />
+          
+          <label  class="keyboard-activation" for="topic" form="contact-form">Asunto *</label>
+          <input id="topic" name="Asunto" class="contact-input keyboard-activation input-required" list="topic-list" type="text" placeholder="Escribe o selecciona un asunto..." required />
+          <datalist id="topic-list">
+            <Option value="Asesoramiento de Imagen" ></Option>
+            <Option value="Organización del Guardarropas" ></Option>
+            <Option value="Colorimetría" ></Option>
+            <Option value="Personal Shopper" ></Option>
+            <Option value="Asesoramiento para Eventos" ></Option>
+            <Option value="Asesoramiento para Novias" ></Option>
+          </datalist>
+          
+          <label class="keyboard-activation" for="topic-text" form="contact-form">Mensaje *</label>
+          <textarea id="topic-text" name="Mensaje" class="contact-textarea keyboard-activation input-required" placeholder="Escribe tu mensaje..." maxlength="300" required></textarea>
+          
+          <button type="button" id="send" class="keyboard-activation">Enviar</button>
+          <button id="invisible-send" class="keyboard-activation" form="contact-form">Enviar</button>
+
+          <div class="phone-number-asking-div">
+            
+            <div class="phone-border-div">
+              <i class="fas fa-times close-phone-asking"></i>
+              <div class="question-div">
+                <h2 class="question">¿Quieres dejarme tu teléfono para que me comunique por WhatsApp?</h2>
+              </div>
+              <div class="phone-div">
+                <label class="phone-label keyboard-avtivation" >Número de teléfono</label>
+                <input type="tel" id="phone-number" class="phone-input keyboard-activation" placeholder="Escribe tu número telefónico..." />
+              </div>
+              <div class="recaptcha-styling-div">
+                <div class="recaptcha-resizing-div">
+                  <input type="text" id="recaptcha-required-input" class="keyboard-activation" aria-hidden="true" tabindex="-1">
+                  <div class="g-recaptcha" data-sitekey="6LczthgcAAAAAP8ng1LuYfEZXOcqCOVyBh_0kwH0" data-callback="verifyCaptcha" ></div>
+                </div>
+              </div>
+              <div class="phone-btns-div">
+                <button id="deny-phone" type="button" class="phone-btn keyboard-activation" >No, gracias</button>
+                <button id="send-phone" type="button" class="phone-btn keyboard-activation" >De acuerdo</button>
+              </div>              
+            </div>
+
+            <div class="confirm-closing-border-div push-bottom">
+              <i class="fas fa-times close-closing-confirmation"></i>
+              <div class="confirm-message-div">
+                <h2 class="confirm-closing-message"> Tu mensaje no será enviado, ¿deseas confirmar?</h2>
+              </div>
+              <div class="closing-confirm-btns-div">
+                <button type="button" id="confirm-closing" class="closing-btn">Confirmar</button>
+                <button type="button" id="cancel-closing" class="closing-btn">Cancelar</button>
+              </div>
+            </div>
+
+            <div class="message-sent-border-div push-bottom">
+              <a href="#header" class="form-sent">
+                <i class="fas fa-times close-message-sent" aria-label="Volver al inicio"></i>
+              </a>
+              <div class="message-sent-text-div">
+                <h2 class="message-sent-text">El mensaje fue enviado con éxito, ¡Gracias por comunicarte!</h2>
+              </div>
+              <div class="message-sent-rominar-logo-div">
+                <img src="./media/rominarLogo.jpg" class="message-sent-rominar-logo" alt="RominaR" />
+              </div>
+              <h2 class="romina-ramallo-asesora-h2 message-sent-romina-ramallo-asesora">Romina Ramallo Asesora</h2>
+              <a href="#header" class="form-sent">
+                <button type="button" class="message-sent-btn" aria-label="Volver al inicio">Cerrar</button>
+              </a>
+            </div>
+
+          </div>
+
         </form>
       </div>
       <div class="contact-icons-div">
-        <a href="https://www.instagram.com/romina.ramallo.33/" target="_blank"><img class="contact-logo" src="./media/instagram logo.png" alt="Instagram logo."></a>
-        <a href="https://www.facebook.com/romina.ramallo.33" target="_blank"><img class="contact-logo" src="./media/facebook logo.png" alt="Facebook logo."></a>
+        <a href="https://www.instagram.com/romina.ramallo.33/" target="_blank" rel="noopener noreferrer" >
+          <i class="fab fa-instagram-square contact-logo" aria-label="Instagram"></i>
+        </a>
+        <a href="https://www.facebook.com/romina.ramallo.33" target="_blank" rel="noopener noreferrer" >
+          <i class="fab fa-facebook-square contact-logo" aria-label="Facebook"></i>
+        </a>
       </div>      
-      <h2>Romina Ramallo Asesora</h2>
+      <div class="contact-bottom-line-div">
+        <h2 class="romina-ramallo-asesora-h2">Romina Ramallo Asesora</h2>
+      </div>
     </section>
-    
+    <script>
+      const head  = document.getElementsByTagName('head')[0];
+      const linkNonCriticalCSS  = document.createElement('link');
+      linkNonCriticalCSS.rel  = 'stylesheet';
+      linkNonCriticalCSS.type = 'text/css';
+      linkNonCriticalCSS.href = './styles/non-critical.css';
+      //linkNonCriticalCSS.media = 'all';
+      head.appendChild(linkNonCriticalCSS);
+
+      //Burguer Menu for handheld devices.
+      const burguerMenuSlide = () => {
+        const burguer = document.querySelector(".burguer");
+        const burguerMenu = document.querySelector(".burguer-menu");
+        const burguerMenuItems = document.querySelectorAll(".burguer-menu-item");
+
+          //Toggle Burguer Menu.
+        burguer.addEventListener("click", () => {
+          burguerMenu.classList.toggle("burguer-menu-active");
+
+            //Animate Burguer Menu Items.
+          burguerMenuItems.forEach((item, index) => {
+            if (item.style.animation) {
+              item.style.animation = "";
+            } else {
+              item.style.animation = `burguerMenuFade 0.5s ease forwards ${index / 25 + 0.5}s`;
+            };
+          });
+
+          //Burguer tap animation.
+          burguer.classList.toggle("burguer-active");
+        });
+      };
+      burguerMenuSlide();
+
+      const nonCriticalScript = document.createElement('script');
+      nonCriticalScript.src = './javascript/non-critical.js';
+      nonCriticalScript.setAttribute("defer", "defer");
+      document.body.appendChild(nonCriticalScript);
+    </script>
   </body>
   </html>

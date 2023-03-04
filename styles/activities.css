@@ -1,75 +1,255 @@
 :root {
-  --activity-card-width: 378px;
-  --activity-square: 170px;
-}
-
-#activities h1 {
-  width: 100%;
-  margin: 5px auto -5px auto;
-  text-align: center;  
+  --activity-card-width: 27vmax;
+  --activity-square: calc(13.5vmax - var(--cards-margins-width)*1.5);
 }
 
 .activity-card {
   width: var(--activity-card-width);
-  height: 250px;
-  display: flex;
+  margin: calc(var(--cards-margins-width));
   flex-direction: column;
-  align-items: center;
   background-color: var(--secondary-color);
   border: var(--border-width) solid var(--main-color);
   border-radius: var(--border-radius2);  
 }
-
 .activity-title-div {
-  width: calc(var(--activity-card-width) - 24px);
-  height: 42px;
-  margin: 10px 10px 0 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+  margin-bottom: calc(0px - var(--cards-margins-width)/2);
   background-color: var(--secondary-color);
   color: var(--main-color);
   font-family: var(--title-family);
-  font-size: 2.8rem;
+  border-radius: var(--border-radius2);
 }
-
+.activity-title-div h2 {
+  font-size: calc((3vmin + 2.5vmax)/2);
+}
+#guardarropas-card h2 {
+  font-size: calc((2.5vmin + 2.5vmax)/2);
+}
 .activity-card-div {
-  width: var(--activity-card-width);
-  height: 200px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  border: var(--border-width) solid var(--main-color);
-  border-top: none;
-  border-bottom: none;
-  border-bottom-left-radius: var(--border-radius);
-  border-bottom-right-radius: var(--border-radius);
+  width: 100%;
+  height: calc(var(--activity-square) + var(--cards-margins-width)*2);
 }
 
-.activity-img {
+.activity-img, .activity-text-div {
   width: var(--activity-square);
   height: var(--activity-square);
-  margin: 10px;
+  margin: var(--cards-margins-width);
   border: var(--border-width) solid var(--main-color);
   border-radius: var(--border-radius);
+  object-fit: cover;
 }
-
 .activity-text-div {
-  width: var(--activity-square);
-  height: var(--activity-square);
-  margin: 10px 10px 10px 2px;
-  padding: 0 10px 10px 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin-left: 0px;
+  padding: calc(var(--cards-margins-width)/2.5);
   background-color: var(--BG-color);
-  border: var(--border-width) solid var(--main-color);
-  border-radius: var(--border-radius);
-  font-size: 14px;  
+  font-size: calc(var(--text-font-size) * 0.7);
+  text-align: center;
+}
+#imagen-img {
+  object-position: 50% 10%;
+}
+#novias-img {
+  object-position: 100% 50%;
 }
 
-@media (min-width: 1500px) {
+.contact-autofill, .consult-btn { 
+  height: calc(var(--activity-square)/6);
+}
+.contact-autofill {
+  width: calc(100% - var(--cards-margins-width)*2);
+  margin-bottom: var(--cards-margins-width);  
+  color: var(--text-color);
+  text-decoration: none;
+}
+.consult-btn {
+  width: 100%;
+  background-color: var(--main-color);
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: calc(var(--text-font-size) * 0.7);
+  cursor: pointer;
+}
+/*Responsive Design*/
+
+/*Mobile*/
+
+/*Tablet*/
+@media (max-width: 1025px), (max-aspect-ratio: 3/2) {
   :root {
-    --activity-card-width: 30vw;
+    --activity-card-width: 40vw;
+    --activity-square: calc(20vw - var(--cards-margins-width)*1.5);
+  }  
+  .activity-title-div h2 {
+    font-size: calc((4vmin + 4vmax)/2);
+  }
+  #guardarropas-card h2 {
+    font-size: calc((3vmin + 4vmax)/2);
+  }
+  .activity-text-div, .consult-btn {
+    font-size: calc(var(--text-font-size)*0.9);
+  }
+}
+
+
+/*Landscape*/
+@media (max-height: 480px) and (min-width: 480px) {
+  :root {
+    --activity-card-width: calc(100vw - var(--cards-margins-width)*2 - var(--lateral-navbar) - var(--section-margins-width));
+    --landscape-card-height: 65vh;
+    --landscape-card-title-height: 15vh;
+    --consult-btn-height: 8vh;
+  }
+  .activity-card {
+    box-sizing: content-box;
+    height: var(--landscape-card-height);
+    position: relative;
+  }
+  .activity-card-div {
+    height: calc(var(--landscape-card-height) - var(--landscape-card-title-height) - var(--consult-btn-height) - var(--cards-margins-width)*2); 
+  }
+  .activity-title-div {
+    height: var(--landscape-card-title-height);
+    padding-left: calc(var(--landscape-card-height) - var(--cards-margins-width));
+    position: absolute;
+    top: 0;
+  }
+  .activity-title-div h2 {
+    font-size: calc((7vw + 6vh)/2);
+  }
+
+  .landscape-reverse .activity-title-div {
+    padding-left: 0;
+    padding-right: calc(var(--landscape-card-height) - var(--cards-margins-width));
+  }
+  #guardarropas-card h2 {
+    font-size: calc((6vw + 6vh)/2);
+  }
+  .activity-img {
+    width: calc(var(--landscape-card-height) - var(--cards-margins-width)*2);
+    height: calc(var(--landscape-card-height) - var(--cards-margins-width)*2);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
+  .landscape-reverse .activity-img {
+    left: unset;
+    right: 0;
+  }
+  .activity-text-div {
+    width: calc(100% - var(--landscape-card-height) - var(--cards-margins-width));
+    height: calc(var(--landscape-card-height) - var(--landscape-card-title-height) - var(--consult-btn-height) - var(--cards-margins-width)*2);
+    position: absolute;
+    bottom: calc(var(--consult-btn-height) + var(--cards-margins-width));
+    right: 0;
+    font-size: calc(var(--text-font-size)*1.2);
+  }
+  .landscape-reverse .activity-text-div {
+    right: unset;
+    left: 0;
+    margin: var(--cards-margins-width) 0px var(--cards-margins-width) var(--cards-margins-width);
+  }
+  .contact-autofill  {
+    width: calc(100% - var(--landscape-card-height) - var(--cards-margins-width));
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: var(--cards-margins-width);    
+  }
+  .contact-autofill, .consult-btn {
+    height: var(--consult-btn-height);
+    font-size: calc(var(--text-font-size)*1.1);
+  }
+  .landscape-reverse .contact-autofill {
+    right: unset;
+    left: 0;
+  }
+}
+
+/*Portrait*/
+@media (max-width: 480px) {
+  :root {
+    --activity-card-width: calc(100vw - var(--cards-margins-width)*4);
+    --activity-square: calc(var(--activity-card-width) - var(--cards-margins-width)*2);
+  }
+  #activities .section-border-div {
+    padding-bottom: var(--cards-margins-width);
+  }
+  #activities h1 {
+    margin: var(--cards-margins-width);
+  }
+  .activity-card h2 {
+    font-size: 8.3vw;
+    margin: calc(var(--cards-margins-width)/2) auto;
+  }
+  #guardarropas-card h2 {
+    font-size: 7.5vw;
+  }
+  .activity-card-div {
+    height: auto;
+    min-width: unset;
+    flex-direction: column;
+  }  
+  .activity-text-div {
+    height: auto;
+    margin: var(--cards-margins-width);
+    margin-top: 0px;
+    padding: var(--cards-margins-width);
+    font-size: var(--text-font-size);
+  }
+  .contact-autofill, .consult-btn {
+    height: auto;    
+  }
+  .consult-btn {
+    padding: var(--cards-margins-width);
+    font-size: var(--text-font-size);
+  }
+}
+
+/*Larger Screens*/
+@media (min-width: 1200px) and (min-aspect-ratio: 3/2) {
+  .activity-card {
+    margin: calc(var(--cards-margins-width)/2) var(--cards-margins-width);
+  }
+}
+@media (min-width: 1200px) and (min-aspect-ratio: 100/65) {
+  .activity-text-div, .consult-btn {
+    font-size: calc(var(--text-font-size)*0.8);
+  }
+}
+@media (min-width: 1200px) and (min-aspect-ratio: 100/60) {
+  .activity-text-div, .consult-btn {
+    font-size: calc(var(--text-font-size)*0.85);
+  }
+}
+@media (min-width: 1200px) and (min-aspect-ratio: 100/50) {
+  .activity-text-div, .consult-btn {
+    font-size: calc(var(--text-font-size)*0.9);
+  }
+}
+@media (min-width: 1200px) and (min-aspect-ratio: 100/42) {
+  .activity-text-div, .consult-btn {
+  font-size: calc(var(--text-font-size)*1);
+  }
+}
+
+/*Weird sizes*/
+@media (min-width: 481px) and (max-aspect-ratio: 10/11) {
+  .activity-text-div, .consult-btn {
+    font-size: calc(var(--text-font-size)*0.74);
+  }
+}
+@media (min-width: 481px) and (max-aspect-ratio: 10/15) {
+  .activity-text-div, .consult-btn {
+    font-size: calc(var(--text-font-size)*0.7);
+  }
+}
+@media (min-width: 481px) and (max-aspect-ratio: 1/2) {
+  .activity-text-div, .consult-btn {
+    font-size: calc(var(--text-font-size)*0.6);
+  }
+}
+@media (min-width: 481px) and (max-aspect-ratio: 1/3) {
+  .activity-text-div, .consult-btn {
+    font-size: calc(var(--text-font-size)*0.5);
   }
 }

@@ -1,64 +1,120 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
-
-.video-header {
+.home-header {
   width: 100%;
   height: 100vh;
   position: relative;
+  flex-direction: column;
+  justify-content: unset;
   background-color: var(--BG-color2);
+}
+
+.header-title-container h1, .header-title-container h2 {
+  z-index: 15;
+  color: var(--main-color);
+  font-family: var(--title-family);
   text-align: center;
 }
+.header-title-container h1 {
+  font-size: calc((6vmin + 5vmax)/2);
+}
+.header-title-container h2 {
+  font-size: calc((3.5vmin + 3.5vmax)/2);
+}
 
-.video-container {
-  width: 100%;
-  height: 60vh;
+.background-container, .header-img {
+  height: calc(100vh - var(--navbar-height)*2);
+  border-radius: var(--border-radius6);
   overflow: hidden;
 }
-
-.header-video {
-  width: 100%;
-  opacity: 0.35;
-  transform: rotateY(180deg);
-  filter: blur(2.5px);
+.background-container {  
+  width: calc(100% - var(--section-margins-width));
+  position: absolute;
+  top: var(--navbar-height);
+  background-color: var(--BG-color2);
+  border: calc(var(--cards-margins-width)*0.3) solid var(--main-color);
+}
+.header-img {
+  width: 50%;
+  object-fit: cover;
+  object-position: top;
+}
+.h-img-1 {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.h-img-2 {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
 
-.RominaR-logo {
-  width: 300px;
+.rominar-logo-div {
+  z-index: 10;
+  width: var(--logo-width);
+  height: var(--logo-width);
   position: absolute;
-  top: calc(50vh - 150px);
-  left: calc(50% - 150px);
+  top: calc(42vh - var(--logo-width)/2);
+  left: calc(50% - var(--logo-width)/2);
   border-radius: 50%;
   border: 2px solid var(--BG-color2);
   overflow: hidden;
 }
+.rominar-logo {
+  width: calc(100% + 3vw);
+}
 
-.header-container {
-  width: 100%;
-  height: 40vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  justify-items: center;
+.header-title-container {
+  width: calc((40vmax + 50vmin)/2);
+  height: calc((35vmin + 10vmax)/2);
+  padding-top: 4vh;
+  position: relative;
+  top: 50vh;
+  flex-direction: column;
   background-color: var(--BG-color2);
+  border: var(--border-width) solid var(--main-color);
+  border-radius: var(--border-radius6)
 }
 
-.header-container h1 {
-  color: var(--main-color);
-  font-family: 'Dancing Script', cursive;
-  font-size: 4.5rem;
-}
+/*Responsive Design*/
 
-#header-link {
-  margin-top: -20px;
-  position: absolute;
-  top: 0;
-}
+/*Mobile*/
 
+/*Tablet*/
 
-
-@media (max-height: 600px) {
-  .RominaR-logo {
-    max-width: 50vh;
-    top: calc(44% - 25vh);
-    left: calc(50% - 25vh);
+/*Landscape*/
+@media (max-height: 480px) {
+  .background-container, .header-img {
+    height: calc(100vh - var(--section-margins-width));
+  }
+  .background-container {
+    width: calc(100% - var(--section-margins-width)/2 - var(--lateral-navbar));
+    top: calc(var(--section-margins-width)/2);
+    right: calc(var(--lateral-navbar));
   }
 }
+
+/*Portrait*/
+@media (max-width: 480px) {
+  #header {
+    margin-bottom: calc(10px - var(--navbar-height)*2);
+  }
+  .background-container, .header-img {
+    height: 50vh;
+    top: var(--navbar-height);
+  }
+  .rominar-logo-div {
+    top: calc(45vh + var(--navbar-height) - var(--logo-width)/2);
+  }
+  .header-title-container {
+    width: calc(100% - var(--section-margins-width));
+    height: calc(50vh - var(--navbar-height));
+    border: none;
+    top: calc(50vh + var(--navbar-height));
+  }
+  .header-title-container h1 {
+    font-size: calc(1rem + 9vmin);
+    margin-top: -6vh;
+  }
+  .header-title-container h2 {
+    font-size: calc(0.5rem + 8vmin);
+  }
+}
+

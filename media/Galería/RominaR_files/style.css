@@ -1,0 +1,109 @@
+@import "./styles/navbar.css";
+@import "./styles/header.css";
+@import "./styles/about.css";
+@import "./styles/activities.css";
+@import "./styles/gallery.css";
+@import "./styles/contact.css";
+
+:root {
+  --main-color: rgba(35, 234, 237, 0.8);
+  --text-color: black;
+  --secondary-color: black;
+  --BG-color: rgba(247, 247, 247, 0.9);
+  --BG-color2: black;
+  --title-family: 'Dancing Script', cursive;
+  --border-radius: 5px;
+  --border-radius2: 10px;
+  --border-radius6: 20px;
+  --border-width: 2px;
+  --navbar-height: 5vh;
+  --margin-width: 4.5vw;
+  --cards-margins-width: 10px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+div, header, nav, section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+  caret-color: transparent;
+}
+
+section {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: var(--BG-color2);
+}
+section h1 {
+  font-family: var(--title-family);
+  font-size: calc(1rem + 6vmin);
+}
+
+.border-div {
+  width: calc(100vw - var(--margin-width));
+  height: calc(100vh - var(--margin-width));
+  padding-bottom: calc(var(--cards-margins-width)*1.5);
+  position: relative;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  background-color: var(--BG-color);
+  border: 3px solid var(--main-color);
+  border-radius: var(--border-radius6);
+}
+
+/*@media (max-width: 1075px) {
+  section {
+    height: auto;
+  }
+
+  .border-div {
+    width: calc(100% - 30px);
+    height: auto;
+    margin: 10px 0px 10px 0px;
+  }
+}
+
+@media (max-width: 700px) {
+  .border-div {
+    width: calc(100% - 6px);
+  }
+}*/
+
+@media (max-aspect-ratio: 7/10), (min-aspect-ratio: 10/7) and (max-width: 900px) {
+  :root {
+    --border-radius6: 15px;
+  }
+  section, .border-div {
+    height: auto;
+  }
+  .border-div {
+    margin-top: calc(var(--cards-margins-width)*3);;
+  }
+}
+
+@media (min-width: 1350px) and (min-height: 800px) {
+  :root {
+    --border-radius: 0.8vmin;
+    --border-radius2: 1.6vmin;
+    --border-radius6: 3.2vmin;
+    --border-width: 0.35vmin;
+    --cards-margins-width: 1.5vmin; 
+  }
+}
+
+
